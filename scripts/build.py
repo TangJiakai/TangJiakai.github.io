@@ -2,11 +2,13 @@
 """Build a dependency-free academic homepage from public publication data."""
 from pathlib import Path
 from html import escape as esc
+from hashlib import sha256
 import json,re
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
 ROOT=Path(__file__).resolve().parents[1]
+style_version=sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
 papers=json.loads((ROOT/'data/publications.json').read_text())
 def publication_priority(p):
     published=not any(tag in p['badge'] for tag in ('Preprint','Under review'))
@@ -82,7 +84,7 @@ html=f'''<!doctype html>
   <meta property="og:url" content="https://tangjiakai.github.io/">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v={style_version}">
   <script type="application/ld+json">{json.dumps(structured,ensure_ascii=False)}</script>
   <script src="assets/site.js" defer></script>
 </head>
