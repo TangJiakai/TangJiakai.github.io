@@ -19,7 +19,13 @@
     "id": "paper-2",
     "first": false,
     "year": 2022,
-    "award": "CIKM Best Resource Paper Runner-Up"
+    "award": "CIKM Best Resource Paper Runner-Up",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/RUCAIBox/RecBole2.0"
+      }
+    ]
   },
   {
     "venue": "WWW Workshop 2027",
@@ -41,7 +47,13 @@
     "id": "paper-4",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/TangJiakai/UserArena"
+      }
+    ]
   },
   {
     "venue": "TOIS 2026",
@@ -63,7 +75,13 @@
     "id": "paper-6",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Elpmis117/LoopRec"
+      }
+    ]
   },
   {
     "venue": "Preprint 2026",
@@ -85,7 +103,13 @@
     "id": "paper-8",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/TangJiakai/ReaRec"
+      }
+    ]
   },
   {
     "venue": "arXiv 2026",
@@ -228,7 +252,13 @@
     "id": "paper-21",
     "first": true,
     "year": 2025,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/TangJiakai/GenSim"
+      }
+    ]
   },
   {
     "venue": "KDD 2024",
@@ -239,7 +269,13 @@
     "id": "paper-22",
     "first": true,
     "year": 2024,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "Project",
+        "url": "https://github.com/TangJiakai/RGCL"
+      }
+    ]
   },
   {
     "venue": "DASFAA 2024",
@@ -250,7 +286,13 @@
     "id": "paper-23",
     "first": true,
     "year": 2024,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/TangJiakai/RAP"
+      }
+    ]
   },
   {
     "venue": "DASFAA 2024",
@@ -283,7 +325,13 @@
     "id": "paper-26",
     "first": false,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/XueyangFeng/POrchestra"
+      }
+    ]
   },
   {
     "venue": "WWW Workshop 2026",
@@ -316,7 +364,13 @@
     "id": "paper-29",
     "first": false,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/XueyangFeng/GIMO"
+      }
+    ]
   },
   {
     "venue": "TechRxiv 2026",
@@ -338,7 +392,13 @@
     "id": "paper-31",
     "first": false,
     "year": 2025,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/XueyangFeng/ECPO"
+      }
+    ]
   },
   {
     "venue": "NAACL 2025",
@@ -349,7 +409,13 @@
     "id": "paper-32",
     "first": false,
     "year": 2025,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/XueyangFeng/RetroAct"
+      }
+    ]
   },
   {
     "venue": "TOIS 2025",
@@ -360,7 +426,13 @@
     "id": "paper-33",
     "first": false,
     "year": 2025,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/RUC-GSAI/YuLan-Rec"
+      }
+    ]
   },
   {
     "venue": "KDD 2024",
@@ -393,7 +465,13 @@
     "id": "paper-36",
     "first": false,
     "year": 2024,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "Resources",
+        "url": "https://github.com/Paitesanshi/LLM-Agent-Survey"
+      }
+    ]
   },
   {
     "venue": "SIGIR 2023",
@@ -404,7 +482,13 @@
     "id": "paper-37",
     "first": false,
     "year": 2023,
-    "award": ""
+    "award": "",
+    "resources": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/RUCAIBox/RecBole"
+      }
+    ]
   },
   {
     "venue": "ICDM 2023",

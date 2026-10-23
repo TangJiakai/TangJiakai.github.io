@@ -50,11 +50,17 @@ for p in papers:
     if 'Oral' in p['badge']: badges.append('<span class="badge oral">🌟 Oral</span>')
     if 'Under review' in p['badge']: badges.append('<span class="badge status">Under review</span>')
     elif 'Preprint' in p['badge']: badges.append('<span class="badge status">Preprint</span>')
+    resource_links=[]
+    for resource in p.get('resources', []):
+        label=esc(resource['label'])
+        url=esc(resource['url'],quote=True)
+        accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
+        resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
     year=p['year']
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>
       <p class="authors">{author_html(p['authors'])}</p>
-      <p class="paper-meta"><span class="badge venue">{esc(p['venue'])}</span>{''.join(badges)}{f'<a class="paper-link" href="{esc(p["link"],quote=True)}">[Paper]</a>' if p['link'] else ''}</p>
+      <p class="paper-meta"><span class="badge venue">{esc(p['venue'])}</span>{''.join(badges)}{f'<a class="paper-link" href="{esc(p["link"],quote=True)}">[Paper]</a>' if p['link'] else ''}{''.join(resource_links)}</p>
     </li>''')
 rows.append('</ul></div>')
 
@@ -152,9 +158,9 @@ html=f'''<!doctype html>
       <h2 id="service-title"><span aria-hidden="true">📚</span> Academic Services</h2>
       <h3>Reviewing</h3><p><strong>Conferences:</strong> NeurIPS, ICLR, AAAI, IJCAI, KDD, SIGIR, WSDM, ACL, EMNLP, WWW.<br><strong>Journals:</strong> ACM TOIS, IEEE TKDE, ACM TORS.</p>
       <h3>Organization</h3><p>Core organizer of the Human-Centered Recommender Systems (HCRS) Workshop at WWW 2026 and 2027.</p>
-      <h3>Open Source</h3><p>Contributor to the <strong>RecBole</strong> recommendation framework and lead developer of <strong>RecBole-FairRec</strong>. Contributed to core functionality and evaluation in <strong>RecAgent</strong>.</p>
+      <h3>Open Source</h3><p>Contributor to the <a href="https://github.com/RUCAIBox/RecBole"><strong>RecBole</strong></a> recommendation framework and lead developer of <a href="https://github.com/TangJiakai/RecBole-FairRec"><strong>RecBole-FairRec</strong></a>. Contributed to core functionality and evaluation in <a href="https://github.com/RUC-GSAI/YuLan-Rec"><strong>RecAgent</strong></a>.</p>
     </section>
-    <footer><span>© 2026 Jiakai Tang · Last updated October 23, 2026</span><a href="#about">Back to top ↑</a></footer>
+    <footer><span>© 2026 Jiakai Tang · Last updated October 24, 2026</span><a href="#about">Back to top ↑</a></footer>
   </main>
 </div>
 </body>
@@ -164,5 +170,5 @@ html=f'''<!doctype html>
 service=re.search(r'    <section id="service".*?</section>',html,re.S).group(0)
 html=html.replace(service,'').replace('    <section id="experience"',service+'\n    <section id="experience"')
 (ROOT/'index.html').write_text(html)
-(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://tangjiakai.github.io/</loc><lastmod>2026-10-23</lastmod></url></urlset>\n')
+(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://tangjiakai.github.io/</loc><lastmod>2026-10-24</lastmod></url></urlset>\n')
 print(f'Built index.html: {len(papers)} publications, {sum(p["first"] for p in papers)} first/co-first-author papers.')
