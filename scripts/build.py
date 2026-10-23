@@ -130,7 +130,6 @@ html=f'''<!doctype html>
     </section>
     <section id="publications" aria-labelledby="publications-title">
       <h2 id="publications-title"><span aria-hidden="true">📝</span> Publications</h2>
-      <p class="section-note">Journal and conference papers, preprints, and workshop contributions.<br><sup>†</sup> Equal contribution. <sup>*</sup> Corresponding author.</p>
       {''.join(rows)}
     </section>
     <section id="honors" aria-labelledby="honors-title">
@@ -156,9 +155,11 @@ html=f'''<!doctype html>
     </section>
     <section id="service" aria-labelledby="service-title">
       <h2 id="service-title"><span aria-hidden="true">📚</span> Academic Services</h2>
-      <h3>Reviewing</h3><p><strong>Conferences:</strong> NeurIPS, ICLR, AAAI, IJCAI, KDD, SIGIR, WSDM, ACL, EMNLP, WWW.<br><strong>Journals:</strong> ACM TOIS, IEEE TKDE, ACM TORS.</p>
-      <h3>Organization</h3><p>Core organizer of the Human-Centered Recommender Systems (HCRS) Workshop at WWW 2026 and 2027.</p>
-      <h3>Open Source</h3><p>Contributor to the <a href="https://github.com/RUCAIBox/RecBole"><strong>RecBole</strong></a> recommendation framework and lead developer of <a href="https://github.com/TangJiakai/RecBole-FairRec"><strong>RecBole-FairRec</strong></a>. Contributed to core functionality and evaluation in <a href="https://github.com/RUC-GSAI/YuLan-Rec"><strong>RecAgent</strong></a>.</p>
+      <ul class="service-list">
+        <li><h3>Peer Review</h3><p><strong>Conferences:</strong> NeurIPS, ICLR, AAAI, IJCAI, KDD, SIGIR, WSDM, ACL, EMNLP, WWW.<br><strong>Journals:</strong> ACM TOIS, IEEE TKDE, ACM TORS.</p></li>
+        <li><h3>Workshop Organization</h3><p>Core organizer of the Human-Centered Recommender Systems (HCRS) Workshop at WWW 2026 and 2027.</p></li>
+        <li><h3>Open-Source Contributions</h3><p>Contributor to the <a href="https://github.com/RUCAIBox/RecBole"><strong>RecBole</strong></a> recommendation framework and lead developer of <a href="https://github.com/TangJiakai/RecBole-FairRec"><strong>RecBole-FairRec</strong></a>. Contributed to core functionality and evaluation in <a href="https://github.com/RUC-GSAI/YuLan-Rec"><strong>RecAgent</strong></a>.</p></li>
+      </ul>
     </section>
     <footer><span>© 2026 Jiakai Tang · Last updated October 24, 2026</span><a href="#about">Back to top ↑</a></footer>
   </main>
