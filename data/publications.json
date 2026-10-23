@@ -22,7 +22,7 @@
     "award": "CIKM Best Resource Paper Runner-Up",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/RUCAIBox/RecBole2.0"
       }
     ]
@@ -50,7 +50,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/TangJiakai/UserArena"
       }
     ]
@@ -78,7 +78,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/Elpmis117/LoopRec"
       }
     ]
@@ -106,7 +106,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/TangJiakai/ReaRec"
       }
     ]
@@ -255,7 +255,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/TangJiakai/GenSim"
       }
     ]
@@ -272,7 +272,7 @@
     "award": "",
     "resources": [
       {
-        "label": "Project",
+        "label": "Code",
         "url": "https://github.com/TangJiakai/RGCL"
       }
     ]
@@ -289,7 +289,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/TangJiakai/RAP"
       }
     ]
@@ -328,7 +328,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/XueyangFeng/POrchestra"
       }
     ]
@@ -367,7 +367,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/XueyangFeng/GIMO"
       }
     ]
@@ -395,7 +395,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/XueyangFeng/ECPO"
       }
     ]
@@ -412,7 +412,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/XueyangFeng/RetroAct"
       }
     ]
@@ -429,7 +429,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/RUC-GSAI/YuLan-Rec"
       }
     ]
@@ -468,7 +468,7 @@
     "award": "",
     "resources": [
       {
-        "label": "Resources",
+        "label": "Code",
         "url": "https://github.com/Paitesanshi/LLM-Agent-Survey"
       }
     ]
@@ -485,7 +485,7 @@
     "award": "",
     "resources": [
       {
-        "label": "GitHub",
+        "label": "Code",
         "url": "https://github.com/RUCAIBox/RecBole"
       }
     ]

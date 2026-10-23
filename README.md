@@ -6,7 +6,7 @@ The page is a static, accessible HTML/CSS/JavaScript site. Content works without
 
 ## Update content
 
-- Edit `data/publications.json` for publication titles, authors, venue, year, links, and award badges. Optional `resources` entries contain a `label` and `url`: use `GitHub` for verified public code repositories, `Project` for project sites, and `Resources` for survey reading lists. Check that the repository matches the paper and is publicly accessible before adding it.
+- Edit `data/publications.json` for publication titles, authors, venue, year, links, and award badges. Optional `resources` entries contain a `label` and `url`: use the uniform display label `Code` for repository, project, and resource links. Check that the repository matches the paper and is publicly accessible before adding it.
 - Edit `data/honors.json` for honors. Chinese award names are retained alongside English translations.
 - Edit `scripts/build.py` for the biography, news, experience, education, and service sections.
 - Run `python3 scripts/build.py` to regenerate `index.html` and `sitemap.xml`.
