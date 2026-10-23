@@ -21,6 +21,8 @@ Publications are grouped by year, newest first. Within a year, awards and first/
 
 The last successful snapshot and timestamp remain unchanged if Scholar returns an error, a challenge, or incomplete data. Such failures produce a workflow warning. The website shows the date of the last successful fetch; it does not claim the numbers are real-time. A failed refresh does not block other site updates. Tests cover parsing, wrong profiles, incomplete responses, and fallback preservation.
 
+Deployment verification on October 23, 2026 found that Scholar was accessible from the owner's computer but refused the GitHub-hosted runner's request. A companion Codex automation therefore refreshes the same snapshot from the owner's computer daily at 06:30 Asia/Singapore, then commits and pushes only successful metric updates. This local fallback requires the computer and Codex to be available. When either source is unavailable, the page continues to show the last successful snapshot and its original date. The cloud workflow still publishes all content changes normally.
+
 GitHub Pages must be configured with **GitHub Actions** as its build source. Deploying in the same workflow is deliberate: commits from `GITHUB_TOKEN` do not trigger another Pages workflow. Only the public site files are included in the deployment artifact.
 
 ```sh
