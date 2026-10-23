@@ -233,7 +233,7 @@
     "award": ""
   },
   {
-    "venue": "ACL Findings 2025",
+    "venue": "ACL 2025",
     "badge": "CCF-A",
     "title": "KAPA: A deliberative agent framework with tree-structured knowledge base for multi-domain user intent understanding",
     "authors": "Jiakai Tang, Shiqi Shen, Zhipeng Wang, Zhi Gong, Xueyang Feng, Zexu Sun, Haoran Tan, Xu Chen*",
@@ -244,7 +244,7 @@
     "award": ""
   },
   {
-    "venue": "NAACL Demo 2025",
+    "venue": "NAACL 2025",
     "badge": "CCF-B",
     "title": "GenSim: A General Social Simulation Platform with Large Language Model based Agents",
     "authors": "Jiakai Tang, Heyang Gao, Xuchen Pan, Lei Wang, Haoran Tan, Dawei Gao, Yushuo Chen, Xu Chen*, Yankai Lin, Yaliang Li, Bolin Ding, Jingren Zhou, Jun Wang, Ji-Rong Wen",
@@ -384,7 +384,7 @@
     "award": ""
   },
   {
-    "venue": "ACL Findings 2025",
+    "venue": "ACL 2025",
     "badge": "CCF-A",
     "title": "Expectation confirmation preference optimization for multi-turn conversational recommendation agent",
     "authors": "Xueyang Feng, Jingsen Zhang, Jiakai Tang, Wei Li, Guohao Cai, Xu Chen*, Quanyu Dai, Yue Zhu, Zhenhua Dong",
