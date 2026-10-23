@@ -148,10 +148,10 @@ html=f'''<!doctype html>
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title"><span aria-hidden="true">💻</span> Internships</h2>
       <ul class="dated-list experience-list">
-        <li><span class="date">2025.04–Present</span><div><h3>Alibaba · Taotian</h3><p class="position">Recommendation Algorithm Intern · Search &amp; Recommendation Intelligent Products</p></div></li>
+        <li><span class="date">2025.04–Present</span><div><h3>Alibaba · Taotian</h3><p class="position">Recommendation Algorithm Intern</p></div></li>
         <li><span class="date">2024.11–2025.03</span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></li>
-        <li><span class="date">2024.05–2024.11</span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern · Intelligent Computing Lab</p></div></li>
-        <li><span class="date">2023.10–2024.04</span><div><h3>Kuaishou</h3><p class="position">Recommendation Research Intern · Community Science, Strategy &amp; Algorithms</p></div></li>
+        <li><span class="date">2024.05–2024.11</span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern</p></div></li>
+        <li><span class="date">2023.10–2024.04</span><div><h3>Kuaishou</h3><p class="position">Recommendation Algorithm Intern</p></div></li>
         <li><span class="date">2023.02–2023.07</span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></li>
       </ul>
     </section>
