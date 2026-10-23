@@ -1,0 +1,60 @@
+name: Update Scholar and publish homepage
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '23 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: homepage-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test metrics parsing and failure fallback
+        run: python3 -m unittest discover -s scripts -p 'test_*.py'
+      - name: Refresh Google Scholar snapshot
+        run: python3 scripts/update_scholar.py
+      - name: Build static homepage
+        run: python3 scripts/build.py
+      - name: Retain the latest successful snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/scholar.json index.html sitemap.xml
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update Google Scholar metrics'
+            git push origin HEAD:main
+          fi
+      - name: Prepare public files
+        run: |
+          mkdir -p _site/data
+          cp index.html robots.txt sitemap.xml .nojekyll _site/
+          cp -R assets _site/assets
+          cp data/scholar.json _site/data/scholar.json
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publish GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

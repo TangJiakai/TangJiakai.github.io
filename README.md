@@ -2,17 +2,34 @@
 
 Personal academic website for Jiakai Tang (唐嘉凯), hosted at https://tangjiakai.github.io/.
 
-The page is a static, accessible HTML/CSS/JavaScript site. It works without JavaScript; JavaScript adds publication search and author filters. No external fonts, trackers, or runtime dependencies are required.
+The page is a static, accessible HTML/CSS/JavaScript site. Content works without JavaScript; JavaScript only highlights the current navigation section. No external fonts, trackers, or runtime dependencies are required.
 
 ## Update content
 
 - Edit `data/publications.json` for publication titles, authors, venue, year, links, and award badges.
+- Edit `data/honors.json` for honors. Chinese award names are retained alongside English translations.
 - Edit `scripts/build.py` for the biography, news, experience, education, and service sections.
 - Run `python3 scripts/build.py` to regenerate `index.html` and `sitemap.xml`.
-- Update the date in the generator and scholarly metrics when refreshing the page.
-- Commit the generated files and push to `main`. GitHub Pages publishes from the repository root.
+- Update the content date in the generator when refreshing the biography or other sections.
+- Commit and push to `main`. The publish workflow builds and deploys GitHub Pages.
 
-Publication ordering prioritizes awards, then research papers over workshop organization papers, first/co-first authorship, and recent years. Published/accepted papers precede preprints within the same year and authorship group. All publications appear by default. Submission and preprint status must be preserved when editing records.
+Publications are grouped by year, newest first. Within a year, awards and first/co-first authorship precede other work, followed by publication status. There are no total-count or author-filter controls. Venue, CCF category, preprint/review status, awards, and oral presentations have separate pill labels. Submission and preprint status must be preserved when editing records.
+
+## Automatic Google Scholar metrics
+
+`.github/workflows/publish.yml` runs after pushes, on demand, and daily at 22:23 UTC (06:23 Singapore/Beijing time). GitHub may delay scheduled runs. It fetches the public profile `7kB-4sEAAAAJ`, validates the profile identity and all-time metrics, saves `data/scholar.json`, builds the page, and deploys it in the same workflow. No Scholar login, paid API, secret, or personal access token is needed at runtime.
+
+The last successful snapshot and timestamp remain unchanged if Scholar returns an error, a challenge, or incomplete data. Such failures produce a workflow warning. The website shows the date of the last successful fetch; it does not claim the numbers are real-time. A failed refresh does not block other site updates. Tests cover parsing, wrong profiles, incomplete responses, and fallback preservation.
+
+GitHub Pages must be configured with **GitHub Actions** as its build source. Deploying in the same workflow is deliberate: commits from `GITHUB_TOKEN` do not trigger another Pages workflow. Only the public site files are included in the deployment artifact.
+
+```sh
+python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 scripts/update_scholar.py
+python3 scripts/build.py
+```
+
+Certificate scans are not published. The additional award titles and dates were transcribed from the owner's supplied certificates; student identifiers and certificate numbers are excluded.
 
 ## Local preview
 
