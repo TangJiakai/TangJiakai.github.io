@@ -76,11 +76,13 @@ main { min-width:0; }
 .honor-cn { margin-left:9px; color:#6d7277; font-size:12px; }
 .honor-detail { display:block; color:#7a8187; font-size:12px; margin-top:1px; }
 .experience-list li { margin:22px 0; }
-.employer { display:grid; grid-template-columns:60px minmax(0,1fr); align-items:center; gap:14px; min-width:0; }
-.company-logo { width:60px; height:40px; display:flex; align-items:center; justify-content:center; }
-.company-logo img { display:block; width:60px; max-height:40px; object-fit:contain; }
-.company-logo--alibaba img { width:32px; height:32px; }
-.company-logo--kuaishou img { width:36px; height:36px; }
+.employer { display:grid; grid-template-columns:minmax(0,1fr) 112px; align-items:center; gap:24px; min-width:0; }
+.employer>div { grid-column:1; grid-row:1; }
+.company-logo { grid-column:2; grid-row:1; width:112px; height:54px; display:flex; align-items:center; justify-content:center; }
+.company-logo img { display:block; width:100px; max-height:48px; object-fit:contain; }
+.company-logo--taotian img { width:44px; height:44px; }
+.company-logo--tongyi img { width:44px; height:44px; }
+.company-logo--kuaishou img { width:48px; height:48px; }
 .position { color:#727980; font-size:12px!important; }
 .service-list { margin:0; padding-left:23px; }
 .service-list>li { padding-left:2px; }
@@ -123,8 +125,11 @@ footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; 
   .dated-list li { grid-template-columns:78px minmax(0,1fr); gap:12px; font-size:13px; }
   .dated-list .date { font-size:10px; }
   .dated-list h3,.dated-list p { font-size:13px; }
-  .employer { grid-template-columns:42px minmax(0,1fr); gap:10px; }
-  .company-logo,.company-logo img { max-width:42px; }
+  .employer { grid-template-columns:minmax(0,1fr) 70px; gap:12px; }
+  .company-logo { width:70px; height:48px; }
+  .company-logo img { max-width:70px; }
+  .company-logo--taotian img,.company-logo--tongyi img { width:36px; height:36px; }
+  .company-logo--kuaishou img { width:40px; height:40px; }
   .honor-cn { display:block; margin:3px 0 0; }
   footer { font-size:10px; }
 }
