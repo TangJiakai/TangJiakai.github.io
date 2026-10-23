@@ -138,11 +138,11 @@ html=f'''<!doctype html>
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title"><span aria-hidden="true">💻</span> Internships</h2>
       <ul class="dated-list experience-list">
-        <li><span class="date">2025.04–Present</span><div><h3>Alibaba · Taotian</h3><p class="position">Recommendation Algorithm Intern · Search &amp; Recommendation Intelligent Products</p><p>RecGPT: intent-centric industrial recommendation, with continued work on RecGPT-V2/V3. RecBot: interactive recommendation through natural-language user commands.</p></div></li>
-        <li><span class="date">2024.11–2025.03</span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p><p>KAPA: deliberative multi-agent reasoning and a tree-structured knowledge base for multi-domain user intent understanding.</p></div></li>
-        <li><span class="date">2024.05–2024.11</span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern · Intelligent Computing Lab</p><p>GenSim: a general social simulation platform with large language model agents, supporting large-scale simulation, intervention, and interviews.</p></div></li>
-        <li><span class="date">2023.10–2024.04</span><div><h3>Kuaishou</h3><p class="position">Recommendation Research Intern · Community Science, Strategy &amp; Algorithms<br><span lang="zh-CN">社区科学线 · 策略算法部</span></p><p>RGCL: decision boundary-aware graph contrastive learning for robust recommendation. Published at KDD 2024.</p></div></li>
-        <li><span class="date">2023.02–2023.07</span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p><p>Multi-interest modeling for browser video retrieval.</p></div></li>
+        <li><span class="date">2025.04–Present</span><div><h3>Alibaba · Taotian</h3><p class="position">Recommendation Algorithm Intern · Search &amp; Recommendation Intelligent Products</p></div></li>
+        <li><span class="date">2024.11–2025.03</span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></li>
+        <li><span class="date">2024.05–2024.11</span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern · Intelligent Computing Lab</p></div></li>
+        <li><span class="date">2023.10–2024.04</span><div><h3>Kuaishou</h3><p class="position">Recommendation Research Intern · Community Science, Strategy &amp; Algorithms<br><span lang="zh-CN">社区科学线 · 策略算法部</span></p></div></li>
+        <li><span class="date">2023.02–2023.07</span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></li>
       </ul>
     </section>
     <section id="service" aria-labelledby="service-title">
