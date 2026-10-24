@@ -119,6 +119,9 @@ for talk in sorted(service_data.get('invited_talks', []), key=lambda t:t['date']
 workshop_rows=[]
 for workshop in sorted(service_data['workshops'],key=lambda w:w['year'],reverse=True):
     workshop_rows.append(f'''<li><span class="date">{workshop['year']}</span><div><div class="service-entry-heading"><h4><a href="{esc(workshop['url'],quote=True)}">{esc(workshop['name'])}</a></h4><span class="service-role">{esc(workshop['role'])}</span></div><p class="service-description">{esc(workshop['title'])}</p></div></li>''')
+volunteer_rows=[]
+for event in sorted(service_data.get('volunteering', []), key=lambda e:e['year'], reverse=True):
+    volunteer_rows.append(f'''<li><span class="date">{event['year']}</span><div class="service-entry-heading"><h4>{esc(event['conference'])}</h4><span class="service-role">{esc(event['role'])}</span></div></li>''')
 software_rows=[]
 for project in service_data['open_source']:
     software_rows.append(f'''<li><h4><a href="{esc(project['url'],quote=True)}">{esc(project['name'])}</a>{star_badge(project['url'])}</h4><div><span class="service-role">{esc(project['role'])}</span><p class="service-description">{esc(project['description'])}</p></div></li>''')
@@ -244,6 +247,10 @@ html=f'''<!doctype html>
       <div class="service-group">
         <h3 class="service-group-title">Workshop Organization</h3>
         <ul class="dated-list workshop-list">{''.join(workshop_rows)}</ul>
+      </div>
+      <div class="service-group" id="conference-volunteering">
+        <h3 class="service-group-title">Conference Volunteering</h3>
+        <ul class="dated-list workshop-list">{''.join(volunteer_rows)}</ul>
       </div>
       <div class="service-group">
         <h3 class="service-group-title">Open-Source Software</h3>
