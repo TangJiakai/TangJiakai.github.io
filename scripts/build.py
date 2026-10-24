@@ -262,12 +262,16 @@ publication_nav='<nav class="section-nav floating-nav year-nav" aria-label="Publ
 
 gallery_items=json.loads((ROOT/'data/gallery.json').read_text())
 gallery_groups=[]
+gallery_links=[]
+album_labels={"KDD 2026 · Jeju Island":"KDD 2026", "KDD 2024 · Barcelona":"KDD 2024", "Singapore · NUS":"NUS", "Everyday Memories":"Everyday", "Jeju Island":"Jeju", "Pingtan · Fujian":"Pingtan", "Spain":"Spain"}
 for category,label,description in [('academic','Academic Moments','Talks, conferences, and research gatherings.'),('life','Life','Moments beyond research.')]:
     albums={}
     for photo in (p for p in gallery_items if p['category']==category):
         albums.setdefault(photo.get('album',label),[]).append(photo)
     album_html=[]
     for album,items in albums.items():
+        album_id="album-"+re.sub(r"[^a-z0-9]+","-",album.lower()).strip("-")
+        gallery_links.append(f'<a href="#{album_id}">{esc(album_labels.get(album,album))}</a>')
         photos=[]
         for photo in items:
             src=esc(photo['src'],quote=True)
@@ -279,10 +283,10 @@ for category,label,description in [('academic','Academic Moments','Talks, confer
         layout=' gallery-grid--pair' if len(items)<=2 or len(items)==4 else ''
         if all(p.get('height',0)>p.get('width',0) for p in items):
             layout+=' gallery-grid--portrait'
-        album_html.append(f'<article class="gallery-album"><header class="album-heading"><h4>{esc(album)}</h4></header><div class="gallery-grid{layout}">'+''.join(photos)+'</div></article>')
+        album_html.append(f'<article class="gallery-album" id="{album_id}"><header class="album-heading"><h4>{esc(album)}</h4></header><div class="gallery-grid{layout}">'+''.join(photos)+'</div></article>')
     content=''.join(album_html) if album_html else '<p class="gallery-empty">Photos coming soon.</p>'
     gallery_groups.append(f'<section class="gallery-group" id="{category}"><h3>{label}</h3><p class="muted">{description}</p>{content}</section>')
-gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title"><span aria-hidden="true">📷</span> Gallery</h2><p class="page-intro">A collection of academic and everyday moments.</p><nav class="section-nav gallery-nav" aria-label="Gallery categories"><a href="#academic">Academic Moments</a><a href="#life">Life</a></nav></section>'+''.join(gallery_groups)
+gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title"><span aria-hidden="true">📷</span> Gallery</h2><p class="page-intro">A collection of academic and everyday moments.</p></section>'+'<nav class="section-nav floating-nav gallery-nav" aria-label="Photo albums">'+''.join(gallery_links)+'</nav>'+''.join(gallery_groups)
 gallery_body+='''<dialog class="photo-viewer" aria-label="Photo viewer"><button type="button" class="photo-close" aria-label="Close photo">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>'''
 
 pages={
