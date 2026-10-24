@@ -50,4 +50,4 @@ Only public-facing academic information is included. Scholarship forms, recommen
 
 ## Metric badges
 
-Scholar badges use the existing scheduled snapshot and show its last successful update date; fetching failures retain the previous values. Publication repositories are linked as Code, without star counters.
+Scholar badges use the existing scheduled snapshot and show its last successful update date; fetching failures retain the previous values. GitHub publication repositories use clickable GitHub icons with accessible Code labels and hover tooltips, without star counters.

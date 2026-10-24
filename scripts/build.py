@@ -60,7 +60,10 @@ for p in papers:
         label=esc(resource['label'])
         url=esc(resource['url'],quote=True)
         accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
-        resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
+        if resource['label']=='Code' and resource['url'].startswith('https://github.com/'):
+            resource_links.append(f'<a class="code-icon-link" href="{url}" aria-label="{accessible_label}" title="View code on GitHub">{icon("github")}</a>')
+        else:
+            resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
     year=p['year']
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>

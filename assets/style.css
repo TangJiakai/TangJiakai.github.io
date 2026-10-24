@@ -74,6 +74,9 @@ main { min-width:0; }
 .badge.oral { background:#f0e6fa; color:var(--purple); }
 .badge.status { background:#f0f1f4; color:#6b7080; }
 .paper-link { font-size:12px; margin-left:3px; }
+.code-icon-link { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; color:#454a50; border-radius:50%; }
+.code-icon-link:hover { color:var(--link); background:#eaf1f8; }
+.code-icon-link .contact-icon { width:18px; height:18px; }
 .dated-list { list-style:none; padding:0; margin:0; }
 .dated-list li { display:grid; grid-template-columns:132px minmax(0,1fr); gap:16px; margin:15px 0; font-size:14px; line-height:1.65; }
 .dated-list .date { color:#6e757c; font-size:12px; font-variant-numeric:tabular-nums; padding-top:2px; }
