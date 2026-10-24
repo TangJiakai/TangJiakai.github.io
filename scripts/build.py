@@ -96,6 +96,18 @@ for patent in sorted(patents,key=lambda p:p['filing_date'],reverse=True):
       <p class="paper-meta"><span class="badge patent-{patent['status']}">{status_label}</span><span class="patent-number">Application No. CN {esc(patent['application_number'])}</span><span class="patent-date">Filed {esc(patent['filing_date'].replace('-','.'))}</span></p>
     </li>''')
 
+service_data=json.loads((ROOT/'data/service.json').read_text())
+workshop_rows=[]
+for workshop in sorted(service_data['workshops'],key=lambda w:w['year'],reverse=True):
+    workshop_rows.append(f'''<li><span class="date">{workshop['year']}</span><div><div class="service-entry-heading"><h4><a href="{esc(workshop['url'],quote=True)}">{esc(workshop['name'])}</a></h4><span class="service-role">{esc(workshop['role'])}</span></div><p class="service-description">{esc(workshop['title'])}</p></div></li>''')
+software_rows=[]
+for project in service_data['open_source']:
+    software_rows.append(f'''<li><h4><a href="{esc(project['url'],quote=True)}">{esc(project['name'])}</a></h4><div><span class="service-role">{esc(project['role'])}</span><p class="service-description">{esc(project['description'])}</p></div></li>''')
+review_rows=[]
+for group in service_data['reviewing']:
+    venues=''.join(f'<li>{esc(venue)}</li>' for venue in group['venues'])
+    review_rows.append(f'''<div class="review-group"><div><h4>{esc(group['label'])}</h4><span class="review-role">{esc(group['role'])}</span></div><ul class="venue-list" aria-label="{esc(group['label'])}">{venues}</ul></div>''')
+
 nav=[('about','About Me'),('news','News'),('publications','Publications'),('patents','Patents'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
 navhtml=''.join(f'<a href="#{k}">{v}</a>' for k,v in nav)
 structured={"@context":"https://schema.org","@type":"Person","name":"Jiakai Tang","alternateName":"唐嘉凯","url":"https://tangjiakai.github.io/","image":"https://tangjiakai.github.io/assets/portrait.jpg","affiliation":{"@type":"CollegeOrUniversity","name":"Renmin University of China"},"sameAs":["https://github.com/TangJiakai","https://scholar.google.com/citations?user=7kB-4sEAAAAJ"],"knowsAbout":["Recommender Systems","Large Language Models","Intelligent Agents"]}
@@ -202,11 +214,18 @@ html=f'''<!doctype html>
     </section>
     <section id="service" aria-labelledby="service-title">
       <h2 id="service-title"><span aria-hidden="true">📚</span> Academic Services</h2>
-      <ul class="service-list">
-        <li><h3>Peer Review</h3><p><strong>Conferences:</strong> NeurIPS, ICLR, AAAI, IJCAI, KDD, SIGIR, WSDM, ACL, EMNLP, WWW.<br><strong>Journals:</strong> ACM TOIS, IEEE TKDE, ACM TORS.</p></li>
-        <li><h3>Workshop Organization</h3><p>Core organizer of the Human-Centered Recommender Systems (HCRS) Workshop at <a href="https://hcrec.github.io/">WWW 2026</a> and <a href="https://hcrs2027.github.io/">WWW 2027</a>.</p></li>
-        <li><h3>Open-Source Contributions</h3><p>Contributor to the <a href="https://github.com/RUCAIBox/RecBole"><strong>RecBole</strong></a> recommendation framework and lead developer of <a href="https://github.com/TangJiakai/RecBole-FairRec"><strong>RecBole-FairRec</strong></a>. Contributed to core functionality and evaluation in <a href="https://github.com/RUC-GSAI/YuLan-Rec"><strong>RecAgent</strong></a>.</p></li>
-      </ul>
+      <div class="service-group">
+        <h3 class="service-group-title">Workshop Organization</h3>
+        <ul class="dated-list workshop-list">{''.join(workshop_rows)}</ul>
+      </div>
+      <div class="service-group">
+        <h3 class="service-group-title">Open-Source Software</h3>
+        <ul class="software-list">{''.join(software_rows)}</ul>
+      </div>
+      <div class="service-group">
+        <h3 class="service-group-title">Conference &amp; Journal Service</h3>
+        {''.join(review_rows)}
+      </div>
     </section>
     <footer><span>© 2026 Jiakai Tang · Last updated October 24, 2026</span><a href="#about">Back to top ↑</a></footer>
   </main>

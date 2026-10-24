@@ -66,3 +66,7 @@ Scholar badges use the existing scheduled snapshot and show its last successful 
 ### Patents
 
 `data/patents.json` records the seven user-supplied patents. Titles, inventor order, applicants, application numbers and filing dates are transcribed from the CNIPA documents. The three `granted` statuses follow the user-supplied filenames marked 已授权; those PDFs are application publications rather than grant certificates, so no grant date or B publication number is inferred. The four `filed` statuses are supported by application acceptance notices. Filing dates are explicitly labeled in the UI. Source PDFs are not published, and agent contact details, addresses and document serial numbers are excluded.
+
+### Academic service
+
+Maintain `data/service.json` to add workshop editions, open-source projects and reviewing venues. The builder renders dated workshop entries, one entry per software project, and separate conference/journal lists. Roles should describe confirmed contributions only.

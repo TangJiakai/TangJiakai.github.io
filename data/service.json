@@ -1,0 +1,65 @@
+{
+  "workshops": [
+    {
+      "year": 2027,
+      "name": "HCRS @ WWW 2027",
+      "title": "3rd Workshop on Human-Centered Recommender Systems",
+      "role": "Core Organizer",
+      "url": "https://hcrs2027.github.io/"
+    },
+    {
+      "year": 2026,
+      "name": "HCRS @ WWW 2026",
+      "title": "2nd Workshop on Human-Centered Recommender Systems",
+      "role": "Core Organizer",
+      "url": "https://hcrec.github.io/"
+    }
+  ],
+  "open_source": [
+    {
+      "name": "RecBole-FairRec",
+      "role": "Lead Developer",
+      "description": "Fairness-aware recommendation toolkit in the RecBole ecosystem.",
+      "url": "https://github.com/TangJiakai/RecBole-FairRec"
+    },
+    {
+      "name": "RecBole",
+      "role": "Contributor",
+      "description": "Contributions to the unified recommendation framework.",
+      "url": "https://github.com/RUCAIBox/RecBole"
+    },
+    {
+      "name": "RecAgent",
+      "role": "Contributor",
+      "description": "Contributions to core functionality and evaluation.",
+      "url": "https://github.com/RUC-GSAI/YuLan-Rec"
+    }
+  ],
+  "reviewing": [
+    {
+      "label": "Conferences",
+      "role": "Reviewer",
+      "venues": [
+        "NeurIPS",
+        "ICLR",
+        "AAAI",
+        "IJCAI",
+        "KDD",
+        "SIGIR",
+        "WSDM",
+        "ACL",
+        "EMNLP",
+        "WWW"
+      ]
+    },
+    {
+      "label": "Journals",
+      "role": "Reviewer",
+      "venues": [
+        "ACM TOIS",
+        "IEEE TKDE",
+        "ACM TORS"
+      ]
+    }
+  ]
+}

@@ -113,12 +113,21 @@ main { min-width:0; }
 .company-logo--tongyi img { width:44px; height:44px; }
 .company-logo--kuaishou img { width:48px; height:48px; }
 .position { color:#727980; font-size:12px!important; }
-.service-list { margin:0; padding-left:23px; }
-.service-list>li { padding-left:2px; }
-.service-list>li::marker { color:var(--link); }
-.service-list>li+li { margin-top:20px; padding-top:18px; border-top:1px solid var(--line); }
-.service-list h3 { margin:0 0 7px; font-size:15px; color:#354c60; }
-.service-list p { margin:0; font-size:14px; }
+.service-group { margin-top:23px; }
+.service-group + .service-group { margin-top:27px; padding-top:23px; border-top:1px solid var(--line); }
+.service-group-title { color:#354c60; font-size:16px; margin:0 0 15px; }
+.service-entry-heading { display:flex; flex-wrap:wrap; gap:7px 12px; align-items:center; }
+.service-entry-heading h4,.software-list h4,.review-group h4 { font-size:14px; }
+.service-role { display:inline-flex; align-items:center; color:#526879; background:#f1f5f7; border-radius:5px; padding:1px 7px; font-size:10.5px; font-weight:600; }
+.service-description { color:#747b82; font-size:12px!important; margin:4px 0 0!important; line-height:1.65; }
+.workshop-list li { margin:17px 0; }
+.software-list { list-style:none; margin:0; padding:0; }
+.software-list>li { display:grid; grid-template-columns:132px minmax(0,1fr); gap:16px; align-items:start; margin:17px 0; }
+.review-group { display:grid; grid-template-columns:132px minmax(0,1fr); gap:16px; margin:16px 0; }
+.review-group h4 { font-weight:600; }
+.review-role { color:#7a8187; font-size:11px; }
+.venue-list { display:flex; flex-wrap:wrap; align-content:start; gap:5px 16px; list-style:none; padding:0; margin:0; font-size:13px; }
+.venue-list li { line-height:1.8; }
 footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; color:#8b9298; display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; }
 @media(min-width:1450px) { :root{--width:1300px} .page-layout{grid-template-columns:218px minmax(0,1fr);gap:46px} }
 @media(max-width:1100px) { .nav-wrap{gap:28px} nav{gap:17px} nav a{font-size:12px} .page-layout{grid-template-columns:190px minmax(0,1fr);gap:30px} }
@@ -151,6 +160,9 @@ footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; 
   .publication h4 { font-size:14px; }
   .authors { font-size:13px; }
   .badge { font-size:10px; }
+  .software-list>li,.review-group { grid-template-columns:100px minmax(0,1fr); gap:12px; }
+  .service-entry-heading h4,.software-list h4,.review-group h4 { font-size:13px; }
+  .venue-list { font-size:12px; gap:4px 12px; }
   .dated-list li { grid-template-columns:78px minmax(0,1fr); gap:12px; font-size:13px; }
   .dated-list .date { font-size:10px; }
   .dated-list h3,.dated-list p { font-size:13px; }
