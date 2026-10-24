@@ -60,6 +60,26 @@
     "album": "Singapore · NUS"
   },
   {
+    "category": "academic",
+    "src": "assets/gallery/yocsef-jinan-2024.webp",
+    "thumbnail": "assets/gallery/yocsef-jinan-2024-thumb.webp",
+    "width": 900,
+    "height": 600,
+    "caption": "2024.10.20 · Invited talk at CCF YOCSEF Jinan",
+    "alt": "A moment from the invited talk on a general social simulation platform with large language model-based agents at CCF YOCSEF Jinan.",
+    "album": "CCF YOCSEF · Jinan"
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/campus-basketball-team.webp",
+    "thumbnail": "assets/gallery/campus-basketball-team-thumb.webp",
+    "width": 900,
+    "height": 675,
+    "caption": "Campus basketball · Celebrating a team victory",
+    "alt": "A group photo with the Gaoling School of Artificial Intelligence basketball team after a competition victory.",
+    "album": "Everyday Memories"
+  },
+  {
     "category": "life",
     "src": "assets/gallery/beijing.webp",
     "thumbnail": "assets/gallery/beijing-thumb.webp",

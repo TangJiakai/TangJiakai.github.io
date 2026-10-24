@@ -113,6 +113,9 @@ for patent in sorted(patents,key=lambda p:p['filing_date'],reverse=True):
     </li>''')
 
 service_data=json.loads((ROOT/'data/service.json').read_text())
+talk_rows=[]
+for talk in sorted(service_data.get('invited_talks', []), key=lambda t:t['date'], reverse=True):
+    talk_rows.append(f'''<li><time class="date" datetime="{esc(talk['date'],quote=True)}">{esc(talk['date'].replace('-','.'))}</time><div><div class="service-entry-heading"><h4>{esc(talk['title'])}</h4></div><p class="service-description">{esc(talk['host'])} · {esc(talk['location'])}</p><p class="service-description" lang="zh-CN">{esc(talk['title_zh'])}</p></div></li>''')
 workshop_rows=[]
 for workshop in sorted(service_data['workshops'],key=lambda w:w['year'],reverse=True):
     workshop_rows.append(f'''<li><span class="date">{workshop['year']}</span><div><div class="service-entry-heading"><h4><a href="{esc(workshop['url'],quote=True)}">{esc(workshop['name'])}</a></h4><span class="service-role">{esc(workshop['role'])}</span></div><p class="service-description">{esc(workshop['title'])}</p></div></li>''')
@@ -235,6 +238,10 @@ html=f'''<!doctype html>
     <section id="service" aria-labelledby="service-title">
       <h2 id="service-title"><span aria-hidden="true">📚</span> Academic Services</h2>
       <div class="service-group">
+        <h3 class="service-group-title">Invited Talks</h3>
+        <ul class="dated-list workshop-list">{''.join(talk_rows)}</ul>
+      </div>
+      <div class="service-group">
         <h3 class="service-group-title">Workshop Organization</h3>
         <ul class="dated-list workshop-list">{''.join(workshop_rows)}</ul>
       </div>
@@ -280,7 +287,7 @@ publication_nav='<nav class="section-nav floating-nav year-nav" aria-label="Publ
 gallery_items=json.loads((ROOT/'data/gallery.json').read_text())
 gallery_groups=[]
 gallery_links=[]
-album_labels={"KDD 2026 · Jeju Island":"KDD 2026", "KDD 2024 · Barcelona":"KDD 2024", "Singapore · NUS":"NUS", "Everyday Memories":"Everyday", "Jeju Island":"Jeju", "Pingtan · Fujian":"Pingtan", "Spain":"Spain"}
+album_labels={"CCF YOCSEF · Jinan":"YOCSEF", "KDD 2026 · Jeju Island":"KDD 2026", "KDD 2024 · Barcelona":"KDD 2024", "Singapore · NUS":"NUS", "Everyday Memories":"Everyday", "Jeju Island":"Jeju", "Pingtan · Fujian":"Pingtan", "Spain":"Spain"}
 for category,label,description in [('academic','Academic Moments','Talks, conferences, and research gatherings.'),('life','Life','Moments beyond research.')]:
     albums={}
     for photo in (p for p in gallery_items if p['category']==category):
@@ -297,7 +304,7 @@ for category,label,description in [('academic','Academic Moments','Talks, confer
             thumbnail=esc(photo.get('thumbnail',photo['src']),quote=True)
             dimensions=f' width="{int(photo["width"])}" height="{int(photo["height"])}"' if photo.get('width') and photo.get('height') else ''
             photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{thumbnail}" alt="{alt}"{dimensions} loading="lazy" decoding="async"><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>{caption}</figcaption></figure>')
-        layout=' gallery-grid--pair' if len(items)<=2 or len(items)==4 else ''
+        layout=' gallery-grid--single' if len(items)==1 else (' gallery-grid--pair' if len(items)==2 or len(items)==4 else '')
         album_html.append(f'<article class="gallery-album" id="{album_id}"><header class="album-heading"><h4>{esc(album)}</h4></header><div class="gallery-grid{layout}">'+''.join(photos)+'</div></article>')
     content=''.join(album_html) if album_html else '<p class="gallery-empty">Photos coming soon.</p>'
     gallery_groups.append(f'<section class="gallery-group" id="{category}"><h3>{label}</h3><p class="muted">{description}</p>{content}</section>')

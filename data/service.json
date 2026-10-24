@@ -61,5 +61,21 @@
         "ACM TORS"
       ]
     }
+  ],
+  "invited_talks": [
+    {
+      "date": "2025-10-31",
+      "title": "Reasoning-Enhanced Recommendation",
+      "title_zh": "推理增强推荐",
+      "host": "Kuaishou",
+      "location": "Beijing Yuan Center (北京元中心)"
+    },
+    {
+      "date": "2024-10-20",
+      "title": "A General Social Simulation Platform with Large Language Model-Based Agents",
+      "title_zh": "基于大模型智能体的通用社会模拟平台",
+      "host": "CCF YOCSEF",
+      "location": "Jinan"
+    }
   ]
 }

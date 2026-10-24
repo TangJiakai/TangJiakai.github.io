@@ -261,3 +261,6 @@ footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; 
 @media print { .masthead,.skip-link{display:none}.page-layout{padding:0;grid-template-columns:170px 1fr;gap:25px}.profile{position:static}.publication,.dated-list li{break-inside:avoid}a{color:inherit}footer{display:none}body{font-size:10pt} }
 
 @media(max-width:440px) { .gallery-grid,.gallery-grid--pair { grid-template-columns:1fr; } }
+
+/* A single event photo has a centered frame, without an empty second column. */
+.gallery-grid--single { grid-template-columns:minmax(0,1fr); max-width:760px; margin-inline:auto; }
