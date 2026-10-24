@@ -63,11 +63,13 @@
     "highlight": false
   },
   {
-    "date": "2022",
+    "date": "2022.10",
     "title": "CIKM Best Resource Paper Runner-Up",
     "detail": "RecBole 2.0 · Co-author",
     "chinese": "",
-    "highlight": true
+    "highlight": true,
+    "source": "https://www.cikmconference.org/2022/best-paper.html",
+    "date_note": "Month of CIKM 2022 (October 17–21), as shown on the official conference award page."
   },
   {
     "date": "2021.05",
