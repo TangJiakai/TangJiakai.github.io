@@ -161,6 +161,7 @@ main { min-width:0; }
 .company-logo img { display:block; width:100px; max-height:48px; object-fit:contain; }
 .company-logo--taotian img { width:44px; height:44px; }
 .company-logo--tongyi img { width:44px; height:44px; }
+.company-logo--wechat img { width:48px; height:44px; }
 .company-logo--kuaishou img { width:48px; height:48px; }
 .position { color:#727980; font-size:12px!important; }
 .service-group { margin-top:23px; }
@@ -239,6 +240,7 @@ footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; 
   .company-logo img { max-width:70px; }
   .company-logo--taotian img,.company-logo--tongyi img { width:36px; height:36px; }
   .company-logo--kuaishou img { width:40px; height:40px; }
+  .company-logo--wechat img { width:40px; height:36px; }
   .honor-cn { display:block; margin:3px 0 0; }
   footer { font-size:10px; }
 }

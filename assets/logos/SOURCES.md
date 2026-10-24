@@ -15,3 +15,5 @@ Used to identify the two universities in Education. Marks belong to the respecti
 
 - Renmin University of China: https://bdai.yonsei.ac.kr/images/logos/renmin.webp — university seal hosted by Yonsei University's BDAI Lab.
 - Wuhan University of Technology: https://accc.net/images/logo/Wuhan_University_of_Technology.png — university seal hosted by ACCC; cross-checked with the official university header mark at https://www.whut.edu.cn/material/img/whlg_logo1.png.
+
+- WeChat: https://newres.wechat.com/t/fed_upload/fdf269b2-1de3-4bb9-95c5-00150433b7f1/MjliNWVm.svg — official icon linked from https://www.wechat.com/en/. Original paths preserved; white fill changed to WeChat green (#07C160), with a viewBox added for responsive sizing.
