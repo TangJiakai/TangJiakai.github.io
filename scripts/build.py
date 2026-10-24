@@ -61,6 +61,8 @@ for p in papers:
     elif 'CCF-B' in p['badge']: badges.append('<span class="badge ccf-b">CCF-B</span>')
     if p['award']: badges.append(f'<span class="badge award">🏆 {esc(p["award"])}</span>')
     if 'Oral' in p['badge']: badges.append('<span class="badge oral">🌟 Oral</span>')
+    if p.get('deployed'):
+        badges.append('<span class="badge deployed" title="Deployed in a real-world industrial system"><span aria-hidden="true">🚀</span> Deployed</span>')
     resource_links=[]
     for resource in p.get('resources', []):
         label=esc(resource['label'])
@@ -78,7 +80,7 @@ for p in papers:
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>
       <p class="authors">{author_html(p['authors'])}</p>
-      <p class="paper-meta"><span class="badge venue">{esc(p['venue'])}</span>{''.join(badges)}{paper_link}{''.join(resource_links)}</p>
+      <p class="paper-meta">{venue_badge}{''.join(badges)}{paper_link}{''.join(resource_links)}</p>
     </li>''')
 rows.append('</ul></div>')
 

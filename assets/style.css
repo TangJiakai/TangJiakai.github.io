@@ -74,6 +74,8 @@ main { min-width:0; }
 .badge.ccf-b { background:#e8f4ee; color:#36735c; }
 .badge.award { background:#fbe8ec; color:var(--red); }
 .badge.oral { background:#f0e6fa; color:var(--purple); }
+.badge.deployed { gap:4px; background:#fff0d4; color:#87500d; border:1px solid #edc578; padding:1px 9px; box-shadow:0 1px 2px #a56b1310; }
+.badge.deployed span { font-size:11px; line-height:1; }
 .badge.status { background:#f0f1f4; color:#6b7080; }
 .paper-link { font-size:12px; margin-left:3px; }
 .resource-icon-link { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; color:#454a50; border-radius:50%; }

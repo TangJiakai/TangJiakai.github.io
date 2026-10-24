@@ -8,7 +8,8 @@
     "id": "paper-1",
     "first": true,
     "year": 2026,
-    "award": "SIGIR-AP 2026 GRIT Workshop Best Paper"
+    "award": "SIGIR-AP 2026 GRIT Workshop Best Paper",
+    "deployed": true
   },
   {
     "venue": "CIKM 2022",
@@ -65,7 +66,8 @@
     "id": "paper-5",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "arXiv 2026",
@@ -93,7 +95,8 @@
     "id": "paper-7",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "TKDE 2026",
@@ -132,7 +135,8 @@
     "id": "paper-10",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "KDD 2026",
@@ -143,7 +147,8 @@
     "id": "paper-12",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "KDD 2026",
@@ -154,7 +159,8 @@
     "id": "paper-13",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "arXiv 2026",
@@ -198,7 +204,8 @@
     "id": "paper-17",
     "first": true,
     "year": 2025,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "arXiv 2025",
@@ -209,7 +216,8 @@
     "id": "paper-18",
     "first": true,
     "year": 2025,
-    "award": ""
+    "award": "",
+    "deployed": true
   },
   {
     "venue": "TOIS 2025",
