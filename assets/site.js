@@ -49,6 +49,22 @@
   window.addEventListener('resize', () => { measureNavigation(); scheduleUpdate(); });
   window.addEventListener('load', () => { measureNavigation(); scheduleUpdate(); });
   window.addEventListener('hashchange', scheduleUpdate);
+  // Keep full photo proportions and pack unequal card heights into compact rows.
+  // Without ResizeObserver, the regular responsive grid remains usable.
+  if (typeof ResizeObserver === 'function') {
+    document.querySelectorAll('.gallery-grid').forEach(grid => {
+      const cards = [...grid.querySelectorAll('.gallery-photo')];
+      const layout = () => {
+        const gap = parseFloat(getComputedStyle(grid).getPropertyValue('--photo-gap')) || 0;
+        const spans = cards.map(card => Math.ceil(card.getBoundingClientRect().height + gap));
+        cards.forEach((card, index) => { card.style.gridRowEnd = `span ${spans[index]}`; });
+      };
+      grid.classList.add('gallery-grid--masonry');
+      layout();
+      const observer = new ResizeObserver(layout);
+      cards.forEach(card => observer.observe(card));
+    });
+  }
   const viewer = document.querySelector('.photo-viewer');
   if (viewer && typeof viewer.showModal === 'function') {
     let trigger;

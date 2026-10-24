@@ -289,8 +289,6 @@ for category,label,description in [('academic','Academic Moments','Talks, confer
             dimensions=f' width="{int(photo["width"])}" height="{int(photo["height"])}"' if photo.get('width') and photo.get('height') else ''
             photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{thumbnail}" alt="{alt}"{dimensions} loading="lazy" decoding="async"><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>{caption}</figcaption></figure>')
         layout=' gallery-grid--pair' if len(items)<=2 or len(items)==4 else ''
-        if all(p.get('height',0)>p.get('width',0) for p in items):
-            layout+=' gallery-grid--portrait'
         album_html.append(f'<article class="gallery-album" id="{album_id}"><header class="album-heading"><h4>{esc(album)}</h4></header><div class="gallery-grid{layout}">'+''.join(photos)+'</div></article>')
     content=''.join(album_html) if album_html else '<p class="gallery-empty">Photos coming soon.</p>'
     gallery_groups.append(f'<section class="gallery-group" id="{category}"><h3>{label}</h3><p class="muted">{description}</p>{content}</section>')
