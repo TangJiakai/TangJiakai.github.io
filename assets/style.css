@@ -45,8 +45,6 @@ main { min-width:0; }
 .metric-pill span { padding:2px 8px; background:#f3f6f8; color:#5e6a74; }
 .metric-pill strong { padding:2px 8px; background:#eaf2fa; font-variant-numeric:tabular-nums; }
 .metric-pill:hover { text-decoration:none; border-color:#a5bdcf; }
-.repo-stars { display:inline-flex; align-items:center; line-height:1; }
-.repo-stars img { display:block; height:20px; max-width:130px; }
 .news-celebration { font-style:normal; font-size:.95em; }
 .scholar-stats strong { color:#454c52; }
 .metrics-date { display:inline-block; margin-left:4px; font-size:11px; color:#899096; }

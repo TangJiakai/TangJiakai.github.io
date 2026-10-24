@@ -50,4 +50,4 @@ Only public-facing academic information is included. Scholarship forms, recommen
 
 ## Metric badges
 
-Scholar badges use the existing scheduled snapshot and show its last successful update date; fetching failures retain the previous values. GitHub Code links also display lazy-loaded Shields.io star badges for the linked repository. These are cached by Shields.io and are not real-time counters.
+Scholar badges use the existing scheduled snapshot and show its last successful update date; fetching failures retain the previous values. Publication repositories are linked as Code, without star counters.

@@ -61,10 +61,6 @@ for p in papers:
         url=esc(resource['url'],quote=True)
         accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
         resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
-        repo_match=re.fullmatch(r'https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)/?',resource['url'])
-        if resource['label']=='Code' and repo_match:
-            repo=repo_match.group(1)
-            resource_links.append(f'<a class="repo-stars" href="{url}" aria-label="GitHub stars for {esc(repo,quote=True)}"><img src="https://img.shields.io/github/stars/{repo}?style=social" alt="GitHub stars" height="20" loading="lazy" decoding="async"></a>')
     year=p['year']
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>
