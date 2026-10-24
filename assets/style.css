@@ -65,6 +65,8 @@ main { min-width:0; }
 .publication h4 a { color:#354c60; }
 .authors { font-size:14px; color:#62676d; line-height:1.65; margin:0 0 8px; }
 .authors strong { color:#3d4349; }
+.corresponding-author { display:inline-flex; vertical-align:super; margin-left:2px; line-height:0; }
+.corresponding-author .contact-icon { width:11px; height:11px; }
 .paper-meta { display:flex; flex-wrap:wrap; gap:5px 7px; align-items:center; margin:0; line-height:1.65; }
 .badge { display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:2px 9px; font-size:10.5px; font-weight:700; line-height:1.6; white-space:normal; }
 .badge.venue { background:#eaf1f8; color:#315e88; }

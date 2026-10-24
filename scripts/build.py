@@ -28,6 +28,7 @@ def icon(name):
     paths={
         'dblp':'<path d="m3 2 9 5v12l-9-5Z"/><path d="m13 5 8 4v13l-8-4Z" opacity=".65"/>',
         'linkedin':'<rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="7" cy="7" r="1.4" fill="white"/><path d="M7 10v8m5 0v-8m0 4c0-5 6-5 6 0v4" fill="none" stroke="white" stroke-width="2.3"/>',
+        'corresponding':'<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></g>',
         'paper':'<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H5v18h14V8Z"/><path d="M14 3v5h5M8 12h8M8 16h8"/></g>',
         'pin':'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5" fill="white"/>',
         'mail':'<path d="M2 5h20v14H2Z"/><path d="m3 6 9 7 9-7" fill="none" stroke="white" stroke-width="1.8"/>',
@@ -40,7 +41,7 @@ def author_html(s):
     # Omit equal-contribution markers throughout rows where Jiakai is listed first.
     if s.split(',')[0].strip().rstrip('†*') == 'Jiakai Tang':
         s=s.replace('†','')
-    return esc(s).replace('Jiakai Tang','<strong>Jiakai Tang</strong>').replace('†','<sup>†</sup>').replace('*','<sup>*</sup>')
+    return esc(s).replace('Jiakai Tang','<strong>Jiakai Tang</strong>').replace('†','<sup>†</sup>').replace('*',f'<span class="corresponding-author" role="img" aria-label="Corresponding author" title="Corresponding author">{icon("corresponding")}</span>')
 
 rows=[]
 last_year=None
