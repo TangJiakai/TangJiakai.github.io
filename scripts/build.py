@@ -133,7 +133,7 @@ for group in service_data['reviewing']:
 
 nav=[('index.html','Home'),('publications.html','Publications'),('patents.html','Patents'),('gallery.html','Gallery')]
 navhtml=''.join(f'<a href="{k}">{v}</a>' for k,v in nav)
-structured={"@context":"https://schema.org","@type":"Person","name":"Jiakai Tang","alternateName":"唐嘉凯","url":"https://tangjiakai.github.io/","image":"https://tangjiakai.github.io/assets/portrait.jpg","affiliation":{"@type":"CollegeOrUniversity","name":"Renmin University of China"},"sameAs":["https://github.com/TangJiakai","https://scholar.google.com/citations?user=7kB-4sEAAAAJ"],"knowsAbout":["Recommender Systems","Large Language Models","Intelligent Agents"]}
+structured={"@context":"https://schema.org","@type":"Person","name":"Jiakai Tang","alternateName":"唐嘉凯","url":"https://tangjiakai.github.io/","image":"https://tangjiakai.github.io/assets/portrait.jpg","affiliation":{"@type":"CollegeOrUniversity","name":"Renmin University of China"},"sameAs":["https://github.com/TangJiakai","https://scholar.google.com/citations?user=7kB-4sEAAAAJ"],"knowsAbout":["Recommender Systems","Large Language Models","Personalized Agents"]}
 structured['sameAs'].extend(['https://dblp.org/pid/294/2295.html','https://www.linkedin.com/in/%E5%98%89%E5%87%AF-%E5%94%90-744894299/'])
 html=f'''<!doctype html>
 <html lang="en">
@@ -141,13 +141,13 @@ html=f'''<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jiakai Tang · 唐嘉凯</title>
-  <meta name="description" content="Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and intelligent agents.">
+  <meta name="description" content="Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and personalized agents.">
   <meta name="theme-color" content="#ffffff">
   <meta name="google-site-verification" content="IjU5DXIl_b3xuy8beeihjfm2RMkB2Yd6SPrrIbL4gnI">
   <link rel="canonical" href="https://tangjiakai.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Jiakai Tang · 唐嘉凯">
-  <meta property="og:description" content="Recommender systems, large language models, and intelligent agents. Ph.D. student at Renmin University of China.">
+  <meta property="og:description" content="Recommender systems, large language models, and personalized agents. Ph.D. student at Renmin University of China.">
   <meta property="og:url" content="https://tangjiakai.github.io/">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
   <link rel="icon" href="assets/favicon.svg?v={favicon_version}" type="image/svg+xml">
@@ -166,7 +166,7 @@ html=f'''<!doctype html>
     <img class="portrait" src="assets/portrait.jpg" width="413" height="591" alt="Portrait of Jiakai Tang">
     <h1>Jiakai Tang <span lang="zh-CN">唐嘉凯</span></h1>
     <p class="affiliation">Ph.D. student at Gaoling School of Artificial Intelligence, Renmin University of China.</p>
-    <p class="profile-interests">Recommender Systems,<br>Large Language Models,<br>and Intelligent Agents.</p>
+    <p class="profile-interests">Recommender Systems,<br>Large Language Models,<br>and Personalized Agents.</p>
     <ul class="contact-links">
       <li><span class="contact-row">{icon('pin')}<span>Beijing, China</span></span></li>
       <li><a class="contact-row" href="mailto:tangjiakai5704@gmail.com">{icon('mail')}<span>Email</span></a></li>
@@ -180,7 +180,7 @@ html=f'''<!doctype html>
     <section id="about" aria-labelledby="about-title">
       <h2 id="about-title" class="sr-only">About Me</h2>
       <p>I am a Ph.D. student in the <a href="https://ai.ruc.edu.cn/">Gaoling School of Artificial Intelligence</a> at <a href="https://www.ruc.edu.cn/">Renmin University of China</a>, advised by <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm">Prof. Xu Chen</a>. I am a member of the <a href="https://ai-engine-lab.com/">AI-Engine Lab</a>. I joined the integrated master's–Ph.D. program in 2022 and expect to graduate in 2028. Previously, I received my bachelor's degree in Computer Science and Technology from Wuhan University of Technology in 2022.</p>
-      <p>My research focuses on <strong>LLM-powered recommender systems and intelligent agents</strong>. I study reasoning for recommendation, user intent understanding, and interactive agents with long-term memory. I am also interested in faithful user simulation and evaluation, connecting algorithmic advances with real-world applications.</p>
+      <p>My research focuses on <strong>LLM-powered recommender systems and personalized agents</strong>. I study reasoning for recommendation, user intent understanding, and interactive agents with long-term memory. I am also interested in faithful user simulation and evaluation, connecting algorithmic advances with real-world applications.</p>
       <p>I have worked on industrial recommendation at Taobao through the RecGPT series (<a href="https://dl.acm.org/doi/10.1145/3846382" aria-label="RecGPT V1 paper">V1</a> · <a href="https://arxiv.org/abs/2512.14503" aria-label="RecGPT V2 technical report">V2</a> · <a href="https://arxiv.org/abs/2607.15591" aria-label="RecGPT V3 technical report">V3</a>), and on reasoning for industrial ranking through <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a>. My recent research interests include efficient long-sequence modeling for large language models, personalized memory, and personalized agents.</p>
       <div class="email-contacts" aria-label="Email addresses">
         <div class="email-contact-row"><span class="email-label">Long-term</span><div class="email-options"><a href="mailto:tangjiakai5704@gmail.com">tangjiakai5704@gmail.com</a><a href="mailto:1049765241@qq.com">1049765241@qq.com</a></div></div>
@@ -320,8 +320,8 @@ gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gall
 gallery_body+='''<dialog class="photo-viewer" aria-label="Photo viewer"><button type="button" class="photo-close" aria-label="Close photo">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>'''
 
 pages={
-    'index.html':('Home',home_body,'Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and intelligent agents.'),
-    'publications.html':('Publications',publication_nav+sections['publications'],'Publications by Jiakai Tang on recommender systems, large language models, and intelligent agents.'),
+    'index.html':('Home',home_body,'Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and personalized agents.'),
+    'publications.html':('Publications',publication_nav+sections['publications'],'Publications by Jiakai Tang on recommender systems, large language models, and personalized agents.'),
     'patents.html':('Patents',sections['patents'],'Patents and industrial research contributions by Jiakai Tang.'),
     'gallery.html':('Gallery',gallery_body,'Academic and everyday moments from Jiakai Tang.'),
 }
