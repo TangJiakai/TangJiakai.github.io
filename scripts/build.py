@@ -149,7 +149,7 @@ html=f'''<!doctype html>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead"><div class="nav-wrap">
   <a class="brand" href="#about">Homepage</a>
-  <nav aria-label="Main navigation">{navhtml}</nav>
+  <nav aria-label="Main navigation"><div class="nav-sections">{navhtml}</div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a></nav>
 </div></header>
 <div class="page-layout">
   <aside class="profile" aria-label="Profile">
@@ -159,7 +159,6 @@ html=f'''<!doctype html>
     <p class="profile-interests">Recommender Systems,<br>Large Language Models,<br>and Intelligent Agents.</p>
     <ul class="contact-links">
       <li><span class="contact-row">{icon('pin')}<span>Beijing, China</span></span></li>
-      <li><a class="contact-row" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View Chinese CV (PDF)">{icon('paper')}<span>CV (PDF)</span></a></li>
       <li><a class="contact-row" href="mailto:tangjiakai5704@ruc.edu.cn">{icon('mail')}<span>Email</span></a></li>
       <li><a class="contact-row" href="https://github.com/TangJiakai">{icon('github')}<span>GitHub</span></a></li>
       <li><a class="contact-row" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ">{icon('scholar')}<span>Google Scholar</span></a></li>
