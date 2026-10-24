@@ -41,6 +41,8 @@ Home contains biography, six recent news entries (earlier news expands), honors,
 
 Add approved photos under `assets/gallery/`, and entries to `data/gallery.json` with `category` (`academic` or `life`), `src` (relative image path), `alt` (descriptive alternative text), and `caption`. Empty categories show a simple coming-soon message. Photos open in an accessible dialog with Escape/close support, and link directly to the image when JavaScript is unavailable. Do not publish placeholder portraits or unapproved personal photos.
 
+Optional `thumbnail`, `width`, and `height` fields provide lightweight previews with reserved layout space. Photos retain their original proportions in a two-column layout (one column on mobile). The initial 21 photos were supplied in the owner's Desktop/生活照 folder. WebP previews and larger images are orientation-corrected and omit source EXIF metadata; original files remain untouched. Captions use supplied filenames without inferred travel dates.
+
 ```sh
 python3 scripts/build.py
 python3 -m http.server 8765 --bind 127.0.0.1

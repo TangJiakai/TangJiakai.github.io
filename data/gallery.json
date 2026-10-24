@@ -1,1 +1,191 @@
-[]
+[
+  {
+    "category": "academic",
+    "src": "assets/gallery/kdd-2026-talk.webp",
+    "thumbnail": "assets/gallery/kdd-2026-talk-thumb.webp",
+    "width": 900,
+    "height": 675,
+    "caption": "KDD 2026 · Jeju Island, South Korea",
+    "alt": "Giving a talk at a conference lectern at KDD 2026."
+  },
+  {
+    "category": "academic",
+    "src": "assets/gallery/kdd-2026-posters.webp",
+    "thumbnail": "assets/gallery/kdd-2026-posters-thumb.webp",
+    "width": 900,
+    "height": 675,
+    "caption": "KDD 2026 · Poster session",
+    "alt": "Standing beside research posters at KDD 2026."
+  },
+  {
+    "category": "academic",
+    "src": "assets/gallery/kdd-2024-barcelona.webp",
+    "thumbnail": "assets/gallery/kdd-2024-barcelona-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "KDD 2024 · Barcelona, Spain",
+    "alt": "At the KDD 2024 conference venue beneath the welcome screen."
+  },
+  {
+    "category": "academic",
+    "src": "assets/gallery/kdd-2024-venue.webp",
+    "thumbnail": "assets/gallery/kdd-2024-venue-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "KDD 2024 · At the conference venue",
+    "alt": "Holding conference materials at the KDD 2024 venue."
+  },
+  {
+    "category": "academic",
+    "src": "assets/gallery/singapore-nus.webp",
+    "thumbnail": "assets/gallery/singapore-nus-thumb.webp",
+    "width": 900,
+    "height": 675,
+    "caption": "Singapore · During my joint Ph.D. program at NUS",
+    "alt": "A waterfront sunset in Singapore."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/beijing.webp",
+    "thumbnail": "assets/gallery/beijing-thumb.webp",
+    "width": 733,
+    "height": 1100,
+    "caption": "Beijing",
+    "alt": "A portrait beside a lake and trees in Beijing."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/jeju-coast.webp",
+    "thumbnail": "assets/gallery/jeju-coast-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Jeju Island, South Korea",
+    "alt": "Standing beside the coast on Jeju Island."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/jeju-sunshine.webp",
+    "thumbnail": "assets/gallery/jeju-sunshine-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Jeju Island, South Korea",
+    "alt": "Enjoying the sunshine outdoors on Jeju Island."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/batam.webp",
+    "thumbnail": "assets/gallery/batam-thumb.webp",
+    "width": 833,
+    "height": 1100,
+    "caption": "Batam, Indonesia",
+    "alt": "A portrait wearing sunglasses in Batam."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/pingtan-coast.webp",
+    "thumbnail": "assets/gallery/pingtan-coast-thumb.webp",
+    "width": 900,
+    "height": 600,
+    "caption": "Pingtan, Fujian",
+    "alt": "Sitting on rocks overlooking the coast in Pingtan."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/pingtan-beach.webp",
+    "thumbnail": "assets/gallery/pingtan-beach-thumb.webp",
+    "width": 900,
+    "height": 506,
+    "caption": "Pingtan, Fujian",
+    "alt": "Standing on a beach beside the blue sea in Pingtan."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/pingtan-balloons.webp",
+    "thumbnail": "assets/gallery/pingtan-balloons-thumb.webp",
+    "width": 733,
+    "height": 1100,
+    "caption": "Pingtan, Fujian",
+    "alt": "A seaside portrait beneath pink balloons."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/pingtan-seaside.webp",
+    "thumbnail": "assets/gallery/pingtan-seaside-thumb.webp",
+    "width": 900,
+    "height": 600,
+    "caption": "Pingtan, Fujian",
+    "alt": "A portrait by the water in Pingtan."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/pingtan-pink-truck.webp",
+    "thumbnail": "assets/gallery/pingtan-pink-truck-thumb.webp",
+    "width": 900,
+    "height": 600,
+    "caption": "Pingtan, Fujian",
+    "alt": "Standing beside a pink truck marked Pingtan."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/sagrada-familia-light.webp",
+    "thumbnail": "assets/gallery/sagrada-familia-light-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Sagrada Família · Barcelona, Spain",
+    "alt": "Inside the Sagrada Família with colorful light from stained-glass windows."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/sagrada-familia-interior.webp",
+    "thumbnail": "assets/gallery/sagrada-familia-interior-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Sagrada Família · Barcelona, Spain",
+    "alt": "A portrait beneath the stained-glass windows of the Sagrada Família."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/sagrada-familia-exterior.webp",
+    "thumbnail": "assets/gallery/sagrada-familia-exterior-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Sagrada Família · Barcelona, Spain",
+    "alt": "Outside the Sagrada Família in Barcelona."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/madrid.webp",
+    "thumbnail": "assets/gallery/madrid-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Madrid, Spain",
+    "alt": "Standing beneath a stone arch in Madrid."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/spain-outing.webp",
+    "thumbnail": "assets/gallery/spain-outing-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Exploring Spain",
+    "alt": "A group photo during an outing in Spain."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/spain-dinner.webp",
+    "thumbnail": "assets/gallery/spain-dinner-thumb.webp",
+    "width": 825,
+    "height": 1100,
+    "caption": "Dinner in Spain",
+    "alt": "A group gathered around a restaurant table in Spain."
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/childhood.webp",
+    "thumbnail": "assets/gallery/childhood-thumb.webp",
+    "width": 826,
+    "height": 1100,
+    "caption": "A childhood memory",
+    "alt": "A childhood portrait."
+  }
+]

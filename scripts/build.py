@@ -266,10 +266,12 @@ for category,label,description in [('academic','Academic Moments','Talks, confer
         src=esc(photo['src'],quote=True)
         caption=esc(photo.get('caption',''))
         alt=esc(photo['alt'],quote=True)
-        photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{src}" alt="{alt}" loading="lazy" decoding="async"></a><figcaption>{caption}</figcaption></figure>')
+        thumbnail=esc(photo.get('thumbnail',photo['src']),quote=True)
+        dimensions=f' width="{int(photo["width"])}" height="{int(photo["height"])}"' if photo.get('width') and photo.get('height') else ''
+        photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{thumbnail}" alt="{alt}"{dimensions} loading="lazy" decoding="async"></a><figcaption>{caption}</figcaption></figure>')
     content='<div class="gallery-grid">'+''.join(photos)+'</div>' if photos else '<p class="gallery-empty">Photos coming soon.</p>'
     gallery_groups.append(f'<section class="gallery-group" id="{category}"><h3>{label}</h3><p class="muted">{description}</p>{content}</section>')
-gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title"><span aria-hidden="true">📷</span> Gallery</h2><p class="page-intro">A collection of academic and everyday moments.</p></section>'+''.join(gallery_groups)
+gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title"><span aria-hidden="true">📷</span> Gallery</h2><p class="page-intro">A collection of academic and everyday moments.</p><nav class="section-nav gallery-nav" aria-label="Gallery categories"><a href="#academic">Academic Moments</a><a href="#life">Life</a></nav></section>'+''.join(gallery_groups)
 gallery_body+='''<dialog class="photo-viewer" aria-label="Photo viewer"><button type="button" class="photo-close" aria-label="Close photo">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>'''
 
 pages={
