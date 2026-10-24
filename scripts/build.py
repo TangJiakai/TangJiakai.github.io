@@ -26,6 +26,7 @@ for award in honors:
 
 def icon(name):
     paths={
+        'paper':'<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H5v18h14V8Z"/><path d="M14 3v5h5M8 12h8M8 16h8"/></g>',
         'pin':'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5" fill="white"/>',
         'mail':'<path d="M2 5h20v14H2Z"/><path d="m3 6 9 7 9-7" fill="none" stroke="white" stroke-width="1.8"/>',
         'scholar':'<path d="m1 8 11-6 11 6-11 6Zm5 4 6 3 6-3v6c-4 3-8 3-12 0Zm15-1h2v8h-2Z"/>',
@@ -61,14 +62,15 @@ for p in papers:
         url=esc(resource['url'],quote=True)
         accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
         if resource['label']=='Code' and resource['url'].startswith('https://github.com/'):
-            resource_links.append(f'<a class="code-icon-link" href="{url}" aria-label="{accessible_label}" title="View code on GitHub">{icon("github")}</a>')
+            resource_links.append(f'<a class="resource-icon-link code-icon-link" href="{url}" aria-label="{accessible_label}" title="View code on GitHub">{icon("github")}</a>')
         else:
             resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
+    paper_link=f'<a class="resource-icon-link paper-icon-link" href="{esc(p["link"],quote=True)}" aria-label="Paper: {esc(p["title"],quote=True)}" title="Read paper">{icon("paper")}</a>' if p['link'] else ''
     year=p['year']
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>
       <p class="authors">{author_html(p['authors'])}</p>
-      <p class="paper-meta"><span class="badge venue">{esc(p['venue'])}</span>{''.join(badges)}{f'<a class="paper-link" href="{esc(p["link"],quote=True)}">[Paper]</a>' if p['link'] else ''}{''.join(resource_links)}</p>
+      <p class="paper-meta"><span class="badge venue">{esc(p['venue'])}</span>{''.join(badges)}{paper_link}{''.join(resource_links)}</p>
     </li>''')
 rows.append('</ul></div>')
 
