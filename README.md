@@ -46,8 +46,19 @@ Open http://127.0.0.1:8765/.
 
 The organization is inspired by [Changle Qu's academic homepage](https://quchangle1.github.io/): a profile sidebar and a readable sequence of biography, news, publications, honors, education, experience, and service. The implementation and styling here are original; no third-party template code or photographs were copied.
 
-Only public-facing academic information is included. Scholarship forms, recommendation letters, personal telephone numbers, birth date, and signatures are not part of this repository.
+Public-facing academic information and the owner-authorized Chinese CV are included. The CV is available at `assets/Jiakai-Tang-CV.pdf`; replace this file when a new version is supplied. Scholarship forms, award certificates, and recommendation letters are not part of this repository.
 
 ## Metric badges
 
 Scholar badges use the existing scheduled snapshot and show its last successful update date; fetching failures retain the previous values. GitHub publication repositories use clickable GitHub icons with accessible Code labels and hover tooltips, without star counters.
+
+## Date sources (checked 2026-10-24)
+
+- RecGPT acceptance: 2026-08-27, from ACM's publication-history assertion deposited with Crossref: https://api.crossref.org/works/10.1145/3846382. Online publication is 2026-10-21; the News entry explicitly describes acceptance.
+- ReaRec publication: September 2026, from IEEE's Crossref record: https://api.crossref.org/works/10.1109/TKDE.2026.3694421. The News entry describes publication because the acceptance month is unconfirmed.
+- GRIT: December 2026 is the workshop month (https://grit-genir.github.io/workshop-sigir-ap-2026/), explicitly selected by the owner for the award's timeline display.
+- CIKM award: October 2022, conference month on https://www.cikmconference.org/2022/best-paper.html.
+- Education dates: verified against the owner-supplied CV.
+- National Scholarships in 2019–2021: December on all three owner-supplied award certificates. Certificates are not published. The 2026 final award month remains unspecified: https://ai.ruc.edu.cn/xwgg/xygg/20260922001.html is a September 22 nomination notice.
+- The 2020 Outstanding Youth League Cadre certificate states the year only; no month is inferred.
+- Publication year headings and venue labels intentionally retain year precision; timeline events use months where verified.

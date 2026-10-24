@@ -1,66 +1,78 @@
 [
   {
-    "date": "2026",
+    "date": "2026.12",
     "title": "SIGIR-AP GRIT Workshop Best Paper",
     "detail": "RecGPT-V3 Technical Report · First author",
     "chinese": "",
-    "highlight": true
+    "highlight": true,
+    "source": "https://grit-genir.github.io/workshop-sigir-ap-2026/",
+    "date_note": "Workshop month, as explicitly requested by the site owner; not the award notification date.",
+    "category": "research"
   },
   {
-    "date": "2026, 2021, 2020, 2019",
+    "date": "2026, 2021.12, 2020.12, 2019.12",
     "title": "National Scholarship",
     "detail": "Four-time recipient",
     "chinese": "国家奖学金",
-    "highlight": true
+    "highlight": true,
+    "date_note": "2019–2021 months verified against award certificates. 2026 final award month is unconfirmed; the September 22 school notice is a nomination notice.",
+    "category": "university"
   },
   {
     "date": "2025.11",
     "title": "Third-Class Graduate Academic Excellence Scholarship",
     "detail": "Renmin University of China",
     "chinese": "研究生学习优秀三等奖学金",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2025.09",
     "title": "Merit Student",
     "detail": "Renmin University of China",
     "chinese": "三好学生",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2024.12",
     "title": "First-Class Graduate Academic Excellence Scholarship",
     "detail": "Renmin University of China",
     "chinese": "研究生学习优秀一等奖学金",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2023.11",
     "title": "Third-Class Academic Excellence Scholarship",
     "detail": "Renmin University of China",
     "chinese": "学习优秀三等奖学金",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2023.09",
     "title": "Merit Student",
     "detail": "Renmin University of China",
     "chinese": "三好学生",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2023.09",
     "title": "Outstanding Student Leader",
     "detail": "Renmin University of China",
     "chinese": "优秀学生干部",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2023.09",
     "title": "Third-Class Scholarship for Social Work and Volunteer Service",
     "detail": "Renmin University of China",
     "chinese": "社会工作与志愿服务骨干三等奖学金",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2022.10",
@@ -69,48 +81,55 @@
     "chinese": "",
     "highlight": true,
     "source": "https://www.cikmconference.org/2022/best-paper.html",
-    "date_note": "Month of CIKM 2022 (October 17–21), as shown on the official conference award page."
+    "date_note": "Month of CIKM 2022 (October 17–21), as shown on the official conference award page.",
+    "category": "research"
   },
   {
     "date": "2021.05",
     "title": "Silver Award, National Finals",
     "detail": "China Collegiate Computing Contest · Group Programming Ladder Tournament",
     "chinese": "中国高校计算机大赛团体程序设计天梯赛全国总决赛银奖",
-    "highlight": false
+    "highlight": false,
+    "category": "competition"
   },
   {
     "date": "2021.02",
     "title": "First Prize, Programming Finals",
     "detail": "National College Computer Ability Challenge",
     "chinese": "全国高校计算机能力挑战赛程序设计赛决赛一等奖",
-    "highlight": false
+    "highlight": false,
+    "category": "competition"
   },
   {
     "date": "2020.11",
     "title": "Model Merit Student",
     "detail": "Wuhan University of Technology · Academic year 2019–2020",
     "chinese": "校三好学生标兵",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2020",
     "title": "Outstanding Youth League Cadre",
     "detail": "Wuhan University of Technology · Academic year 2019–2020",
     "chinese": "校优秀共青团干部",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2019.11",
     "title": "Model Merit Student",
     "detail": "Wuhan University of Technology · Academic year 2018–2019",
     "chinese": "校三好学生标兵",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   },
   {
     "date": "2019.05",
     "title": "Outstanding Youth League Member",
     "detail": "Wuhan University of Technology · Academic year 2018–2019",
     "chinese": "校优秀团员",
-    "highlight": false
+    "highlight": false,
+    "category": "university"
   }
 ]

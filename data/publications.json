@@ -36,7 +36,8 @@
     "id": "paper-3",
     "first": true,
     "year": 2027,
-    "award": ""
+    "award": "",
+    "website": "https://hcrs2027.github.io/"
   },
   {
     "venue": "arXiv 2026",
@@ -331,7 +332,8 @@
     "id": "paper-27",
     "first": false,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "website": "https://hcrec.github.io/"
   },
   {
     "venue": "EMNLP 2026",

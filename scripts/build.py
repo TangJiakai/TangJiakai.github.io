@@ -17,12 +17,15 @@ papers.sort(key=publication_priority,reverse=True)
 scholar=json.loads((ROOT/'data/scholar.json').read_text())
 scholar_date=datetime.fromisoformat(scholar['updated_at']).astimezone(ZoneInfo('Asia/Singapore')).strftime('%b %d, %Y')
 honors=json.loads((ROOT/'data/honors.json').read_text())
-honor_rows=[]
-for award in honors:
-    title=esc(award['title'])
-    if award['highlight']: title=f'<strong class="award-text">{title}</strong>'
-    chinese=f'<span class="honor-cn" lang="zh-CN">{esc(award["chinese"])}</span>' if award['chinese'] else ''
-    honor_rows.append(f'<li><span class="date">{esc(award["date"])}</span><div>{title}{chinese}<span class="honor-detail">{esc(award["detail"])}</span></div></li>')
+honor_groups=[]
+for category, heading in [('research','Research Awards'),('university','Scholarships & University Honors'),('competition','Competition Awards')]:
+    honor_rows=[]
+    for award in (a for a in honors if a['category']==category):
+        title=esc(award['title'])
+        if award['highlight']: title=f'<strong class="award-text">{title}</strong>'
+        chinese=f'<span class="honor-cn" lang="zh-CN">{esc(award["chinese"])}</span>' if award['chinese'] else ''
+        honor_rows.append(f'<li><span class="date">{esc(award["date"])}</span><div>{title}{chinese}<span class="honor-detail">{esc(award["detail"])}</span></div></li>')
+    honor_groups.append(f'<div class="honor-group"><h3 class="honor-group-title">{esc(heading)}</h3><ul class="dated-list honors-list">{"".join(honor_rows)}</ul></div>')
 
 def icon(name):
     paths={
@@ -51,7 +54,8 @@ for p in papers:
         rows.append(f'<div class="publication-year"><h3 class="year-heading"><span>{p["year"]}</span></h3><ul class="publications-list">')
         last_year=p['year']
     title=esc(p['title'])
-    if p['link']: title=f'<a href="{esc(p["link"],quote=True)}">{title}</a>'
+    title_url=p['link'] or p.get('website','')
+    if title_url: title=f'<a href="{esc(title_url,quote=True)}">{title}</a>'
     badges=[]
     if 'CCF-A' in p['badge']: badges.append('<span class="badge ccf-a">CCF-A</span>')
     elif 'CCF-B' in p['badge']: badges.append('<span class="badge ccf-b">CCF-B</span>')
@@ -67,6 +71,9 @@ for p in papers:
         else:
             resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
     paper_link=f'<a class="resource-icon-link paper-icon-link" href="{esc(p["link"],quote=True)}" aria-label="Paper: {esc(p["title"],quote=True)}" title="Read paper">{icon("paper")}</a>' if p['link'] else ''
+    venue_badge=f'<span class="badge venue">{esc(p["venue"])}</span>'
+    if p.get('website'):
+        venue_badge=f'<a class="badge venue" href="{esc(p["website"],quote=True)}" title="Workshop website">{esc(p["venue"])}</a>'
     year=p['year']
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>
@@ -113,6 +120,7 @@ html=f'''<!doctype html>
     <p class="profile-interests">Recommender Systems,<br>Large Language Models,<br>and Intelligent Agents.</p>
     <ul class="contact-links">
       <li><span class="contact-row">{icon('pin')}<span>Beijing, China</span></span></li>
+      <li><a class="contact-row" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View Chinese CV (PDF)">{icon('paper')}<span>CV (PDF)</span></a></li>
       <li><a class="contact-row" href="mailto:tangjiakai5704@ruc.edu.cn">{icon('mail')}<span>Email</span></a></li>
       <li><a class="contact-row" href="https://github.com/TangJiakai">{icon('github')}<span>GitHub</span></a></li>
       <li><a class="contact-row" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ">{icon('scholar')}<span>Google Scholar</span></a></li>
@@ -123,7 +131,7 @@ html=f'''<!doctype html>
   <main id="main">
     <section id="about" aria-labelledby="about-title">
       <h2 id="about-title" class="sr-only">About Me</h2>
-      <p>I am a Ph.D. student in the <a href="https://ai.ruc.edu.cn/">Gaoling School of Artificial Intelligence</a> at <a href="https://www.ruc.edu.cn/">Renmin University of China</a>, advised by <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm">Prof. Xu Chen</a>. I joined the integrated master's–Ph.D. program in 2022 and expect to graduate in 2028. Previously, I received my bachelor's degree in Computer Science and Technology from Wuhan University of Technology in 2022.</p>
+      <p>I am a Ph.D. student in the <a href="https://ai.ruc.edu.cn/">Gaoling School of Artificial Intelligence</a> at <a href="https://www.ruc.edu.cn/">Renmin University of China</a>, advised by <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm">Prof. Xu Chen</a>. I am a member of the <a href="https://ai-engine-lab.com/">AI-Engine Lab</a>. I joined the integrated master's–Ph.D. program in 2022 and expect to graduate in 2028. Previously, I received my bachelor's degree in Computer Science and Technology from Wuhan University of Technology in 2022.</p>
       <p>My research focuses on <strong>LLM-powered recommender systems and intelligent agents</strong>. I study reasoning for recommendation, user intent understanding, and interactive agents with long-term memory. I am also interested in faithful user simulation and evaluation, connecting algorithmic advances with real-world applications.</p>
       <p>I have worked on industrial recommendation at Taobao through the <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> series, and on reasoning for industrial ranking through <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a>. My recent interests include adaptive computation, recommendation scaling, and agents that learn from experience.</p>
       <div class="scholar-stats" aria-label="Google Scholar metrics">
@@ -137,15 +145,15 @@ html=f'''<!doctype html>
     <section id="news" aria-labelledby="news-title">
       <h2 id="news-title"><span aria-hidden="true">🔥</span> News</h2>
       <ul class="news-list">
+        <li><time datetime="2026-12">2026.12</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <strong>RecGPT-V3</strong> received the <span class="award-text">🏆 SIGIR-AP GRIT Workshop Best Paper</span> award.</span></li>
         <li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30932">UserArena</a> (<strong>co-first author</strong>), a benchmark for interactive user simulation with long-horizon shopping agents.</span></li>
         <li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30128">LoopRec</a> (<strong>co-first author</strong>), exploring item-level adaptive recursion for sequential recommendation.</span></li>
+        <li><time datetime="2026-09">2026.09</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://ieeexplore.ieee.org/document/11523596/">ReaRec</a> (<strong>first author</strong>) was published in <strong>IEEE TKDE</strong>.</span></li>
         <li><time datetime="2026-08">2026.08</time><span>Released <a href="https://arxiv.org/abs/2608.20707">RecVerse</a> (<strong>first author</strong>), a GUI-grounded shopping simulation agent with hierarchical memory and trajectory-level reinforcement learning.</span></li>
         <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a> (<strong>co-first author</strong>) was published at <strong>KDD 2026</strong> with an <span class="oral-text">🌟 Oral presentation</span>.</span></li>
         <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3817619">RecBot</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
         <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818457">OneRank</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
-        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <strong>RecGPT-V3</strong> received the <span class="award-text">🏆 SIGIR-AP GRIT Workshop Best Paper</span> award.</span></li>
-        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> (<strong>first author</strong>) was accepted by <strong>ACM TOIS</strong>.</span></li>
-        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://ieeexplore.ieee.org/document/11523596/">ReaRec</a> (<strong>first author</strong>) was accepted by <strong>IEEE TKDE</strong>.</span></li>
+        <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> (<strong>first author</strong>) was accepted by <strong>ACM TOIS</strong>.</span></li>
         <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> Received my fourth <strong>National Scholarship</strong>, following awards in 2019, 2020, and 2021.</span></li>
       </ul>
     </section>
@@ -155,13 +163,13 @@ html=f'''<!doctype html>
     </section>
     <section id="honors" aria-labelledby="honors-title">
       <h2 id="honors-title"><span aria-hidden="true">🎖️</span> Honors and Awards</h2>
-      <ul class="dated-list honors-list">{''.join(honor_rows)}</ul>
+      {''.join(honor_groups)}
     </section>
     <section id="education" aria-labelledby="education-title">
       <h2 id="education-title"><span aria-hidden="true">📖</span> Education</h2>
       <ul class="dated-list education-list">
-        <li><span class="date">2022–Present</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/ruc.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Renmin University of China</h3><p>Integrated Master's–Ph.D. Program in Artificial Intelligence<br>Gaoling School of Artificial Intelligence · Advisor: Xu Chen<br><span class="muted">Expected graduation: 2028</span></p></div></li>
-        <li><span class="date">2018–2022</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/whut.png" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Wuhan University of Technology</h3><p>Bachelor's Degree in Computer Science and Technology<br><span class="muted">Ranked 1 / 257</span></p></div></li>
+        <li><span class="date">2022.09–Present</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/ruc.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Renmin University of China</h3><p>Integrated Master's–Ph.D. Program in Artificial Intelligence<br>Gaoling School of Artificial Intelligence · Advisor: Xu Chen<br><span class="muted">Expected graduation: 2028</span></p></div></li>
+        <li><span class="date">2018.09–2022.06</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/whut.png" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Wuhan University of Technology</h3><p>Bachelor's Degree in Computer Science and Technology<br><span class="muted">Ranked 1 / 257</span></p></div></li>
       </ul>
     </section>
     <section id="experience" aria-labelledby="experience-title">
@@ -178,7 +186,7 @@ html=f'''<!doctype html>
       <h2 id="service-title"><span aria-hidden="true">📚</span> Academic Services</h2>
       <ul class="service-list">
         <li><h3>Peer Review</h3><p><strong>Conferences:</strong> NeurIPS, ICLR, AAAI, IJCAI, KDD, SIGIR, WSDM, ACL, EMNLP, WWW.<br><strong>Journals:</strong> ACM TOIS, IEEE TKDE, ACM TORS.</p></li>
-        <li><h3>Workshop Organization</h3><p>Core organizer of the Human-Centered Recommender Systems (HCRS) Workshop at WWW 2026 and 2027.</p></li>
+        <li><h3>Workshop Organization</h3><p>Core organizer of the Human-Centered Recommender Systems (HCRS) Workshop at <a href="https://hcrec.github.io/">WWW 2026</a> and <a href="https://hcrs2027.github.io/">WWW 2027</a>.</p></li>
         <li><h3>Open-Source Contributions</h3><p>Contributor to the <a href="https://github.com/RUCAIBox/RecBole"><strong>RecBole</strong></a> recommendation framework and lead developer of <a href="https://github.com/TangJiakai/RecBole-FairRec"><strong>RecBole-FairRec</strong></a>. Contributed to core functionality and evaluation in <a href="https://github.com/RUC-GSAI/YuLan-Rec"><strong>RecAgent</strong></a>.</p></li>
       </ul>
     </section>
