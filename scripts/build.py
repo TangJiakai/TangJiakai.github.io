@@ -34,6 +34,9 @@ def icon(name):
     return f'<svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{paths[name]}</svg>'
 
 def author_html(s):
+    # Omit equal-contribution markers throughout rows where Jiakai is listed first.
+    if s.split(',')[0].strip().rstrip('†*') == 'Jiakai Tang':
+        s=s.replace('†','')
     return esc(s).replace('Jiakai Tang','<strong>Jiakai Tang</strong>').replace('†','<sup>†</sup>').replace('*','<sup>*</sup>')
 
 rows=[]
