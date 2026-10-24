@@ -235,12 +235,12 @@ html=f'''<!doctype html>
         <li><span class="date">2023.02–2023.07</span><div class="employer"><span class="company-logo company-logo--huawei" aria-hidden="true"><img src="assets/logos/huawei.png" alt="" loading="lazy" decoding="async"></span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
       </ul>
     </section>
+    <section id="talks" aria-labelledby="talks-title">
+      <h2 id="talks-title"><span aria-hidden="true">🎤</span> Invited Talks</h2>
+      <ul class="dated-list workshop-list">{''.join(talk_rows)}</ul>
+    </section>
     <section id="service" aria-labelledby="service-title">
       <h2 id="service-title"><span aria-hidden="true">📚</span> Academic Services</h2>
-      <div class="service-group">
-        <h3 class="service-group-title">Invited Talks</h3>
-        <ul class="dated-list workshop-list">{''.join(talk_rows)}</ul>
-      </div>
       <div class="service-group">
         <h3 class="service-group-title">Workshop Organization</h3>
         <ul class="dated-list workshop-list">{''.join(workshop_rows)}</ul>
@@ -275,7 +275,7 @@ sections['news']=re.sub(r'<ul class="news-list">.*?</ul>',
     '<ul class="news-list">'+''.join(recent_news)+'</ul>'+
     ('<details class="news-archive"><summary>Earlier news</summary><ul class="news-list">'+''.join(archived_news)+'</ul></details>' if archived_news else ''),
     sections['news'],flags=re.S)
-home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
+home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('talks','Invited Talks'),('service','Academic Services'),('experience','Internships')]
 home_nav='<nav class="section-nav floating-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
 home_blocks=[]
 for index,(key,label) in enumerate(home_sections):
