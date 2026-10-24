@@ -22,7 +22,7 @@
     if (!links.length) return;
     let selected = 0;
     targets.forEach((target, index) => {
-      if (target && target.getBoundingClientRect().top <= offset + 16) selected = index;
+      if (target && target.getBoundingClientRect().top <= offset + (parseFloat(getComputedStyle(target).scrollMarginTop) || 0) + 3) selected = index;
     });
     if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) selected = links.length - 1;
     links.forEach((link, index) => {

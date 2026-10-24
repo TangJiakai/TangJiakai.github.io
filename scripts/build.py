@@ -251,9 +251,17 @@ html=f'''<!doctype html>
 # Share the profile and page shell while keeping long collections off the homepage.
 sections={match.group(1):match.group(0) for match in re.finditer(r'<section id="([^"]+)".*?</section>',html,re.S)}
 news_items=re.findall(r'<li>.*?</li>',sections['news'],re.S)
+# Keep this year's news and the previous year's final quarter expanded.
+# In 2027, August and September 2026 move into Earlier news on the next build.
+news_cutoff=f"{datetime.now(ZoneInfo('Asia/Singapore')).year-1}-10"
+recent_news=[]
+archived_news=[]
+for item in news_items:
+    month=re.search(r'datetime="(\d{4}-\d{2})"',item)
+    (archived_news if month and month.group(1)<news_cutoff else recent_news).append(item)
 sections['news']=re.sub(r'<ul class="news-list">.*?</ul>',
-    '<ul class="news-list">'+''.join(news_items[:6])+'</ul>'+
-    ('<details class="news-archive"><summary>Earlier news</summary><ul class="news-list">'+''.join(news_items[6:])+'</ul></details>' if len(news_items)>6 else ''),
+    '<ul class="news-list">'+''.join(recent_news)+'</ul>'+
+    ('<details class="news-archive"><summary>Earlier news</summary><ul class="news-list">'+''.join(archived_news)+'</ul></details>' if archived_news else ''),
     sections['news'],flags=re.S)
 home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
 home_nav='<nav class="section-nav floating-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
