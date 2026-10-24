@@ -59,7 +59,7 @@ Scholar badges use the existing scheduled snapshot and show its last successful 
 - GRIT: December 2026 is the workshop month (https://grit-genir.github.io/workshop-sigir-ap-2026/), explicitly selected by the owner for the award's timeline display.
 - CIKM award: October 2022, conference month on https://www.cikmconference.org/2022/best-paper.html.
 - Education dates: verified against the owner-supplied CV.
-- National Scholarships in 2019–2021: December on all three owner-supplied award certificates. Certificates are not published. The 2026 final award month remains unspecified: https://ai.ruc.edu.cn/xwgg/xygg/20260922001.html is a September 22 nomination notice.
+- National Scholarships in 2019–2021: December on all three owner-supplied award certificates. Certificates are not published. December 2026 was explicitly confirmed by the owner on October 24, 2026.
 - The 2020 Outstanding Youth League Cadre certificate states the year only; no month is inferred.
 - Publication year headings and venue labels intentionally retain year precision; timeline events use months where verified.
 

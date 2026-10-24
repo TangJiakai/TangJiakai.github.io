@@ -172,6 +172,7 @@ html=f'''<!doctype html>
       <h2 id="news-title"><span aria-hidden="true">🔥</span> News</h2>
       <ul class="news-list">
         <li><time datetime="2026-12">2026.12</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <strong>RecGPT-V3</strong> received the <span class="award-text">🏆 SIGIR-AP GRIT Workshop Best Paper</span> award.</span></li>
+        <li><time datetime="2026-12">2026.12</time><span><span class="news-celebration" aria-hidden="true">🎉</span> Received my fourth <strong>National Scholarship</strong>, following awards in 2019, 2020, and 2021.</span></li>
         <li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30932">UserArena</a> (<strong>co-first author</strong>), a benchmark for interactive user simulation with long-horizon shopping agents.</span></li>
         <li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30128">LoopRec</a> (<strong>co-first author</strong>), exploring item-level adaptive recursion for sequential recommendation.</span></li>
         <li><time datetime="2026-09">2026.09</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://ieeexplore.ieee.org/document/11523596/">ReaRec</a> (<strong>first author</strong>) was published in <strong>IEEE TKDE</strong>.</span></li>
@@ -180,7 +181,6 @@ html=f'''<!doctype html>
         <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3817619">RecBot</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
         <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818457">OneRank</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
         <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> (<strong>first author</strong>) was accepted by <strong>ACM TOIS</strong>.</span></li>
-        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> Received my fourth <strong>National Scholarship</strong>, following awards in 2019, 2020, and 2021.</span></li>
       </ul>
     </section>
     <section id="publications" aria-labelledby="publications-title">
