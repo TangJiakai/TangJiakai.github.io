@@ -29,7 +29,7 @@ nav a:hover,nav a.active { color:#2e536c; }
 .section-nav a { font-size:12px; }
 .floating-nav { position:sticky; top:calc(var(--masthead-height,53px) + 12px); z-index:4; width:max-content; max-width:100%; flex-wrap:nowrap; gap:3px; padding:6px; margin:0 0 25px; border:1px solid rgba(222,226,231,.85); border-radius:999px; background:rgba(255,255,255,.94); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 4px 20px rgba(35,48,60,.08); overflow-x:auto; scrollbar-width:none; }
 .floating-nav::-webkit-scrollbar { display:none; }
-.floating-nav a { flex-shrink:0; padding:7px 12px; border-radius:999px; line-height:1.5; color:#65717c; transition:background .15s,color .15s; }
+.floating-nav a { font-size:14px; flex-shrink:0; padding:7px 12px; border-radius:999px; line-height:1.5; color:#65717c; transition:background .15s,color .15s; }
 .floating-nav a:hover { background:#f3f5f7; color:#315b7d; text-decoration:none; }
 .floating-nav a.active { color:#a72b3f; background:#fbecee; font-weight:700; }
 .floating-nav a:focus-visible { outline:none; box-shadow:inset 0 0 0 2px #9ec4dc; }
@@ -154,6 +154,7 @@ main { min-width:0; }
 .school h3,.school p { grid-column:1; }
 .school-logo { grid-column:2; grid-row:1 / 3; align-self:center; justify-self:center; }
 .school-logo img { display:block; width:56px; height:56px; object-fit:contain; }
+.school-logo--next img { width:100px; }
 .employer { display:grid; grid-template-columns:minmax(0,1fr) 112px; align-items:center; gap:24px; min-width:0; }
 .employer>div { grid-column:1; grid-row:1; }
 .company-logo { grid-column:2; grid-row:1; width:112px; height:54px; display:flex; align-items:center; justify-content:center; }
@@ -191,7 +192,7 @@ footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; 
   .section-nav { gap:7px 15px; padding:0 0 14px; margin-bottom:20px; }
   .section-nav a { font-size:11px; }
   .floating-nav { top:calc(var(--masthead-height,85px) + 8px); gap:2px; padding:5px; margin-bottom:22px; }
-  .floating-nav a { padding:7px 10px; font-size:11px; }
+  .floating-nav a { padding:7px 10px; font-size:13px; }
   .floating-nav-label { padding:0 6px; font-size:9px; }
   .gallery-album { padding:14px; border-radius:12px; }
   .gallery-grid,.gallery-grid--pair { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
@@ -230,6 +231,8 @@ footer { border-top:1px solid var(--line); padding:20px 0 28px; font-size:11px; 
   .school { grid-template-columns:minmax(0,1fr) 44px; column-gap:12px; }
   .school-logo { grid-row:1; }
   .school-logo img { width:40px; height:40px; }
+  .school--next { grid-template-columns:minmax(0,1fr) 64px; }
+  .school-logo--next img { width:64px; }
   .school p { grid-column:1 / -1; }
   .employer { grid-template-columns:minmax(0,1fr) 70px; gap:12px; }
   .company-logo { width:70px; height:48px; }
