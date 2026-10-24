@@ -47,3 +47,7 @@ Open http://127.0.0.1:8765/.
 The organization is inspired by [Changle Qu's academic homepage](https://quchangle1.github.io/): a profile sidebar and a readable sequence of biography, news, publications, honors, education, experience, and service. The implementation and styling here are original; no third-party template code or photographs were copied.
 
 Only public-facing academic information is included. Scholarship forms, recommendation letters, personal telephone numbers, birth date, and signatures are not part of this repository.
+
+## Metric badges
+
+Scholar badges use the existing scheduled snapshot and show its last successful update date; fetching failures retain the previous values. GitHub Code links also display lazy-loaded Shields.io star badges for the linked repository. These are cached by Shields.io and are not real-time counters.

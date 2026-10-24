@@ -58,6 +58,10 @@ for p in papers:
         url=esc(resource['url'],quote=True)
         accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
         resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
+        repo_match=re.fullmatch(r'https://github\.com/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)/?',resource['url'])
+        if resource['label']=='Code' and repo_match:
+            repo=repo_match.group(1)
+            resource_links.append(f'<a class="repo-stars" href="{url}" aria-label="GitHub stars for {esc(repo,quote=True)}"><img src="https://img.shields.io/github/stars/{repo}?style=social" alt="GitHub stars" height="20" loading="lazy" decoding="async"></a>')
     year=p['year']
     rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
       <h4>{title}</h4>
@@ -114,7 +118,13 @@ html=f'''<!doctype html>
       <p>I am a Ph.D. student in the <a href="https://ai.ruc.edu.cn/">Gaoling School of Artificial Intelligence</a> at <a href="https://www.ruc.edu.cn/">Renmin University of China</a>, advised by <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm">Prof. Xu Chen</a>. I joined the integrated master's–Ph.D. program in 2022 and expect to graduate in 2028. Previously, I received my bachelor's degree in Computer Science and Technology from Wuhan University of Technology in 2022.</p>
       <p>My research focuses on <strong>LLM-powered recommender systems and intelligent agents</strong>. I study reasoning for recommendation, user intent understanding, and interactive agents with long-term memory. I am also interested in faithful user simulation and evaluation, connecting algorithmic advances with real-world applications.</p>
       <p>I have worked on industrial recommendation at Taobao through the <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> series, and on reasoning for industrial ranking through <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a>. My recent interests include adaptive computation, recommendation scaling, and agents that learn from experience.</p>
-      <p class="scholar-stats"><a href="{scholar['source_url']}">Google Scholar</a>: <strong>{scholar['citations']:,}</strong> citations · h-index <strong>{scholar['h_index']}</strong> · i10-index <strong>{scholar['i10_index']}</strong><span class="metrics-date">Updated {scholar_date}</span></p>
+      <div class="scholar-stats" aria-label="Google Scholar metrics">
+        <a class="scholar-source" href="{scholar['source_url']}">{icon('scholar')}<span>Google Scholar</span></a>
+        <a class="metric-pill" href="{scholar['source_url']}"><span>Citations</span><strong>{scholar['citations']:,}</strong></a>
+        <a class="metric-pill" href="{scholar['source_url']}"><span>h-index</span><strong>{scholar['h_index']}</strong></a>
+        <a class="metric-pill" href="{scholar['source_url']}"><span>i10-index</span><strong>{scholar['i10_index']}</strong></a>
+        <span class="metrics-date">Auto-updated · {scholar_date}</span>
+      </div>
     </section>
     <section id="news" aria-labelledby="news-title">
       <h2 id="news-title"><span aria-hidden="true">🔥</span> News</h2>
@@ -122,13 +132,13 @@ html=f'''<!doctype html>
         <li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30932">UserArena</a> (<strong>co-first author</strong>), a benchmark for interactive user simulation with long-horizon shopping agents.</span></li>
         <li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30128">LoopRec</a> (<strong>co-first author</strong>), exploring item-level adaptive recursion for sequential recommendation.</span></li>
         <li><time datetime="2026-08">2026.08</time><span>Released <a href="https://arxiv.org/abs/2608.20707">RecVerse</a> (<strong>first author</strong>), a GUI-grounded shopping simulation agent with hierarchical memory and trajectory-level reinforcement learning.</span></li>
-        <li><time datetime="2026-08">2026.08</time><span><a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a> (<strong>co-first author</strong>) was published at <strong>KDD 2026</strong> with an <span class="oral-text">🌟 Oral presentation</span>.</span></li>
-        <li><time datetime="2026-08">2026.08</time><span><a href="https://dl.acm.org/doi/10.1145/3770855.3817619">RecBot</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
-        <li><time datetime="2026-08">2026.08</time><span><a href="https://dl.acm.org/doi/10.1145/3770855.3818457">OneRank</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
-        <li><time>2026</time><span><strong>RecGPT-V3</strong> received the <span class="award-text">🏆 SIGIR-AP GRIT Workshop Best Paper</span> award.</span></li>
-        <li><time>2026</time><span><a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> (<strong>first author</strong>) was accepted by <strong>ACM TOIS</strong>.</span></li>
-        <li><time>2026</time><span><a href="https://ieeexplore.ieee.org/document/11523596/">ReaRec</a> (<strong>first author</strong>) was accepted by <strong>IEEE TKDE</strong>.</span></li>
-        <li><time>2026</time><span>Received my fourth <strong>National Scholarship</strong>, following awards in 2019, 2020, and 2021.</span></li>
+        <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a> (<strong>co-first author</strong>) was published at <strong>KDD 2026</strong> with an <span class="oral-text">🌟 Oral presentation</span>.</span></li>
+        <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3817619">RecBot</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
+        <li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818457">OneRank</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li>
+        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <strong>RecGPT-V3</strong> received the <span class="award-text">🏆 SIGIR-AP GRIT Workshop Best Paper</span> award.</span></li>
+        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> (<strong>first author</strong>) was accepted by <strong>ACM TOIS</strong>.</span></li>
+        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://ieeexplore.ieee.org/document/11523596/">ReaRec</a> (<strong>first author</strong>) was accepted by <strong>IEEE TKDE</strong>.</span></li>
+        <li><time>2026</time><span><span class="news-celebration" aria-hidden="true">🎉</span> Received my fourth <strong>National Scholarship</strong>, following awards in 2019, 2020, and 2021.</span></li>
       </ul>
     </section>
     <section id="publications" aria-labelledby="publications-title">
