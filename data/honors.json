@@ -19,44 +19,66 @@
     "category": "university"
   },
   {
-    "date": "2025.11",
-    "title": "Third-Class Graduate Academic Excellence Scholarship",
+    "date": "2023–2025",
+    "title": "Academic Excellence Scholarship",
     "detail": "Renmin University of China",
-    "chinese": "研究生学习优秀三等奖学金",
+    "summary": "First class: 2024.12 · Third class: 2025.11, 2023.11",
+    "chinese": "学习优秀奖学金",
     "highlight": false,
-    "category": "university"
+    "category": "university",
+    "occurrences": [
+      {
+        "date": "2025.11",
+        "title": "Third-Class Graduate Academic Excellence Scholarship",
+        "detail": "Renmin University of China",
+        "chinese": "研究生学习优秀三等奖学金",
+        "highlight": false,
+        "category": "university"
+      },
+      {
+        "date": "2024.12",
+        "title": "First-Class Graduate Academic Excellence Scholarship",
+        "detail": "Renmin University of China",
+        "chinese": "研究生学习优秀一等奖学金",
+        "highlight": false,
+        "category": "university"
+      },
+      {
+        "date": "2023.11",
+        "title": "Third-Class Academic Excellence Scholarship",
+        "detail": "Renmin University of China",
+        "chinese": "学习优秀三等奖学金",
+        "highlight": false,
+        "category": "university"
+      }
+    ]
   },
   {
-    "date": "2025.09",
+    "date": "2023–2025",
     "title": "Merit Student",
     "detail": "Renmin University of China",
+    "summary": "Two-time recipient · 2025.09, 2023.09",
     "chinese": "三好学生",
     "highlight": false,
-    "category": "university"
-  },
-  {
-    "date": "2024.12",
-    "title": "First-Class Graduate Academic Excellence Scholarship",
-    "detail": "Renmin University of China",
-    "chinese": "研究生学习优秀一等奖学金",
-    "highlight": false,
-    "category": "university"
-  },
-  {
-    "date": "2023.11",
-    "title": "Third-Class Academic Excellence Scholarship",
-    "detail": "Renmin University of China",
-    "chinese": "学习优秀三等奖学金",
-    "highlight": false,
-    "category": "university"
-  },
-  {
-    "date": "2023.09",
-    "title": "Merit Student",
-    "detail": "Renmin University of China",
-    "chinese": "三好学生",
-    "highlight": false,
-    "category": "university"
+    "category": "university",
+    "occurrences": [
+      {
+        "date": "2025.09",
+        "title": "Merit Student",
+        "detail": "Renmin University of China",
+        "chinese": "三好学生",
+        "highlight": false,
+        "category": "university"
+      },
+      {
+        "date": "2023.09",
+        "title": "Merit Student",
+        "detail": "Renmin University of China",
+        "chinese": "三好学生",
+        "highlight": false,
+        "category": "university"
+      }
+    ]
   },
   {
     "date": "2023.09",
@@ -101,26 +123,37 @@
     "category": "competition"
   },
   {
-    "date": "2020.11",
+    "date": "2019–2020",
     "title": "Model Merit Student",
-    "detail": "Wuhan University of Technology · Academic year 2019–2020",
+    "detail": "Wuhan University of Technology",
+    "summary": "Two-time recipient · 2020.11, 2019.11",
     "chinese": "校三好学生标兵",
     "highlight": false,
-    "category": "university"
+    "category": "university",
+    "occurrences": [
+      {
+        "date": "2020.11",
+        "title": "Model Merit Student",
+        "detail": "Wuhan University of Technology · Academic year 2019–2020",
+        "chinese": "校三好学生标兵",
+        "highlight": false,
+        "category": "university"
+      },
+      {
+        "date": "2019.11",
+        "title": "Model Merit Student",
+        "detail": "Wuhan University of Technology · Academic year 2018–2019",
+        "chinese": "校三好学生标兵",
+        "highlight": false,
+        "category": "university"
+      }
+    ]
   },
   {
     "date": "2020",
     "title": "Outstanding Youth League Cadre",
     "detail": "Wuhan University of Technology · Academic year 2019–2020",
     "chinese": "校优秀共青团干部",
-    "highlight": false,
-    "category": "university"
-  },
-  {
-    "date": "2019.11",
-    "title": "Model Merit Student",
-    "detail": "Wuhan University of Technology · Academic year 2018–2019",
-    "chinese": "校三好学生标兵",
     "highlight": false,
     "category": "university"
   },

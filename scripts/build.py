@@ -27,7 +27,8 @@ for category, heading in [('research','Research Awards'),('university','Scholars
         title=esc(award['title'])
         if award['highlight']: title=f'<strong class="award-text">{title}</strong>'
         chinese=f'<span class="honor-cn" lang="zh-CN">{esc(award["chinese"])}</span>' if award['chinese'] else ''
-        honor_rows.append(f'<li><span class="date">{esc(award["date"])}</span><div>{title}{chinese}<span class="honor-detail">{esc(award["detail"])}</span></div></li>')
+        summary=f'<span class="honor-detail">{esc(award["summary"])}</span>' if award.get("summary") else ""
+        honor_rows.append(f'<li><span class="date">{esc(award["date"])}</span><div>{title}{chinese}<span class="honor-detail">{esc(award["detail"])}</span>{summary}</div></li>')
     honor_groups.append(f'<div class="honor-group"><h3 class="honor-group-title">{esc(heading)}</h3><ul class="dated-list honors-list">{"".join(honor_rows)}</ul></div>')
 
 def icon(name):
