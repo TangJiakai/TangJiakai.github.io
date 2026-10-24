@@ -84,17 +84,6 @@
     ]
   },
   {
-    "venue": "Preprint 2026",
-    "badge": "Preprint",
-    "title": "From Local Constant to Local Linear: A Principled Attention Generalization for Sequential Recommendation",
-    "authors": "Jiakai Tang, Wenqing Zhou, Weiqiu Wang, Yipeng Yu, Xu Chen, Runfeng Zhang, Yeqiu Yang, Jian Wu, Han Zhu",
-    "link": "",
-    "id": "paper-7",
-    "first": true,
-    "year": 2026,
-    "award": ""
-  },
-  {
     "venue": "TKDE 2026",
     "badge": "CCF-A",
     "title": "Think Before Recommend: Unleashing the Latent Reasoning Power for Sequential Recommendation",
