@@ -62,3 +62,7 @@ Scholar badges use the existing scheduled snapshot and show its last successful 
 - National Scholarships in 2019–2021: December on all three owner-supplied award certificates. Certificates are not published. The 2026 final award month remains unspecified: https://ai.ruc.edu.cn/xwgg/xygg/20260922001.html is a September 22 nomination notice.
 - The 2020 Outstanding Youth League Cadre certificate states the year only; no month is inferred.
 - Publication year headings and venue labels intentionally retain year precision; timeline events use months where verified.
+
+### Patents
+
+`data/patents.json` records the seven user-supplied patents. Titles, inventor order, applicants, application numbers and filing dates are transcribed from the CNIPA documents. The three `granted` statuses follow the user-supplied filenames marked 已授权; those PDFs are application publications rather than grant certificates, so no grant date or B publication number is inferred. The four `filed` statuses are supported by application acceptance notices. Filing dates are explicitly labeled in the UI. Source PDFs are not published, and agent contact details, addresses and document serial numbers are excluded.

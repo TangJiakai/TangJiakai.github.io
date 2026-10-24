@@ -84,7 +84,19 @@ for p in papers:
     </li>''')
 rows.append('</ul></div>')
 
-nav=[('about','About Me'),('news','News'),('publications','Publications'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
+patents=json.loads((ROOT/'data/patents.json').read_text())
+patent_rows=[]
+for patent in sorted(patents,key=lambda p:p['filing_date'],reverse=True):
+    status_label='Granted · 已授权' if patent['status']=='granted' else 'Filed · 已申请'
+    inventors=esc(patent['inventors']).replace('唐嘉凯','<strong>唐嘉凯</strong>')
+    patent_rows.append(f'''<li class="patent">
+      <h3 lang="zh-CN">{esc(patent['title'])}</h3>
+      <p class="authors" lang="zh-CN">{inventors}</p>
+      <p class="patent-applicant"><span>Applicant:</span> <span lang="zh-CN">{esc(patent['applicant'])}</span></p>
+      <p class="paper-meta"><span class="badge patent-{patent['status']}">{status_label}</span><span class="patent-number">Application No. CN {esc(patent['application_number'])}</span><span class="patent-date">Filed {esc(patent['filing_date'].replace('-','.'))}</span></p>
+    </li>''')
+
+nav=[('about','About Me'),('news','News'),('publications','Publications'),('patents','Patents'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
 navhtml=''.join(f'<a href="#{k}">{v}</a>' for k,v in nav)
 structured={"@context":"https://schema.org","@type":"Person","name":"Jiakai Tang","alternateName":"唐嘉凯","url":"https://tangjiakai.github.io/","image":"https://tangjiakai.github.io/assets/portrait.jpg","affiliation":{"@type":"CollegeOrUniversity","name":"Renmin University of China"},"sameAs":["https://github.com/TangJiakai","https://scholar.google.com/citations?user=7kB-4sEAAAAJ"],"knowsAbout":["Recommender Systems","Large Language Models","Intelligent Agents"]}
 structured['sameAs'].extend(['https://dblp.org/pid/294/2295.html','https://www.linkedin.com/in/%E5%98%89%E5%87%AF-%E5%94%90-744894299/'])
@@ -162,6 +174,10 @@ html=f'''<!doctype html>
     <section id="publications" aria-labelledby="publications-title">
       <h2 id="publications-title"><span aria-hidden="true">📝</span> Publications</h2>
       {''.join(rows)}
+    </section>
+    <section id="patents" aria-labelledby="patents-title">
+      <h2 id="patents-title"><span aria-hidden="true">💡</span> Patents</h2>
+      <ul class="patents-list">{''.join(patent_rows)}</ul>
     </section>
     <section id="honors" aria-labelledby="honors-title">
       <h2 id="honors-title"><span aria-hidden="true">🎖️</span> Honors and Awards</h2>

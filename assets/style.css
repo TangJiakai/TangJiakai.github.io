@@ -81,6 +81,14 @@ main { min-width:0; }
 .resource-icon-link { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; color:#454a50; border-radius:50%; }
 .resource-icon-link:hover { color:var(--link); background:#eaf1f8; }
 .resource-icon-link .contact-icon { width:18px; height:18px; }
+.patents-list { list-style:none; padding:0; margin:0; }
+.patent { padding:0 0 19px; margin:0 0 19px; border-bottom:1px solid var(--line); }
+.patent:last-child { border-bottom:0; padding-bottom:0; }
+.patent h3 { font-size:15px; color:#354c60; margin-bottom:6px; line-height:1.65; }
+.patent-applicant { font-size:12px; color:var(--muted); margin:0 0 9px; }
+.patent-number,.patent-date { font-size:11px; color:#6e757c; font-variant-numeric:tabular-nums; }
+.badge.patent-granted { color:#28705c; background:#e6f4ee; }
+.badge.patent-filed { color:#496b91; background:#eaf1f8; }
 .dated-list { list-style:none; padding:0; margin:0; }
 .dated-list li { display:grid; grid-template-columns:132px minmax(0,1fr); gap:16px; margin:15px 0; font-size:14px; line-height:1.65; }
 .dated-list .date { color:#6e757c; font-size:12px; font-variant-numeric:tabular-nums; padding-top:2px; }
