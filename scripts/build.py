@@ -56,8 +56,7 @@ for p in papers:
     elif 'CCF-B' in p['badge']: badges.append('<span class="badge ccf-b">CCF-B</span>')
     if p['award']: badges.append(f'<span class="badge award">🏆 {esc(p["award"])}</span>')
     if 'Oral' in p['badge']: badges.append('<span class="badge oral">🌟 Oral</span>')
-    if 'Under review' in p['badge']: badges.append('<span class="badge status">Under review</span>')
-    elif 'Preprint' in p['badge']: badges.append('<span class="badge status">Preprint</span>')
+    if 'Preprint' in p['badge']: badges.append('<span class="badge status">Preprint</span>')
     resource_links=[]
     for resource in p.get('resources', []):
         label=esc(resource['label'])

@@ -84,6 +84,17 @@
     ]
   },
   {
+    "venue": "Preprint 2026",
+    "badge": "Preprint",
+    "title": "From Local Constant to Local Linear: A Principled Attention Generalization for Sequential Recommendation",
+    "authors": "Jiakai Tang, Wenqing Zhou, Weiqiu Wang, Yipeng Yu, Xu Chen, Runfeng Zhang, Yeqiu Yang, Jian Wu, Han Zhu",
+    "link": "",
+    "id": "paper-7",
+    "first": true,
+    "year": 2026,
+    "award": ""
+  },
+  {
     "venue": "TKDE 2026",
     "badge": "CCF-A",
     "title": "Think Before Recommend: Unleashing the Latent Reasoning Power for Sequential Recommendation",
@@ -118,17 +129,6 @@
     "authors": "Sunhao Dai†, Jiakai Tang†, Jiahua Wu, Kun Wang, Yuxuan Zhu, Bingjun Chen, Bangyang Hong, Yu Zhao, Cong Fu, Kangle Wu, Yabo Ni, Anxiang Zeng, Wenjie Wang*, Xu Chen, Jun Xu*, See-Kiong Ng",
     "link": "https://dl.acm.org/doi/10.1145/3770855.3818456",
     "id": "paper-10",
-    "first": true,
-    "year": 2026,
-    "award": ""
-  },
-  {
-    "venue": "Under review · 2026",
-    "badge": "Under review",
-    "title": "Attend First, Write Later: Lookahead Memory Control for Efficient Long-Context Language Modeling",
-    "authors": "Jiakai Tang, Xiaoyan Zhao, Xu Chen, Wen Chen, Jian Wu",
-    "link": "https://openreview.net/forum?id=KkWYNCOW5w",
-    "id": "paper-11",
     "first": true,
     "year": 2026,
     "award": ""
