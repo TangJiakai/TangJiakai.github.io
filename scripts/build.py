@@ -77,6 +77,7 @@ html=f'''<!doctype html>
   <title>Jiakai Tang · 唐嘉凯</title>
   <meta name="description" content="Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and intelligent agents.">
   <meta name="theme-color" content="#ffffff">
+  <meta name="google-site-verification" content="IjU5DXIl_b3xuy8beeihjfm2RMkB2Yd6SPrrIbL4gnI">
   <link rel="canonical" href="https://tangjiakai.github.io/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Jiakai Tang · 唐嘉凯">
