@@ -46,11 +46,11 @@ def icon(name):
 
 github_path=ROOT/'data/github.json'
 github_metrics=json.loads(github_path.read_text()) if github_path.exists() else {}
-def star_badge(url):
+def star_badge(url, show_all=False):
     key=repository_key(url)
     entry=github_metrics.get(key,{})
-    count=visible_count(entry)
-    if count is None:
+    count=entry.get('stars') if show_all else visible_count(entry)
+    if type(count) is not int or count < 0:
         return ''
     updated=esc(entry.get('updated_at','')[:10])
     label=esc(f'{key}: {count:,} GitHub stars')
@@ -125,7 +125,7 @@ for event in sorted(service_data.get('volunteering', []), key=lambda e:e['year']
 software_rows=[]
 for project in service_data['open_source']:
     role_style='lead' if project['role']=='Lead Developer' else 'contributor'
-    software_rows.append(f'''<li><div class="software-heading"><h4><a href="{esc(project['url'],quote=True)}">{icon('github')}{esc(project['name'])}</a></h4><span class="service-role service-role--{role_style}">{esc(project['role'])}</span>{star_badge(project['url'])}</div><p class="service-description">{esc(project['description'])}</p></li>''')
+    software_rows.append(f'''<li><div class="software-heading"><h4><a href="{esc(project['url'],quote=True)}">{icon('github')}{esc(project['name'])}</a></h4><span class="service-role service-role--{role_style}">{esc(project['role'])}</span>{star_badge(project['url'], show_all=True)}</div><p class="service-description">{esc(project['description'])}</p></li>''')
 review_rows=[]
 for group in service_data['reviewing']:
     venues=''.join(f'<li>{esc(venue)}</li>' for venue in group['venues'])
