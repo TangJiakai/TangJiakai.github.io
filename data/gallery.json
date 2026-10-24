@@ -41,6 +41,16 @@
   },
   {
     "category": "academic",
+    "src": "assets/gallery/singapore-next.webp",
+    "thumbnail": "assets/gallery/singapore-next-thumb.webp",
+    "width": 900,
+    "height": 675,
+    "caption": "NExT++ · National University of Singapore",
+    "alt": "Standing beside the NExT++ sign at NUS.",
+    "album": "Singapore · NUS"
+  },
+  {
+    "category": "academic",
     "src": "assets/gallery/singapore-nus.webp",
     "thumbnail": "assets/gallery/singapore-nus-thumb.webp",
     "width": 900,
@@ -141,6 +151,16 @@
   },
   {
     "category": "life",
+    "src": "assets/gallery/pingtan-evening.webp",
+    "thumbnail": "assets/gallery/pingtan-evening-thumb.webp",
+    "width": 900,
+    "height": 600,
+    "caption": "Pingtan · An evening by the sea",
+    "alt": "Standing on the beach in Pingtan with offshore wind turbines in the distance.",
+    "album": "Pingtan · Fujian"
+  },
+  {
+    "category": "life",
     "src": "assets/gallery/sagrada-familia-light.webp",
     "thumbnail": "assets/gallery/sagrada-familia-light-thumb.webp",
     "width": 825,
@@ -207,6 +227,16 @@
     "height": 1100,
     "caption": "A childhood memory",
     "alt": "A childhood portrait.",
+    "album": "Everyday Memories"
+  },
+  {
+    "category": "life",
+    "src": "assets/gallery/singapore-changi.webp",
+    "thumbnail": "assets/gallery/singapore-changi-thumb.webp",
+    "width": 619,
+    "height": 1100,
+    "caption": "Changi Airport · Singapore",
+    "alt": "A selfie at Changi Airport in Singapore.",
     "album": "Everyday Memories"
   }
 ]

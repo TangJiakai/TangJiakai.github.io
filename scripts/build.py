@@ -276,7 +276,7 @@ for category,label,description in [('academic','Academic Moments','Talks, confer
             thumbnail=esc(photo.get('thumbnail',photo['src']),quote=True)
             dimensions=f' width="{int(photo["width"])}" height="{int(photo["height"])}"' if photo.get('width') and photo.get('height') else ''
             photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{thumbnail}" alt="{alt}"{dimensions} loading="lazy" decoding="async"><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>{caption}</figcaption></figure>')
-        layout=' gallery-grid--pair' if len(items)<=2 else ''
+        layout=' gallery-grid--pair' if len(items)<=2 or len(items)==4 else ''
         if all(p.get('height',0)>p.get('width',0) for p in items):
             layout+=' gallery-grid--portrait'
         album_html.append(f'<article class="gallery-album"><header class="album-heading"><h4>{esc(album)}</h4></header><div class="gallery-grid{layout}">'+''.join(photos)+'</div></article>')
