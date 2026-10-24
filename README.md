@@ -70,3 +70,7 @@ Scholar badges use the existing scheduled snapshot and show its last successful 
 ### Academic service
 
 Maintain `data/service.json` to add workshop editions, open-source projects and reviewing venues. The builder renders dated workshop entries, one entry per software project, and separate conference/journal lists. Roles should describe confirmed contributions only.
+
+### GitHub stars
+
+`scripts/update_github.py` refreshes star counts for repositories linked from publications and open-source service entries using GitHub public repository metadata. The existing daily Pages workflow runs the updater before building. Only counts strictly greater than 30 render a star badge; 30 or fewer and unknown counts remain hidden. Successful decreases below the threshold remove the badge. Failed requests preserve the last verified count and its timestamp. Hover a badge to see its snapshot date. No token is included in public files.

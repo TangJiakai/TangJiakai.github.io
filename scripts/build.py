@@ -4,6 +4,7 @@ from pathlib import Path
 from html import escape as esc
 from hashlib import sha256
 import json,re
+from update_github import repository_key, visible_count
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
@@ -40,6 +41,18 @@ def icon(name):
     }
     return f'<svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{paths[name]}</svg>'
 
+github_path=ROOT/'data/github.json'
+github_metrics=json.loads(github_path.read_text()) if github_path.exists() else {}
+def star_badge(url):
+    key=repository_key(url)
+    entry=github_metrics.get(key,{})
+    count=visible_count(entry)
+    if count is None:
+        return ''
+    updated=esc(entry.get('updated_at','')[:10])
+    label=esc(f'{key}: {count:,} GitHub stars')
+    return f'<a class="github-stars" href="{esc(url,quote=True)}" aria-label="{label}" title="GitHub stars · Updated {updated}"><span aria-hidden="true">★</span><span>{count:,}</span></a>'
+
 def author_html(s):
     # Omit equal-contribution markers throughout rows where Jiakai is listed first.
     if s.split(',')[0].strip().rstrip('†*') == 'Jiakai Tang':
@@ -69,7 +82,7 @@ for p in papers:
         url=esc(resource['url'],quote=True)
         accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
         if resource['label']=='Code' and resource['url'].startswith('https://github.com/'):
-            resource_links.append(f'<a class="resource-icon-link code-icon-link" href="{url}" aria-label="{accessible_label}" title="View code on GitHub">{icon("github")}</a>')
+            resource_links.append(f'<a class="resource-icon-link code-icon-link" href="{url}" aria-label="{accessible_label}" title="View code on GitHub">{icon("github")}</a>' + star_badge(resource['url']))
         else:
             resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
     paper_link=f'<a class="resource-icon-link paper-icon-link" href="{esc(p["link"],quote=True)}" aria-label="Paper: {esc(p["title"],quote=True)}" title="Read paper">{icon("paper")}</a>' if p['link'] else ''
@@ -102,7 +115,7 @@ for workshop in sorted(service_data['workshops'],key=lambda w:w['year'],reverse=
     workshop_rows.append(f'''<li><span class="date">{workshop['year']}</span><div><div class="service-entry-heading"><h4><a href="{esc(workshop['url'],quote=True)}">{esc(workshop['name'])}</a></h4><span class="service-role">{esc(workshop['role'])}</span></div><p class="service-description">{esc(workshop['title'])}</p></div></li>''')
 software_rows=[]
 for project in service_data['open_source']:
-    software_rows.append(f'''<li><h4><a href="{esc(project['url'],quote=True)}">{esc(project['name'])}</a></h4><div><span class="service-role">{esc(project['role'])}</span><p class="service-description">{esc(project['description'])}</p></div></li>''')
+    software_rows.append(f'''<li><h4><a href="{esc(project['url'],quote=True)}">{esc(project['name'])}</a>{star_badge(project['url'])}</h4><div><span class="service-role">{esc(project['role'])}</span><p class="service-description">{esc(project['description'])}</p></div></li>''')
 review_rows=[]
 for group in service_data['reviewing']:
     venues=''.join(f'<li>{esc(venue)}</li>' for venue in group['venues'])
