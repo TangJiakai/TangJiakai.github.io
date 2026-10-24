@@ -118,13 +118,14 @@ for talk in sorted(service_data.get('invited_talks', []), key=lambda t:t['date']
     talk_rows.append(f'''<li><time class="date" datetime="{esc(talk['date'],quote=True)}">{esc(talk['date'].replace('-','.'))}</time><div><div class="service-entry-heading"><h4>{esc(talk['title'])}</h4></div><p class="service-description">{esc(talk['host'])} · {esc(talk['location'])}</p><p class="service-description" lang="zh-CN">{esc(talk['title_zh'])}</p></div></li>''')
 workshop_rows=[]
 for workshop in sorted(service_data['workshops'],key=lambda w:w['year'],reverse=True):
-    workshop_rows.append(f'''<li><span class="date">{workshop['year']}</span><div><div class="service-entry-heading"><h4><a href="{esc(workshop['url'],quote=True)}">{esc(workshop['name'])}</a></h4><span class="service-role">{esc(workshop['role'])}</span></div><p class="service-description">{esc(workshop['title'])}</p></div></li>''')
+    workshop_rows.append(f'''<li><span class="date">{workshop['year']}</span><div><div class="service-entry-heading"><h4><a href="{esc(workshop['url'],quote=True)}">{esc(workshop['name'])}</a></h4><span class="service-role service-role--organizer">{esc(workshop['role'])}</span></div><p class="service-description">{esc(workshop['title'])}</p></div></li>''')
 volunteer_rows=[]
 for event in sorted(service_data.get('volunteering', []), key=lambda e:e['year'], reverse=True):
-    volunteer_rows.append(f'''<li><span class="date">{event['year']}</span><div class="service-entry-heading"><h4>{esc(event['conference'])}</h4><span class="service-role">{esc(event['role'])}</span></div></li>''')
+    volunteer_rows.append(f'''<li><span class="date">{event['year']}</span><div class="service-entry-heading"><h4>{esc(event['conference'])}</h4><span class="service-role service-role--volunteer">{esc(event['role'])}</span></div></li>''')
 software_rows=[]
 for project in service_data['open_source']:
-    software_rows.append(f'''<li><h4><a href="{esc(project['url'],quote=True)}">{esc(project['name'])}</a>{star_badge(project['url'])}</h4><div><span class="service-role">{esc(project['role'])}</span><p class="service-description">{esc(project['description'])}</p></div></li>''')
+    role_style='lead' if project['role']=='Lead Developer' else 'contributor'
+    software_rows.append(f'''<li><div class="software-heading"><h4><a href="{esc(project['url'],quote=True)}">{icon('github')}{esc(project['name'])}</a></h4><span class="service-role service-role--{role_style}">{esc(project['role'])}</span>{star_badge(project['url'])}</div><p class="service-description">{esc(project['description'])}</p></li>''')
 review_rows=[]
 for group in service_data['reviewing']:
     venues=''.join(f'<li>{esc(venue)}</li>' for venue in group['venues'])
@@ -231,7 +232,7 @@ html=f'''<!doctype html>
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title"><span aria-hidden="true">💻</span> Internships</h2>
       <ul class="dated-list experience-list">
-        <li><span class="date">2025.04–Present</span><div class="employer"><span class="company-logo company-logo--taotian" aria-hidden="true"><img src="assets/logos/taotian.png" alt="" loading="lazy" decoding="async"></span><div><h3 class="employer-heading"><span>Alibaba · Taotian</span><span class="talent-badge" title="T-Star 人才实习"><span aria-hidden="true">★</span><span>T-Star Talent Intern</span></span></h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
+        <li><span class="date">2025.04–Present</span><div class="employer"><span class="company-logo company-logo--taotian" aria-hidden="true"><img src="assets/logos/taotian.png" alt="" loading="lazy" decoding="async"></span><div><h3 class="employer-heading"><span>Alibaba · Taotian</span><span class="talent-badge" title="T-Star 人才实习"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1Z"/></svg><strong>T-Star</strong><span>Talent Intern</span></span></h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
         <li><span class="date">2024.11–2025.03</span><div class="employer"><span class="company-logo company-logo--wechat" aria-hidden="true"><img src="assets/logos/wechat.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
         <li><span class="date">2024.05–2024.11</span><div class="employer"><span class="company-logo company-logo--tongyi" aria-hidden="true"><img src="assets/logos/tongyi.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
         <li><span class="date">2023.10–2024.04</span><div class="employer"><span class="company-logo company-logo--kuaishou" aria-hidden="true"><img src="assets/logos/kuaishou.png" alt="" loading="lazy" decoding="async"></span><div><h3>Kuaishou</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
