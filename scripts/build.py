@@ -159,9 +159,9 @@ html=f'''<!doctype html>
     </section>
     <section id="education" aria-labelledby="education-title">
       <h2 id="education-title"><span aria-hidden="true">📖</span> Education</h2>
-      <ul class="dated-list">
-        <li><span class="date">2022–Present</span><div><h3>Renmin University of China</h3><p>Integrated Master's–Ph.D. Program in Artificial Intelligence<br>Gaoling School of Artificial Intelligence · Advisor: Xu Chen<br><span class="muted">Expected graduation: 2028</span></p></div></li>
-        <li><span class="date">2018–2022</span><div><h3>Wuhan University of Technology</h3><p>Bachelor's Degree in Computer Science and Technology<br><span class="muted">Ranked 1 / 257</span></p></div></li>
+      <ul class="dated-list education-list">
+        <li><span class="date">2022–Present</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/ruc.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Renmin University of China</h3><p>Integrated Master's–Ph.D. Program in Artificial Intelligence<br>Gaoling School of Artificial Intelligence · Advisor: Xu Chen<br><span class="muted">Expected graduation: 2028</span></p></div></li>
+        <li><span class="date">2018–2022</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/whut.png" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Wuhan University of Technology</h3><p>Bachelor's Degree in Computer Science and Technology<br><span class="muted">Ranked 1 / 257</span></p></div></li>
       </ul>
     </section>
     <section id="experience" aria-labelledby="experience-title">

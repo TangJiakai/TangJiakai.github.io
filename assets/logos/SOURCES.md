@@ -8,3 +8,10 @@ Used to identify internship employers. Trademarks belong to their respective own
 
 - Taotian: https://talent.taotian.com/ — official site icon, https://img.alicdn.com/imgextra/i3/O1CN01hWfanR1gI5rXMkamQ_!!6000000004118-2-tps-264-264.png
 - Tongyi Laboratory: https://tongyi.aliyun.com/ — official header vector logo, https://img.alicdn.com/imgextra/i1/O1CN01TLEHbS1cyufo87FKI_!!6000000003670-55-tps-32-32.svg
+
+## University marks
+
+Used to identify the two universities in Education. Marks belong to the respective universities; original downloaded assets are preserved.
+
+- Renmin University of China: https://bdai.yonsei.ac.kr/images/logos/renmin.webp — university seal hosted by Yonsei University's BDAI Lab.
+- Wuhan University of Technology: https://accc.net/images/logo/Wuhan_University_of_Technology.png — university seal hosted by ACCC; cross-checked with the official university header mark at https://www.whut.edu.cn/material/img/whlg_logo1.png.
