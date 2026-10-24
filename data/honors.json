@@ -10,12 +10,12 @@
     "category": "research"
   },
   {
-    "date": "2019–2026",
+    "date": "2026.12",
     "title": "National Scholarship",
-    "detail": "Four-time recipient · 2026.12, 2021.12, 2020.12, 2019.12",
-    "chinese": "国家奖学金",
+    "detail": "Renmin University of China · Ph.D.",
+    "chinese": "博士研究生国家奖学金",
     "highlight": true,
-    "date_note": "2019–2021 months verified against award certificates. December 2026 explicitly confirmed by the site owner on October 24, 2026.",
+    "date_note": "December 2026 explicitly confirmed by the site owner on October 24, 2026.",
     "category": "university"
   },
   {
@@ -130,6 +130,16 @@
     "highlight": false,
     "category": "university",
     "date_note": "Honor confirmed by the site owner; year follows the undergraduate graduation year. Award month not specified."
+  },
+  {
+    "date": "2019–2021",
+    "title": "National Scholarship",
+    "detail": "Wuhan University of Technology · Undergraduate",
+    "summary": "Three-time recipient · 2021.12, 2020.12, 2019.12",
+    "chinese": "本科生国家奖学金",
+    "highlight": true,
+    "date_note": "2019–2021 months verified against award certificates.",
+    "category": "university"
   },
   {
     "date": "2019–2020",
