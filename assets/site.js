@@ -4,20 +4,51 @@
     location.replace(location.hash.slice(1) + '.html');
     return;
   }
+  const sectionNav = document.querySelector('.section-nav');
   const links = [...document.querySelectorAll('.section-nav a')];
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) links.forEach(link => {
-          const active = link.hash === '#' + entry.target.id;
-          link.classList.toggle('active', active);
-          if (active) link.setAttribute('aria-current', 'location');
-          else link.removeAttribute('aria-current');
-        });
-      });
-    }, {rootMargin: '-15% 0px -65% 0px'});
-    document.querySelectorAll('main section').forEach(section => observer.observe(section));
-  }
+  const targets = links.map(link => document.getElementById(link.hash.slice(1)));
+  const floatingNav = document.querySelector('.floating-nav');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let offset = 90;
+  let scheduled = false;
+  const measureNavigation = () => {
+    const headerHeight = document.querySelector('.masthead').getBoundingClientRect().height;
+    document.documentElement.style.setProperty('--masthead-height', `${headerHeight}px`);
+    offset = headerHeight + (floatingNav ? floatingNav.getBoundingClientRect().height + 30 : 30);
+    document.documentElement.style.setProperty('--section-offset', `${offset}px`);
+  };
+  const updateNavigation = () => {
+    scheduled = false;
+    if (!links.length) return;
+    let selected = 0;
+    targets.forEach((target, index) => {
+      if (target && target.getBoundingClientRect().top <= offset + 16) selected = index;
+    });
+    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) selected = links.length - 1;
+    links.forEach((link, index) => {
+      const active = index === selected;
+      const changed = active && !link.classList.contains('active');
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+      if (changed && floatingNav && sectionNav.scrollWidth > sectionNav.clientWidth) {
+        const bounds = sectionNav.getBoundingClientRect();
+        const item = link.getBoundingClientRect();
+        if (item.left < bounds.left || item.right > bounds.right) {
+          sectionNav.scrollTo({left: sectionNav.scrollLeft + item.left - bounds.left - (bounds.width - item.width) / 2, behavior: reducedMotion.matches ? 'instant' : 'smooth'});
+        }
+      }
+    });
+  };
+  const scheduleUpdate = () => {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(updateNavigation); }
+  };
+  measureNavigation();
+  updateNavigation();
+  window.addEventListener('scroll', scheduleUpdate, {passive: true});
+  window.addEventListener('resize', () => { measureNavigation(); scheduleUpdate(); });
+  window.addEventListener('load', () => { measureNavigation(); scheduleUpdate(); });
+  window.addEventListener('hashchange', scheduleUpdate);
   const viewer = document.querySelector('.photo-viewer');
   if (viewer && typeof viewer.showModal === 'function') {
     let trigger;

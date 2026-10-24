@@ -6,7 +6,8 @@
     "width": 900,
     "height": 675,
     "caption": "KDD 2026 · Jeju Island, South Korea",
-    "alt": "Giving a talk at a conference lectern at KDD 2026."
+    "alt": "Giving a talk at a conference lectern at KDD 2026.",
+    "album": "KDD 2026 · Jeju Island"
   },
   {
     "category": "academic",
@@ -15,7 +16,8 @@
     "width": 900,
     "height": 675,
     "caption": "KDD 2026 · Poster session",
-    "alt": "Standing beside research posters at KDD 2026."
+    "alt": "Standing beside research posters at KDD 2026.",
+    "album": "KDD 2026 · Jeju Island"
   },
   {
     "category": "academic",
@@ -24,7 +26,8 @@
     "width": 825,
     "height": 1100,
     "caption": "KDD 2024 · Barcelona, Spain",
-    "alt": "At the KDD 2024 conference venue beneath the welcome screen."
+    "alt": "At the KDD 2024 conference venue beneath the welcome screen.",
+    "album": "KDD 2024 · Barcelona"
   },
   {
     "category": "academic",
@@ -33,7 +36,8 @@
     "width": 825,
     "height": 1100,
     "caption": "KDD 2024 · At the conference venue",
-    "alt": "Holding conference materials at the KDD 2024 venue."
+    "alt": "Holding conference materials at the KDD 2024 venue.",
+    "album": "KDD 2024 · Barcelona"
   },
   {
     "category": "academic",
@@ -42,7 +46,8 @@
     "width": 900,
     "height": 675,
     "caption": "Singapore · During my joint Ph.D. program at NUS",
-    "alt": "A waterfront sunset in Singapore."
+    "alt": "A waterfront sunset in Singapore.",
+    "album": "Singapore · NUS"
   },
   {
     "category": "life",
@@ -51,7 +56,8 @@
     "width": 733,
     "height": 1100,
     "caption": "Beijing",
-    "alt": "A portrait beside a lake and trees in Beijing."
+    "alt": "A portrait beside a lake and trees in Beijing.",
+    "album": "Everyday Memories"
   },
   {
     "category": "life",
@@ -60,7 +66,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Jeju Island, South Korea",
-    "alt": "Standing beside the coast on Jeju Island."
+    "alt": "Standing beside the coast on Jeju Island.",
+    "album": "Jeju Island"
   },
   {
     "category": "life",
@@ -69,7 +76,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Jeju Island, South Korea",
-    "alt": "Enjoying the sunshine outdoors on Jeju Island."
+    "alt": "Enjoying the sunshine outdoors on Jeju Island.",
+    "album": "Jeju Island"
   },
   {
     "category": "life",
@@ -78,7 +86,8 @@
     "width": 833,
     "height": 1100,
     "caption": "Batam, Indonesia",
-    "alt": "A portrait wearing sunglasses in Batam."
+    "alt": "A portrait wearing sunglasses in Batam.",
+    "album": "Everyday Memories"
   },
   {
     "category": "life",
@@ -87,7 +96,8 @@
     "width": 900,
     "height": 600,
     "caption": "Pingtan, Fujian",
-    "alt": "Sitting on rocks overlooking the coast in Pingtan."
+    "alt": "Sitting on rocks overlooking the coast in Pingtan.",
+    "album": "Pingtan · Fujian"
   },
   {
     "category": "life",
@@ -96,7 +106,8 @@
     "width": 900,
     "height": 506,
     "caption": "Pingtan, Fujian",
-    "alt": "Standing on a beach beside the blue sea in Pingtan."
+    "alt": "Standing on a beach beside the blue sea in Pingtan.",
+    "album": "Pingtan · Fujian"
   },
   {
     "category": "life",
@@ -105,7 +116,8 @@
     "width": 733,
     "height": 1100,
     "caption": "Pingtan, Fujian",
-    "alt": "A seaside portrait beneath pink balloons."
+    "alt": "A seaside portrait beneath pink balloons.",
+    "album": "Pingtan · Fujian"
   },
   {
     "category": "life",
@@ -114,7 +126,8 @@
     "width": 900,
     "height": 600,
     "caption": "Pingtan, Fujian",
-    "alt": "A portrait by the water in Pingtan."
+    "alt": "A portrait by the water in Pingtan.",
+    "album": "Pingtan · Fujian"
   },
   {
     "category": "life",
@@ -123,7 +136,8 @@
     "width": 900,
     "height": 600,
     "caption": "Pingtan, Fujian",
-    "alt": "Standing beside a pink truck marked Pingtan."
+    "alt": "Standing beside a pink truck marked Pingtan.",
+    "album": "Pingtan · Fujian"
   },
   {
     "category": "life",
@@ -132,7 +146,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Sagrada Família · Barcelona, Spain",
-    "alt": "Inside the Sagrada Família with colorful light from stained-glass windows."
+    "alt": "Inside the Sagrada Família with colorful light from stained-glass windows.",
+    "album": "Spain"
   },
   {
     "category": "life",
@@ -141,7 +156,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Sagrada Família · Barcelona, Spain",
-    "alt": "A portrait beneath the stained-glass windows of the Sagrada Família."
+    "alt": "A portrait beneath the stained-glass windows of the Sagrada Família.",
+    "album": "Spain"
   },
   {
     "category": "life",
@@ -150,7 +166,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Sagrada Família · Barcelona, Spain",
-    "alt": "Outside the Sagrada Família in Barcelona."
+    "alt": "Outside the Sagrada Família in Barcelona.",
+    "album": "Spain"
   },
   {
     "category": "life",
@@ -159,7 +176,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Madrid, Spain",
-    "alt": "Standing beneath a stone arch in Madrid."
+    "alt": "Standing beneath a stone arch in Madrid.",
+    "album": "Spain"
   },
   {
     "category": "life",
@@ -168,7 +186,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Exploring Spain",
-    "alt": "A group photo during an outing in Spain."
+    "alt": "A group photo during an outing in Spain.",
+    "album": "Spain"
   },
   {
     "category": "life",
@@ -177,7 +196,8 @@
     "width": 825,
     "height": 1100,
     "caption": "Dinner in Spain",
-    "alt": "A group gathered around a restaurant table in Spain."
+    "alt": "A group gathered around a restaurant table in Spain.",
+    "album": "Spain"
   },
   {
     "category": "life",
@@ -186,6 +206,7 @@
     "width": 826,
     "height": 1100,
     "caption": "A childhood memory",
-    "alt": "A childhood portrait."
+    "alt": "A childhood portrait.",
+    "album": "Everyday Memories"
   }
 ]

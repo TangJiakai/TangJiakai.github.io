@@ -66,7 +66,7 @@ last_year=None
 for p in papers:
     if p['year']!=last_year:
         if last_year is not None: rows.append('</ul></div>')
-        rows.append(f'<div class="publication-year"><h3 class="year-heading"><span>{p["year"]}</span></h3><ul class="publications-list">')
+        rows.append(f'<div class="publication-year" id="year-{p["year"]}"><h3 class="year-heading"><span>{p["year"]}</span></h3><ul class="publications-list">')
         last_year=p['year']
     title=esc(p['title'])
     title_url=p['link'] or p.get('website','')
@@ -212,6 +212,7 @@ html=f'''<!doctype html>
     <section id="education" aria-labelledby="education-title">
       <h2 id="education-title"><span aria-hidden="true">📖</span> Education</h2>
       <ul class="dated-list education-list">
+        <li><span class="date">2026.05–2026.11</span><div class="school"><h3>National University of Singapore</h3><p>Joint Ph.D. Training · School of Computing<br>Advisors: <a href="https://www.comp.nus.edu.sg/cs/people/ngsk/" target="_blank" rel="noopener">See-Kiong Ng</a> and <a href="https://zyang1580.github.io/" target="_blank" rel="noopener">Yang Zhang</a></p></div></li>
         <li><span class="date">2022.09–Present</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/ruc.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Renmin University of China</h3><p>Integrated Master's–Ph.D. Program in Artificial Intelligence<br>Gaoling School of Artificial Intelligence · Advisor: Xu Chen<br><span class="muted">Expected graduation: 2028</span></p></div></li>
         <li><span class="date">2018.09–2022.06</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/whut.png" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Wuhan University of Technology</h3><p>Bachelor's Degree in Computer Science and Technology<br><span class="muted">Ranked 1 / 257</span></p></div></li>
       </ul>
@@ -255,28 +256,38 @@ sections['news']=re.sub(r'<ul class="news-list">.*?</ul>',
     ('<details class="news-archive"><summary>Earlier news</summary><ul class="news-list">'+''.join(news_items[6:])+'</ul></details>' if len(news_items)>6 else ''),
     sections['news'],flags=re.S)
 home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
-home_nav='<nav class="section-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
+home_nav='<nav class="section-nav floating-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
 home_body=home_nav+'\n'+ '\n'.join(sections[key] for key,label in home_sections)
+publication_nav='<nav class="section-nav floating-nav year-nav" aria-label="Publication years"><span class="floating-nav-label">Year</span>'+''.join(f'<a href="#year-{year}">{year}</a>' for year in sorted({p['year'] for p in papers},reverse=True))+'</nav>'
 
 gallery_items=json.loads((ROOT/'data/gallery.json').read_text())
 gallery_groups=[]
 for category,label,description in [('academic','Academic Moments','Talks, conferences, and research gatherings.'),('life','Life','Moments beyond research.')]:
-    photos=[]
+    albums={}
     for photo in (p for p in gallery_items if p['category']==category):
-        src=esc(photo['src'],quote=True)
-        caption=esc(photo.get('caption',''))
-        alt=esc(photo['alt'],quote=True)
-        thumbnail=esc(photo.get('thumbnail',photo['src']),quote=True)
-        dimensions=f' width="{int(photo["width"])}" height="{int(photo["height"])}"' if photo.get('width') and photo.get('height') else ''
-        photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{thumbnail}" alt="{alt}"{dimensions} loading="lazy" decoding="async"></a><figcaption>{caption}</figcaption></figure>')
-    content='<div class="gallery-grid">'+''.join(photos)+'</div>' if photos else '<p class="gallery-empty">Photos coming soon.</p>'
+        albums.setdefault(photo.get('album',label),[]).append(photo)
+    album_html=[]
+    for album,items in albums.items():
+        photos=[]
+        for photo in items:
+            src=esc(photo['src'],quote=True)
+            caption=esc(photo.get('caption',''))
+            alt=esc(photo['alt'],quote=True)
+            thumbnail=esc(photo.get('thumbnail',photo['src']),quote=True)
+            dimensions=f' width="{int(photo["width"])}" height="{int(photo["height"])}"' if photo.get('width') and photo.get('height') else ''
+            photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{thumbnail}" alt="{alt}"{dimensions} loading="lazy" decoding="async"><span class="photo-expand" aria-hidden="true">↗</span></a><figcaption>{caption}</figcaption></figure>')
+        layout=' gallery-grid--pair' if len(items)<=2 else ''
+        if all(p.get('height',0)>p.get('width',0) for p in items):
+            layout+=' gallery-grid--portrait'
+        album_html.append(f'<article class="gallery-album"><header class="album-heading"><h4>{esc(album)}</h4></header><div class="gallery-grid{layout}">'+''.join(photos)+'</div></article>')
+    content=''.join(album_html) if album_html else '<p class="gallery-empty">Photos coming soon.</p>'
     gallery_groups.append(f'<section class="gallery-group" id="{category}"><h3>{label}</h3><p class="muted">{description}</p>{content}</section>')
 gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title"><span aria-hidden="true">📷</span> Gallery</h2><p class="page-intro">A collection of academic and everyday moments.</p><nav class="section-nav gallery-nav" aria-label="Gallery categories"><a href="#academic">Academic Moments</a><a href="#life">Life</a></nav></section>'+''.join(gallery_groups)
 gallery_body+='''<dialog class="photo-viewer" aria-label="Photo viewer"><button type="button" class="photo-close" aria-label="Close photo">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>'''
 
 pages={
     'index.html':('Home',home_body,'Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and intelligent agents.'),
-    'publications.html':('Publications',sections['publications'],'Publications by Jiakai Tang on recommender systems, large language models, and intelligent agents.'),
+    'publications.html':('Publications',publication_nav+sections['publications'],'Publications by Jiakai Tang on recommender systems, large language models, and intelligent agents.'),
     'patents.html':('Patents',sections['patents'],'Patents and industrial research contributions by Jiakai Tang.'),
     'gallery.html':('Gallery',gallery_body,'Academic and everyday moments from Jiakai Tang.'),
 }
