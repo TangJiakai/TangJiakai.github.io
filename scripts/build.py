@@ -236,7 +236,7 @@ html=f'''<!doctype html>
         <li><span class="date">2024.11–2025.03</span><div class="employer"><span class="company-logo company-logo--wechat" aria-hidden="true"><img src="assets/logos/wechat.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
         <li><span class="date">2024.05–2024.11</span><div class="employer"><span class="company-logo company-logo--tongyi" aria-hidden="true"><img src="assets/logos/tongyi.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
         <li><span class="date">2023.10–2024.04</span><div class="employer"><span class="company-logo company-logo--kuaishou" aria-hidden="true"><img src="assets/logos/kuaishou.png" alt="" loading="lazy" decoding="async"></span><div><h3>Kuaishou</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
-        <li><span class="date">2023.02–2023.07</span><div class="employer"><span class="company-logo company-logo--huawei" aria-hidden="true"><img src="assets/logos/huawei.png" alt="" loading="lazy" decoding="async"></span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
+        <li><span class="date">2023.02–2023.07</span><div class="employer"><span class="company-logo company-logo--noah" aria-hidden="true"><img src="assets/logos/noah.png" alt="" loading="lazy" decoding="async"></span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
       </ul>
     </section>
     <section id="talks" aria-labelledby="talks-title">
