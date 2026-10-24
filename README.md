@@ -9,7 +9,7 @@ The page is a static, accessible HTML/CSS/JavaScript site. Content works without
 - Edit `data/publications.json` for publication titles, authors, venue, year, links, and award badges. Optional `resources` entries contain a `label` and `url`: use the uniform display label `Code` for repository, project, and resource links. Check that the repository matches the paper and is publicly accessible before adding it.
 - Edit `data/honors.json` for honors. Chinese award names are retained alongside English translations.
 - Edit `scripts/build.py` for the biography, news, experience, education, and service sections.
-- Run `python3 scripts/build.py` to regenerate `index.html` and `sitemap.xml`.
+- Run `python3 scripts/build.py` to regenerate all four HTML pages and `sitemap.xml`.
 - Update the content date in the generator when refreshing the biography or other sections.
 - Commit and push to `main`. The publish workflow builds and deploys GitHub Pages.
 
@@ -34,6 +34,12 @@ python3 scripts/build.py
 Certificate scans are not published. The additional award titles and dates were transcribed from the owner's supplied certificates; student identifiers and certificate numbers are excluded.
 
 ## Local preview
+
+Home contains biography, six recent news entries (earlier news expands), honors, education, academic services, and internships. Publications and patents are separate pages. Main navigation links to Home, Publications, Patents, Gallery, and the CV. Old homepage publication/patent anchors redirect to their new pages.
+
+### Gallery
+
+Add approved photos under `assets/gallery/`, and entries to `data/gallery.json` with `category` (`academic` or `life`), `src` (relative image path), `alt` (descriptive alternative text), and `caption`. Empty categories show a simple coming-soon message. Photos open in an accessible dialog with Escape/close support, and link directly to the image when JavaScript is unavailable. Do not publish placeholder portraits or unapproved personal photos.
 
 ```sh
 python3 scripts/build.py

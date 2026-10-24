@@ -11,6 +11,7 @@ from zoneinfo import ZoneInfo
 ROOT=Path(__file__).resolve().parents[1]
 style_version=sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
 favicon_version=sha256((ROOT/'assets/favicon.svg').read_bytes()).hexdigest()[:12]
+script_version=sha256((ROOT/'assets/site.js').read_bytes()).hexdigest()[:12]
 papers=json.loads((ROOT/'data/publications.json').read_text())
 def publication_priority(p):
     published=not any(tag in p['badge'] for tag in ('Preprint','Under review'))
@@ -122,8 +123,8 @@ for group in service_data['reviewing']:
     venues=''.join(f'<li>{esc(venue)}</li>' for venue in group['venues'])
     review_rows.append(f'''<div class="review-group"><div><h4>{esc(group['label'])}</h4><span class="review-role">{esc(group['role'])}</span></div><ul class="venue-list" aria-label="{esc(group['label'])}">{venues}</ul></div>''')
 
-nav=[('about','About Me'),('news','News'),('publications','Publications'),('patents','Patents'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
-navhtml=''.join(f'<a href="#{k}">{v}</a>' for k,v in nav)
+nav=[('index.html','Home'),('publications.html','Publications'),('patents.html','Patents'),('gallery.html','Gallery')]
+navhtml=''.join(f'<a href="{k}">{v}</a>' for k,v in nav)
 structured={"@context":"https://schema.org","@type":"Person","name":"Jiakai Tang","alternateName":"唐嘉凯","url":"https://tangjiakai.github.io/","image":"https://tangjiakai.github.io/assets/portrait.jpg","affiliation":{"@type":"CollegeOrUniversity","name":"Renmin University of China"},"sameAs":["https://github.com/TangJiakai","https://scholar.google.com/citations?user=7kB-4sEAAAAJ"],"knowsAbout":["Recommender Systems","Large Language Models","Intelligent Agents"]}
 structured['sameAs'].extend(['https://dblp.org/pid/294/2295.html','https://www.linkedin.com/in/%E5%98%89%E5%87%AF-%E5%94%90-744894299/'])
 html=f'''<!doctype html>
@@ -144,12 +145,12 @@ html=f'''<!doctype html>
   <link rel="icon" href="assets/favicon.svg?v={favicon_version}" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css?v={style_version}">
   <script type="application/ld+json">{json.dumps(structured,ensure_ascii=False)}</script>
-  <script src="assets/site.js" defer></script>
+  <script src="assets/site.js?v={script_version}" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead"><div class="nav-wrap">
-  <a class="brand" href="#about">Homepage</a>
+  <a class="brand" href="index.html">Jiakai Tang</a>
   <nav aria-label="Main navigation"><div class="nav-sections">{navhtml}</div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a></nav>
 </div></header>
 <div class="page-layout">
@@ -246,9 +247,53 @@ html=f'''<!doctype html>
 </body>
 </html>
 '''
-# Keep the body order consistent with the reference-style navigation.
-service=re.search(r'    <section id="service".*?</section>',html,re.S).group(0)
-html=html.replace(service,'').replace('    <section id="experience"',service+'\n    <section id="experience"')
-(ROOT/'index.html').write_text(html)
-(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://tangjiakai.github.io/</loc><lastmod>2026-10-24</lastmod></url></urlset>\n')
-print(f'Built index.html: {len(papers)} publications, {sum(p["first"] for p in papers)} first/co-first-author papers.')
+# Share the profile and page shell while keeping long collections off the homepage.
+sections={match.group(1):match.group(0) for match in re.finditer(r'<section id="([^"]+)".*?</section>',html,re.S)}
+news_items=re.findall(r'<li>.*?</li>',sections['news'],re.S)
+sections['news']=re.sub(r'<ul class="news-list">.*?</ul>',
+    '<ul class="news-list">'+''.join(news_items[:6])+'</ul>'+
+    ('<details class="news-archive"><summary>Earlier news</summary><ul class="news-list">'+''.join(news_items[6:])+'</ul></details>' if len(news_items)>6 else ''),
+    sections['news'],flags=re.S)
+home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
+home_nav='<nav class="section-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
+home_body=home_nav+'\n'+ '\n'.join(sections[key] for key,label in home_sections)
+
+gallery_items=json.loads((ROOT/'data/gallery.json').read_text())
+gallery_groups=[]
+for category,label,description in [('academic','Academic Moments','Talks, conferences, and research gatherings.'),('life','Life','Moments beyond research.')]:
+    photos=[]
+    for photo in (p for p in gallery_items if p['category']==category):
+        src=esc(photo['src'],quote=True)
+        caption=esc(photo.get('caption',''))
+        alt=esc(photo['alt'],quote=True)
+        photos.append(f'<figure class="gallery-photo"><a class="gallery-image" href="{src}" data-caption="{esc(photo.get("caption",""),quote=True)}" aria-label="View photo: {alt}"><img src="{src}" alt="{alt}" loading="lazy" decoding="async"></a><figcaption>{caption}</figcaption></figure>')
+    content='<div class="gallery-grid">'+''.join(photos)+'</div>' if photos else '<p class="gallery-empty">Photos coming soon.</p>'
+    gallery_groups.append(f'<section class="gallery-group" id="{category}"><h3>{label}</h3><p class="muted">{description}</p>{content}</section>')
+gallery_body='<section id="gallery" aria-labelledby="gallery-title"><h2 id="gallery-title"><span aria-hidden="true">📷</span> Gallery</h2><p class="page-intro">A collection of academic and everyday moments.</p></section>'+''.join(gallery_groups)
+gallery_body+='''<dialog class="photo-viewer" aria-label="Photo viewer"><button type="button" class="photo-close" aria-label="Close photo">×</button><figure><img alt=""><figcaption></figcaption></figure></dialog>'''
+
+pages={
+    'index.html':('Home',home_body,'Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and intelligent agents.'),
+    'publications.html':('Publications',sections['publications'],'Publications by Jiakai Tang on recommender systems, large language models, and intelligent agents.'),
+    'patents.html':('Patents',sections['patents'],'Patents and industrial research contributions by Jiakai Tang.'),
+    'gallery.html':('Gallery',gallery_body,'Academic and everyday moments from Jiakai Tang.'),
+}
+for filename,(label,body,description) in pages.items():
+    url='https://tangjiakai.github.io/'+('' if filename=='index.html' else filename)
+    title='Jiakai Tang · 唐嘉凯' if filename=='index.html' else f'{label} · Jiakai Tang'
+    footer='<footer><span>© 2026 Jiakai Tang · Last updated October 24, 2026</span><a href="#main">Back to top ↑</a></footer>'
+    page=re.sub(r'<main id="main">.*?</main>',lambda _: '<main id="main">'+body+footer+'</main>',html,flags=re.S)
+    page=page.replace(f'<a href="{filename}">{label}</a>',f'<a href="{filename}" class="active" aria-current="page">{label}</a>')
+    page=re.sub(r'<title>.*?</title>',f'<title>{title}</title>',page)
+    for pattern,replacement in [
+        (r'<link rel="canonical"[^>]+>',f'<link rel="canonical" href="{url}">'),
+        (r'<meta property="og:url"[^>]+>',f'<meta property="og:url" content="{url}">'),
+        (r'<meta property="og:title"[^>]+>',f'<meta property="og:title" content="{title}">'),
+        (r'<meta name="description"[^>]+>',f'<meta name="description" content="{description}">'),
+        (r'<meta property="og:description"[^>]+>',f'<meta property="og:description" content="{description}">'),
+    ]:
+        page=re.sub(pattern,lambda _,replacement=replacement:replacement,page)
+    (ROOT/filename).write_text(page)
+urls=''.join('<url><loc>https://tangjiakai.github.io/'+('' if filename=='index.html' else filename)+'</loc><lastmod>2026-10-24</lastmod></url>' for filename in pages)
+(ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+urls+'</urlset>\n')
+print(f'Built {len(pages)} pages: {len(papers)} publications, {len(patents)} patents, {len(gallery_items)} photos.')
