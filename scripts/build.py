@@ -221,7 +221,7 @@ html=f'''<!doctype html>
     <section id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title"><span aria-hidden="true">💻</span> Internships</h2>
       <ul class="dated-list experience-list">
-        <li><span class="date">2025.04–Present</span><div class="employer"><span class="company-logo company-logo--taotian" aria-hidden="true"><img src="assets/logos/taotian.png" alt="" loading="lazy" decoding="async"></span><div><h3>Alibaba · Taotian</h3><p class="position">T-Star Talent Intern · Recommendation Algorithm</p></div></div></li>
+        <li><span class="date">2025.04–Present</span><div class="employer"><span class="company-logo company-logo--taotian" aria-hidden="true"><img src="assets/logos/taotian.png" alt="" loading="lazy" decoding="async"></span><div><h3 class="employer-heading"><span>Alibaba · Taotian</span><span class="talent-badge" title="T-Star 人才实习"><span aria-hidden="true">★</span><span>T-Star Talent Intern</span></span></h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
         <li><span class="date">2024.11–2025.03</span><div class="employer"><span class="company-logo company-logo--wechat" aria-hidden="true"><img src="assets/logos/wechat.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
         <li><span class="date">2024.05–2024.11</span><div class="employer"><span class="company-logo company-logo--tongyi" aria-hidden="true"><img src="assets/logos/tongyi.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
         <li><span class="date">2023.10–2024.04</span><div class="employer"><span class="company-logo company-logo--kuaishou" aria-hidden="true"><img src="assets/logos/kuaishou.png" alt="" loading="lazy" decoding="async"></span><div><h3>Kuaishou</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
@@ -266,7 +266,11 @@ sections['news']=re.sub(r'<ul class="news-list">.*?</ul>',
     sections['news'],flags=re.S)
 home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('service','Academic Services'),('experience','Internships')]
 home_nav='<nav class="section-nav floating-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
-home_body=home_nav+'\n'+ '\n'.join(sections[key] for key,label in home_sections)
+home_blocks=[]
+for index,(key,label) in enumerate(home_sections):
+    classes='home-section' + (' home-section--tinted' if index % 2 else '')
+    home_blocks.append(sections[key].replace('<section ',f'<section class="{classes}" ',1))
+home_body=home_nav+'\n'+'\n'.join(home_blocks)
 publication_nav='<nav class="section-nav floating-nav year-nav" aria-label="Publication years"><span class="floating-nav-label">Year</span>'+''.join(f'<a href="#year-{year}">{year}</a>' for year in sorted({p['year'] for p in papers},reverse=True))+'</nav>'
 
 gallery_items=json.loads((ROOT/'data/gallery.json').read_text())
