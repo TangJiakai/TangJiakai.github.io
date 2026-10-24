@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 ROOT=Path(__file__).resolve().parents[1]
 style_version=sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
+favicon_version=sha256((ROOT/'assets/favicon.svg').read_bytes()).hexdigest()[:12]
 papers=json.loads((ROOT/'data/publications.json').read_text())
 def publication_priority(p):
     published=not any(tag in p['badge'] for tag in ('Preprint','Under review'))
@@ -140,7 +141,7 @@ html=f'''<!doctype html>
   <meta property="og:description" content="Recommender systems, large language models, and intelligent agents. Ph.D. student at Renmin University of China.">
   <meta property="og:url" content="https://tangjiakai.github.io/">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.svg?v={favicon_version}" type="image/svg+xml">
   <link rel="stylesheet" href="assets/style.css?v={style_version}">
   <script type="application/ld+json">{json.dumps(structured,ensure_ascii=False)}</script>
   <script src="assets/site.js" defer></script>
