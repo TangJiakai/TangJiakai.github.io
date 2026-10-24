@@ -162,7 +162,7 @@ html=f'''<!doctype html>
     <p class="profile-interests">Recommender Systems,<br>Large Language Models,<br>and Intelligent Agents.</p>
     <ul class="contact-links">
       <li><span class="contact-row">{icon('pin')}<span>Beijing, China</span></span></li>
-      <li><a class="contact-row" href="mailto:tangjiakai5704@ruc.edu.cn">{icon('mail')}<span>Email</span></a></li>
+      <li><a class="contact-row" href="mailto:tangjiakai5704@gmail.com">{icon('mail')}<span>Email</span></a></li>
       <li><a class="contact-row" href="https://github.com/TangJiakai">{icon('github')}<span>GitHub</span></a></li>
       <li><a class="contact-row" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ">{icon('scholar')}<span>Google Scholar</span></a></li>
       <li><a class="contact-row" href="https://dblp.org/pid/294/2295.html">{icon('dblp')}<span>DBLP</span></a></li>
@@ -175,6 +175,10 @@ html=f'''<!doctype html>
       <p>I am a Ph.D. student in the <a href="https://ai.ruc.edu.cn/">Gaoling School of Artificial Intelligence</a> at <a href="https://www.ruc.edu.cn/">Renmin University of China</a>, advised by <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm">Prof. Xu Chen</a>. I am a member of the <a href="https://ai-engine-lab.com/">AI-Engine Lab</a>. I joined the integrated master's–Ph.D. program in 2022 and expect to graduate in 2028. Previously, I received my bachelor's degree in Computer Science and Technology from Wuhan University of Technology in 2022.</p>
       <p>My research focuses on <strong>LLM-powered recommender systems and intelligent agents</strong>. I study reasoning for recommendation, user intent understanding, and interactive agents with long-term memory. I am also interested in faithful user simulation and evaluation, connecting algorithmic advances with real-world applications.</p>
       <p>I have worked on industrial recommendation at Taobao through the <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> series, and on reasoning for industrial ranking through <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a>. My recent interests include adaptive computation, recommendation scaling, and agents that learn from experience.</p>
+      <div class="email-contacts" aria-label="Email addresses">
+        <div class="email-contact-row"><span class="email-label">Long-term</span><div class="email-options"><a href="mailto:tangjiakai5704@gmail.com">tangjiakai5704@gmail.com</a><a href="mailto:1049765241@qq.com">1049765241@qq.com</a></div></div>
+        <div class="email-contact-row"><span class="email-label">University</span><div><a href="mailto:tangjiakai5704@ruc.edu.cn">tangjiakai5704@ruc.edu.cn</a><span class="email-note">May be unavailable after graduation.</span></div></div>
+      </div>
       <div class="scholar-stats" aria-label="Google Scholar metrics">
         <a class="scholar-source" href="{scholar['source_url']}">{icon('scholar')}<span>Google Scholar</span></a>
         <a class="metric-pill" href="{scholar['source_url']}"><span>Citations</span><strong>{scholar['citations']:,}</strong></a>
