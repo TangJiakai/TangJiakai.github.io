@@ -163,8 +163,6 @@ for p in sorted((p for p in papers if p.get('selected')),key=lambda p:p['selecte
           <p class="paper-card-foot"><span>{role}</span><span class="paper-actions">{actions}</span></p>
         </div>
       </li>''')
-first_author_count=sum(1 for p in papers if p['first'] and 'workshop on' not in p['title'].lower())
-national_scholarships=4
 
 patents=json.loads((ROOT/'data/patents.json').read_text())
 patent_rows=[]
@@ -262,11 +260,9 @@ html=f'''<!doctype html>
         <div class="email-contact-row"><span class="email-label">Long-term</span><div class="email-options"><a href="mailto:tangjiakai5704@gmail.com">tangjiakai5704@gmail.com</a><a href="mailto:1049765241@qq.com">1049765241@qq.com</a></div></div>
         <div class="email-contact-row"><span class="email-label">University</span><div><a href="mailto:tangjiakai5704@ruc.edu.cn">tangjiakai5704@ruc.edu.cn</a><span class="email-note">May be unavailable after graduation.</span></div></div>
       </div>
-      <ul class="stat-strip" aria-label="Research highlights">
+      <ul class="stat-strip" aria-label="Google Scholar metrics">
         <li><a href="{scholar['source_url']}"><strong>{scholar['citations']:,}</strong><span>Citations</span></a></li>
         <li><a href="{scholar['source_url']}"><strong>{scholar['h_index']}</strong><span>h-index</span></a></li>
-        <li><a href="publications.html" title="Including co-first authorship"><strong>{first_author_count}</strong><span>First-author papers</span></a></li>
-        <li><a href="#honors"><strong>{national_scholarships}</strong><span>National Scholarships</span></a></li>
       </ul>
       <p class="stat-note">{icon('scholar')}<span>Citation metrics from <a href="{scholar['source_url']}">Google Scholar</a>, updated {scholar_date}</span></p>
     </section>
