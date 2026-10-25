@@ -9,7 +9,11 @@
     "first": true,
     "year": 2026,
     "award": "SIGIR-AP 2026 GRIT Workshop Best Paper",
-    "deployed": true
+    "deployed": true,
+    "selected": 1,
+    "short": "RecGPT-V3",
+    "summary": "A stateful, hybrid-modal LLM recommender that reasons over text and Semantic IDs, with a Memory Hub for long-term user memory and latent intent reasoning. In Taobao's homepage feed it lifts GMV by 3.97% while cutting serving cost by 52.4%.",
+    "teaser": "assets/papers/recgpt-v3.webp"
   },
   {
     "venue": "CIKM 2022",
@@ -67,7 +71,11 @@
     "first": true,
     "year": 2026,
     "award": "",
-    "deployed": true
+    "deployed": true,
+    "selected": 2,
+    "short": "RecGPT",
+    "summary": "Puts user intent at the center of the recommendation pipeline, using LLMs for interest mining, item retrieval and explanation generation. Fully deployed on the Taobao app.",
+    "teaser": "assets/papers/recgpt.webp"
   },
   {
     "venue": "arXiv 2026",
@@ -113,7 +121,11 @@
         "label": "Code",
         "url": "https://github.com/TangJiakai/ReaRec"
       }
-    ]
+    ],
+    "selected": 4,
+    "short": "ReaRec",
+    "summary": "The first inference-time computing framework for recommendation. Implicit multi-step reasoning raises the performance ceiling of sequential recommenders by roughly 30% to 50%.",
+    "teaser": "assets/papers/rearec.webp"
   },
   {
     "venue": "arXiv 2026",
@@ -124,7 +136,11 @@
     "id": "paper-9",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "selected": 7,
+    "short": "RecVerse",
+    "summary": "A GUI-grounded agent that simulates real shopping sessions from screenshots, using hierarchical memory and trajectory-level RL. Also releases the USB benchmark.",
+    "teaser": "assets/papers/recverse.webp"
   },
   {
     "venue": "KDD 2026",
@@ -136,7 +152,11 @@
     "first": true,
     "year": 2026,
     "award": "",
-    "deployed": true
+    "deployed": true,
+    "selected": 3,
+    "short": "OnePiece",
+    "summary": "Brings LLM-style context engineering and block-wise latent reasoning into industrial retrieval and ranking models. Deployed in Shopee's main search, with over 2% GMV/UU gain.",
+    "teaser": "assets/papers/onepiece.webp"
   },
   {
     "venue": "KDD 2026",
@@ -148,7 +168,11 @@
     "first": true,
     "year": 2026,
     "award": "",
-    "deployed": true
+    "deployed": true,
+    "selected": 5,
+    "short": "RecBot",
+    "summary": "Lets users steer the recommendation feed with natural-language commands, through a Parser agent and a Planner agent. Improves both user satisfaction and business metrics in long-term online tests.",
+    "teaser": "assets/papers/recbot.webp"
   },
   {
     "venue": "KDD 2026",
@@ -160,7 +184,11 @@
     "first": true,
     "year": 2026,
     "award": "",
-    "deployed": true
+    "deployed": true,
+    "selected": 6,
+    "short": "OneRank",
+    "summary": "A Transformer-native multi-task ranker with task-private channels and cross-task gradient detachment, reducing the seesaw effect between tasks.",
+    "teaser": "assets/papers/onerank.webp"
   },
   {
     "venue": "arXiv 2026",
@@ -182,7 +210,11 @@
     "id": "paper-15",
     "first": true,
     "year": 2026,
-    "award": ""
+    "award": "",
+    "selected": 8,
+    "short": "LoopCTR",
+    "summary": "Scales CTR models by looping shared layers instead of adding parameters. Trained with multiple loops, it beats all baselines even with zero loops at inference.",
+    "teaser": "assets/papers/loopctr.webp"
   },
   {
     "venue": "arXiv 2026",

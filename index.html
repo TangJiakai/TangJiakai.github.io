@@ -6,6 +6,15 @@
   <title>Jiakai Tang · 唐嘉凯</title>
   <meta name="description" content="Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and personalized agents.">
   <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <script>
+    // Light by default; apply a saved dark choice before the first paint.
+    (() => {
+      let theme;
+      try { theme = localStorage.getItem('theme'); } catch {}
+      document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+    })();
+  </script>
   <meta name="google-site-verification" content="IjU5DXIl_b3xuy8beeihjfm2RMkB2Yd6SPrrIbL4gnI">
   <link rel="canonical" href="https://tangjiakai.github.io/">
   <meta property="og:type" content="profile">
@@ -14,15 +23,16 @@
   <meta property="og:url" content="https://tangjiakai.github.io/">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
   <link rel="icon" href="assets/favicon.svg?v=d891ac708d90" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=b6b5da77e709">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/style.css?v=0ca293540c30">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Jiakai Tang", "alternateName": "唐嘉凯", "url": "https://tangjiakai.github.io/", "image": "https://tangjiakai.github.io/assets/portrait.jpg", "affiliation": {"@type": "CollegeOrUniversity", "name": "Renmin University of China"}, "sameAs": ["https://github.com/TangJiakai", "https://scholar.google.com/citations?user=7kB-4sEAAAAJ", "https://dblp.org/pid/294/2295.html", "https://www.linkedin.com/in/%E5%98%89%E5%87%AF-%E5%94%90-744894299/"], "knowsAbout": ["Recommender Systems", "Large Language Models", "Personalized Agents"]}</script>
-  <script src="assets/site.js?v=a1313c873eb1" defer></script>
+  <script src="assets/site.js?v=f47bb6f54a48" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead"><div class="nav-wrap">
   <a class="brand" href="index.html">Jiakai Tang</a>
-  <nav aria-label="Main navigation"><div class="nav-sections"><a href="index.html" class="active" aria-current="page">Home</a><a href="publications.html">Publications</a><a href="patents.html">Patents</a><a href="gallery.html">Gallery</a></div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a></nav>
+  <nav aria-label="Main navigation"><div class="nav-sections"><a href="index.html" class="active" aria-current="page">Home</a><a href="publications.html">Publications</a><a href="patents.html">Patents</a><a href="gallery.html">Gallery</a></div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a><button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Switch theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></nav>
 </div></header>
 <div class="page-layout">
   <aside class="profile" aria-label="Profile">
@@ -39,7 +49,7 @@
       <li><a class="contact-row" href="https://www.linkedin.com/in/%E5%98%89%E5%87%AF-%E5%94%90-744894299/"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="7" cy="7" r="1.4" fill="white"/><path d="M7 10v8m5 0v-8m0 4c0-5 6-5 6 0v4" fill="none" stroke="white" stroke-width="2.3"/></svg><span>LinkedIn</span></a></li>
     </ul>
   </aside>
-  <main id="main"><nav class="section-nav floating-nav" aria-label="On this page"><a href="#about">About Me</a><a href="#news">News</a><a href="#honors">Honors and Awards</a><a href="#education">Education</a><a href="#talks">Invited Talks</a><a href="#service">Academic Services</a><a href="#experience">Internships</a></nav>
+  <main id="main"><nav class="section-nav floating-nav" aria-label="On this page"><a href="#about">About Me</a><a href="#selected">Selected Papers</a><a href="#news">News</a><a href="#experience">Internships</a><a href="#education">Education</a><a href="#honors">Honors and Awards</a><a href="#talks">Invited Talks</a><a href="#service">Academic Services</a></nav>
 <section class="home-section" id="about" aria-labelledby="about-title">
       <h2 id="about-title" class="sr-only">About Me</h2>
       <p>I am a Ph.D. student in the <a href="https://ai.ruc.edu.cn/">Gaoling School of Artificial Intelligence</a> at <a href="https://www.ruc.edu.cn/">Renmin University of China</a>, advised by <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm">Prof. Xu Chen</a>. I am a member of the <a href="https://ai-engine-lab.com/">AI-Engine Lab</a>. I joined the integrated master's–Ph.D. program in 2022 and expect to graduate in 2028. Previously, I received my bachelor's degree in Computer Science and Technology from Wuhan University of Technology in 2022.</p>
@@ -49,29 +59,108 @@
         <div class="email-contact-row"><span class="email-label">Long-term</span><div class="email-options"><a href="mailto:tangjiakai5704@gmail.com">tangjiakai5704@gmail.com</a><a href="mailto:1049765241@qq.com">1049765241@qq.com</a></div></div>
         <div class="email-contact-row"><span class="email-label">University</span><div><a href="mailto:tangjiakai5704@ruc.edu.cn">tangjiakai5704@ruc.edu.cn</a><span class="email-note">May be unavailable after graduation.</span></div></div>
       </div>
-      <div class="scholar-stats" aria-label="Google Scholar metrics">
-        <a class="scholar-source" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m1 8 11-6 11 6-11 6Zm5 4 6 3 6-3v6c-4 3-8 3-12 0Zm15-1h2v8h-2Z"/></svg><span>Google Scholar</span></a>
-        <a class="metric-pill" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en"><span>Citations</span><strong>7,252</strong></a>
-        <a class="metric-pill" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en"><span>h-index</span><strong>15</strong></a>
-        <a class="metric-pill" href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en"><span>i10-index</span><strong>16</strong></a>
-        <span class="metrics-date">Auto-updated · Oct 25, 2026</span>
-      </div>
+      <ul class="stat-strip" aria-label="Research highlights">
+        <li><a href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en"><strong>7,252</strong><span>Citations</span></a></li>
+        <li><a href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en"><strong>15</strong><span>h-index</span></a></li>
+        <li><a href="publications.html" title="Including co-first authorship"><strong>22</strong><span>First-author papers</span></a></li>
+        <li><a href="#honors"><strong>4</strong><span>National Scholarships</span></a></li>
+      </ul>
+      <p class="stat-note"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m1 8 11-6 11 6-11 6Zm5 4 6 3 6-3v6c-4 3-8 3-12 0Zm15-1h2v8h-2Z"/></svg><span>Citation metrics from <a href="https://scholar.google.com/citations?user=7kB-4sEAAAAJ&hl=en">Google Scholar</a>, updated Oct 25, 2026</span></p>
     </section>
-<section class="home-section home-section--tinted" id="news" aria-labelledby="news-title">
+<section class="home-section home-section--tinted" id="selected" aria-labelledby="selected-title">
+      <h2 id="selected-title"><span aria-hidden="true">✨</span> Selected Publications</h2>
+      <ul class="paper-cards"><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://arxiv.org/abs/2607.15591" tabindex="-1" aria-hidden="true"><img src="assets/papers/recgpt-v3.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">RecGPT-V3</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">arXiv 2026</span><span class="badge award">🏆 Best Paper</span><span class="badge deployed"><span aria-hidden="true">🚀</span> Deployed</span></p>
+          <h3><a href="https://arxiv.org/abs/2607.15591">RecGPT-V3 Technical Report</a></h3>
+          <p class="paper-summary">A stateful, hybrid-modal LLM recommender that reasons over text and Semantic IDs, with a Memory Hub for long-term user memory and latent intent reasoning. In Taobao&#x27;s homepage feed it lifts GMV by 3.97% while cutting serving cost by 52.4%.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://arxiv.org/abs/2607.15591">Paper</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://dl.acm.org/doi/10.1145/3846382" tabindex="-1" aria-hidden="true"><img src="assets/papers/recgpt.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">RecGPT</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">TOIS 2026</span><span class="badge deployed"><span aria-hidden="true">🚀</span> Deployed</span></p>
+          <h3><a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT: A User Intent-Centric Next-Generation LLM-Powered Recommender System in Industrial Practice</a></h3>
+          <p class="paper-summary">Puts user intent at the center of the recommendation pipeline, using LLMs for interest mining, item retrieval and explanation generation. Fully deployed on the Taobao app.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://dl.acm.org/doi/10.1145/3846382">Paper</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://dl.acm.org/doi/10.1145/3770855.3818456" tabindex="-1" aria-hidden="true"><img src="assets/papers/onepiece.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">OnePiece</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">KDD 2026</span><span class="badge oral">🌟 Oral</span><span class="badge deployed"><span aria-hidden="true">🚀</span> Deployed</span></p>
+          <h3><a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece: Bringing Context Engineering and Reasoning to Industrial Cascade Ranking System</a></h3>
+          <p class="paper-summary">Brings LLM-style context engineering and block-wise latent reasoning into industrial retrieval and ranking models. Deployed in Shopee&#x27;s main search, with over 2% GMV/UU gain.</p>
+          <p class="paper-card-foot"><span>Co-first author</span><span class="paper-actions"><a href="https://dl.acm.org/doi/10.1145/3770855.3818456">Paper</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://ieeexplore.ieee.org/document/11523596/" tabindex="-1" aria-hidden="true"><img src="assets/papers/rearec.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">ReaRec</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">TKDE 2026</span></p>
+          <h3><a href="https://ieeexplore.ieee.org/document/11523596/">Think Before Recommend: Unleashing the Latent Reasoning Power for Sequential Recommendation</a></h3>
+          <p class="paper-summary">The first inference-time computing framework for recommendation. Implicit multi-step reasoning raises the performance ceiling of sequential recommenders by roughly 30% to 50%.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://ieeexplore.ieee.org/document/11523596/">Paper</a><a href="https://github.com/TangJiakai/ReaRec">Code</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://dl.acm.org/doi/10.1145/3770855.3817619" tabindex="-1" aria-hidden="true"><img src="assets/papers/recbot.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">RecBot</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">KDD 2026</span><span class="badge deployed"><span aria-hidden="true">🚀</span> Deployed</span></p>
+          <h3><a href="https://dl.acm.org/doi/10.1145/3770855.3817619">Interactive recommendation agent with active user commands</a></h3>
+          <p class="paper-summary">Lets users steer the recommendation feed with natural-language commands, through a Parser agent and a Planner agent. Improves both user satisfaction and business metrics in long-term online tests.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://dl.acm.org/doi/10.1145/3770855.3817619">Paper</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://dl.acm.org/doi/10.1145/3770855.3818457" tabindex="-1" aria-hidden="true"><img src="assets/papers/onerank.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">OneRank</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">KDD 2026</span><span class="badge deployed"><span aria-hidden="true">🚀</span> Deployed</span></p>
+          <h3><a href="https://dl.acm.org/doi/10.1145/3770855.3818457">OneRank: Unified Transformer-Native Ranking Architecture for Multi-Task Recommendation</a></h3>
+          <p class="paper-summary">A Transformer-native multi-task ranker with task-private channels and cross-task gradient detachment, reducing the seesaw effect between tasks.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://dl.acm.org/doi/10.1145/3770855.3818457">Paper</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://arxiv.org/abs/2608.20707" tabindex="-1" aria-hidden="true"><img src="assets/papers/recverse.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">RecVerse</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">arXiv 2026</span></p>
+          <h3><a href="https://arxiv.org/abs/2608.20707">Towards Faithful Simulation of Human Shopping Behavior</a></h3>
+          <p class="paper-summary">A GUI-grounded agent that simulates real shopping sessions from screenshots, using hierarchical memory and trajectory-level RL. Also releases the USB benchmark.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://arxiv.org/abs/2608.20707">Paper</a></span></p>
+        </div>
+      </li><li class="paper-card">
+        <a class="paper-cover paper-cover--figure" href="https://arxiv.org/abs/2604.19550" tabindex="-1" aria-hidden="true"><img src="assets/papers/loopctr.webp" alt="" loading="lazy" decoding="async"><span class="cover-chip">LoopCTR</span></a>
+        <div class="paper-card-body">
+          <p class="paper-tags"><span class="badge venue">arXiv 2026</span></p>
+          <h3><a href="https://arxiv.org/abs/2604.19550">LoopCTR: Unlocking the Loop Scaling Power for Click-Through Rate Prediction</a></h3>
+          <p class="paper-summary">Scales CTR models by looping shared layers instead of adding parameters. Trained with multiple loops, it beats all baselines even with zero loops at inference.</p>
+          <p class="paper-card-foot"><span>First author</span><span class="paper-actions"><a href="https://arxiv.org/abs/2604.19550">Paper</a></span></p>
+        </div>
+      </li></ul>
+      <p class="section-more"><a href="publications.html">All 38 publications →</a></p>
+    </section>
+<section class="home-section" id="news" aria-labelledby="news-title">
       <h2 id="news-title"><span aria-hidden="true">🔥</span> News</h2>
       <ul class="news-list"><li><time datetime="2026-12">2026.12</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <strong>RecGPT-V3</strong> received the <span class="award-text">🏆 SIGIR-AP GRIT Workshop Best Paper</span> award.</span></li><li><time datetime="2026-12">2026.12</time><span><span class="news-celebration" aria-hidden="true">🎉</span> Received my fourth <strong>National Scholarship</strong>, following awards in 2019, 2020, and 2021.</span></li><li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30932">UserArena</a> (<strong>co-first author</strong>; proposed the core idea and co-wrote the paper), a benchmark for interactive user simulation with long-horizon shopping agents.</span></li><li><time datetime="2026-10">2026.10</time><span>Released <a href="https://arxiv.org/abs/2610.30128">LoopRec</a> (<strong>co-first author</strong>; proposed the core idea and co-wrote the paper), exploring item-level adaptive recursion for sequential recommendation.</span></li><li><time datetime="2026-09">2026.09</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://ieeexplore.ieee.org/document/11523596/">ReaRec</a> (<strong>first author</strong>) was published in <strong>IEEE TKDE</strong>.</span></li><li><time datetime="2026-08">2026.08</time><span>Released <a href="https://arxiv.org/abs/2608.20707">RecVerse</a> (<strong>first author</strong>), a GUI-grounded shopping simulation agent with hierarchical memory and trajectory-level reinforcement learning.</span></li><li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818456">OnePiece</a> (<strong>co-first author</strong>) was published at <strong>KDD 2026</strong> with an <span class="oral-text">🌟 Oral presentation</span>.</span></li><li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3817619">RecBot</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li><li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3770855.3818457">OneRank</a> (<strong>first author</strong>) was published at <strong>KDD 2026</strong>.</span></li><li><time datetime="2026-08">2026.08</time><span><span class="news-celebration" aria-hidden="true">🎉</span> <a href="https://dl.acm.org/doi/10.1145/3846382">RecGPT</a> (<strong>first author</strong>) was accepted by <strong>ACM TOIS</strong>.</span></li></ul>
     </section>
-<section class="home-section" id="honors" aria-labelledby="honors-title">
-      <h2 id="honors-title"><span aria-hidden="true">🎖️</span> Honors and Awards</h2>
-      <div class="honor-group"><h3 class="honor-group-title">Research Awards</h3><ul class="dated-list honors-list"><li><span class="date">2026.12</span><div><strong class="award-text">SIGIR-AP GRIT Workshop Best Paper</strong><span class="honor-detail">RecGPT-V3 Technical Report · First author</span></div></li><li><span class="date">2022.10</span><div><strong class="award-text">CIKM Best Resource Paper Runner-Up</strong><span class="honor-detail">RecBole 2.0 · Co-author</span></div></li></ul></div><div class="honor-group"><h3 class="honor-group-title">Scholarships &amp; University Honors</h3><ul class="dated-list honors-list"><li><span class="date">2026.12</span><div><strong class="award-text">National Scholarship</strong><span class="honor-cn" lang="zh-CN">博士研究生国家奖学金</span><span class="honor-detail">Renmin University of China · Ph.D.</span></div></li><li><span class="date">2023–2025</span><div>Academic Excellence Scholarship<span class="honor-cn" lang="zh-CN">学习优秀奖学金</span><span class="honor-detail">Renmin University of China</span><span class="honor-detail">First class: 2024.12 · Third class: 2025.11, 2023.11</span></div></li><li><span class="date">2023–2025</span><div>Merit Student<span class="honor-cn" lang="zh-CN">三好学生</span><span class="honor-detail">Renmin University of China</span><span class="honor-detail">Two-time recipient · 2025.09, 2023.09</span></div></li><li><span class="date">2023.09</span><div>Outstanding Student Leader<span class="honor-cn" lang="zh-CN">优秀学生干部</span><span class="honor-detail">Renmin University of China</span></div></li><li><span class="date">2023.09</span><div>Third-Class Scholarship for Social Work and Volunteer Service<span class="honor-cn" lang="zh-CN">社会工作与志愿服务骨干三等奖学金</span><span class="honor-detail">Renmin University of China</span></div></li><li><span class="date">2022</span><div>Outstanding Graduate<span class="honor-cn" lang="zh-CN">优秀本科毕业生</span><span class="honor-detail">Wuhan University of Technology</span></div></li><li><span class="date">2019–2021</span><div><strong class="award-text">National Scholarship</strong><span class="honor-cn" lang="zh-CN">本科生国家奖学金</span><span class="honor-detail">Wuhan University of Technology · Undergraduate</span><span class="honor-detail">Three-time recipient · 2021.12, 2020.12, 2019.12</span></div></li><li><span class="date">2019–2020</span><div>Model Merit Student<span class="honor-cn" lang="zh-CN">校三好学生标兵</span><span class="honor-detail">Wuhan University of Technology</span><span class="honor-detail">Two-time recipient · 2020.11, 2019.11</span></div></li><li><span class="date">2020</span><div>Outstanding Youth League Cadre<span class="honor-cn" lang="zh-CN">校优秀共青团干部</span><span class="honor-detail">Wuhan University of Technology · Academic year 2019–2020</span></div></li><li><span class="date">2019.05</span><div>Outstanding Youth League Member<span class="honor-cn" lang="zh-CN">校优秀团员</span><span class="honor-detail">Wuhan University of Technology · Academic year 2018–2019</span></div></li></ul></div><div class="honor-group"><h3 class="honor-group-title">Competition Awards</h3><ul class="dated-list honors-list"><li><span class="date">2021.05</span><div>Silver Award, National Finals<span class="honor-cn" lang="zh-CN">中国高校计算机大赛团体程序设计天梯赛全国总决赛银奖</span><span class="honor-detail">China Collegiate Computing Contest · Group Programming Ladder Tournament</span></div></li><li><span class="date">2021.02</span><div>First Prize, Programming Finals<span class="honor-cn" lang="zh-CN">全国高校计算机能力挑战赛程序设计赛决赛一等奖</span><span class="honor-detail">National College Computer Ability Challenge</span></div></li></ul></div>
+<section class="home-section home-section--tinted" id="experience" aria-labelledby="experience-title">
+      <h2 id="experience-title"><span aria-hidden="true">💻</span> Internships</h2>
+      <ul class="dated-list experience-list">
+        <li><span class="date">2025.04–Present</span><div class="employer"><span class="company-logo company-logo--taotian" aria-hidden="true"><img src="assets/logos/taotian.png" alt="" loading="lazy" decoding="async"></span><div><h3 class="employer-heading"><span>Alibaba · Taotian</span><span class="talent-badge" title="T-Star 人才实习"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1Z"/></svg><strong>T-Star</strong><span>Talent Intern</span></span></h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
+        <li><span class="date">2024.11–2025.03</span><div class="employer"><span class="company-logo company-logo--wechat" aria-hidden="true"><img src="assets/logos/wechat.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
+        <li><span class="date">2024.05–2024.11</span><div class="employer"><span class="company-logo company-logo--tongyi" aria-hidden="true"><img src="assets/logos/tongyi.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
+        <li><span class="date">2023.10–2024.04</span><div class="employer"><span class="company-logo company-logo--kuaishou" aria-hidden="true"><img src="assets/logos/kuaishou.png" alt="" loading="lazy" decoding="async"></span><div><h3>Kuaishou</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
+        <li><span class="date">2023.02–2023.07</span><div class="employer"><span class="company-logo company-logo--noah" aria-hidden="true"><img src="assets/logos/noah.png" alt="" loading="lazy" decoding="async"></span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
+      </ul>
     </section>
-<section class="home-section home-section--tinted" id="education" aria-labelledby="education-title">
+<section class="home-section" id="education" aria-labelledby="education-title">
       <h2 id="education-title"><span aria-hidden="true">📖</span> Education</h2>
       <ul class="dated-list education-list">
         <li><span class="date">2022.09–Present</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/ruc.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Renmin University of China</h3><p>Integrated Master's–Ph.D. Program in Artificial Intelligence<br>Gaoling School of Artificial Intelligence · Advisor: <a href="https://ai.ruc.edu.cn/szdw/zrjs/cx/index.htm" target="_blank" rel="noopener">Xu Chen</a><br><span class="muted">Expected graduation: 2028</span></p></div></li>
         <li><span class="date">2026.05–2026.11</span><div class="school school--next"><span class="school-logo school-logo--next" aria-hidden="true"><img src="assets/logos/next.png" alt="" width="100" height="56" loading="lazy" decoding="async"></span><h3>National University of Singapore</h3><p>Joint Ph.D. Training · School of Computing<br><a href="https://www.nextcenter.org/" target="_blank" rel="noopener">NExT++ Lab</a><br>Advisors: <a href="https://www.comp.nus.edu.sg/cs/people/ngsk/" target="_blank" rel="noopener">See-Kiong Ng</a> and <a href="https://zyang1580.github.io/" target="_blank" rel="noopener">Yang Zhang</a></p></div></li>
         <li><span class="date">2018.09–2022.06</span><div class="school"><span class="school-logo" aria-hidden="true"><img src="assets/logos/whut.png" alt="" width="56" height="56" loading="lazy" decoding="async"></span><h3>Wuhan University of Technology</h3><p>Bachelor's Degree in Computer Science and Technology<br><span class="muted">Ranked 1 / 257</span></p></div></li>
       </ul>
+    </section>
+<section class="home-section home-section--tinted" id="honors" aria-labelledby="honors-title">
+      <h2 id="honors-title"><span aria-hidden="true">🎖️</span> Honors and Awards</h2>
+      <div class="honor-group"><h3 class="honor-group-title">Research Awards</h3><ul class="dated-list honors-list"><li><span class="date">2026.12</span><div><strong class="award-text">SIGIR-AP GRIT Workshop Best Paper</strong><span class="honor-detail">RecGPT-V3 Technical Report · First author</span></div></li><li><span class="date">2022.10</span><div><strong class="award-text">CIKM Best Resource Paper Runner-Up</strong><span class="honor-detail">RecBole 2.0 · Co-author</span></div></li></ul></div><div class="honor-group"><h3 class="honor-group-title">Scholarships &amp; University Honors</h3><ul class="dated-list honors-list"><li><span class="date">2026.12</span><div><strong class="award-text">National Scholarship</strong><span class="honor-cn" lang="zh-CN">博士研究生国家奖学金</span><span class="honor-detail">Renmin University of China · Ph.D.</span></div></li><li><span class="date">2019–2021</span><div><strong class="award-text">National Scholarship</strong><span class="honor-cn" lang="zh-CN">本科生国家奖学金</span><span class="honor-detail">Wuhan University of Technology · Undergraduate</span><span class="honor-detail">Three-time recipient · 2021.12, 2020.12, 2019.12</span></div></li></ul><details class="honor-more"><summary>More university honors (8)</summary><ul class="dated-list honors-list"><li><span class="date">2023–2025</span><div>Academic Excellence Scholarship<span class="honor-cn" lang="zh-CN">学习优秀奖学金</span><span class="honor-detail">Renmin University of China</span><span class="honor-detail">First class: 2024.12 · Third class: 2025.11, 2023.11</span></div></li><li><span class="date">2023–2025</span><div>Merit Student<span class="honor-cn" lang="zh-CN">三好学生</span><span class="honor-detail">Renmin University of China</span><span class="honor-detail">Two-time recipient · 2025.09, 2023.09</span></div></li><li><span class="date">2023.09</span><div>Outstanding Student Leader<span class="honor-cn" lang="zh-CN">优秀学生干部</span><span class="honor-detail">Renmin University of China</span></div></li><li><span class="date">2023.09</span><div>Third-Class Scholarship for Social Work and Volunteer Service<span class="honor-cn" lang="zh-CN">社会工作与志愿服务骨干三等奖学金</span><span class="honor-detail">Renmin University of China</span></div></li><li><span class="date">2022</span><div>Outstanding Graduate<span class="honor-cn" lang="zh-CN">优秀本科毕业生</span><span class="honor-detail">Wuhan University of Technology</span></div></li><li><span class="date">2019–2020</span><div>Model Merit Student<span class="honor-cn" lang="zh-CN">校三好学生标兵</span><span class="honor-detail">Wuhan University of Technology</span><span class="honor-detail">Two-time recipient · 2020.11, 2019.11</span></div></li><li><span class="date">2020</span><div>Outstanding Youth League Cadre<span class="honor-cn" lang="zh-CN">校优秀共青团干部</span><span class="honor-detail">Wuhan University of Technology · Academic year 2019–2020</span></div></li><li><span class="date">2019.05</span><div>Outstanding Youth League Member<span class="honor-cn" lang="zh-CN">校优秀团员</span><span class="honor-detail">Wuhan University of Technology · Academic year 2018–2019</span></div></li></ul></details></div><div class="honor-group"><h3 class="honor-group-title">Competition Awards</h3><ul class="dated-list honors-list"><li><span class="date">2021.05</span><div>Silver Award, National Finals<span class="honor-cn" lang="zh-CN">中国高校计算机大赛团体程序设计天梯赛全国总决赛银奖</span><span class="honor-detail">China Collegiate Computing Contest · Group Programming Ladder Tournament</span></div></li><li><span class="date">2021.02</span><div>First Prize, Programming Finals<span class="honor-cn" lang="zh-CN">全国高校计算机能力挑战赛程序设计赛决赛一等奖</span><span class="honor-detail">National College Computer Ability Challenge</span></div></li></ul></div>
     </section>
 <section class="home-section" id="talks" aria-labelledby="talks-title">
       <h2 id="talks-title"><span aria-hidden="true">🎤</span> Invited Talks</h2>
@@ -95,16 +184,6 @@
         <h3 class="service-group-title">Conference &amp; Journal Service</h3>
         <div class="review-group"><div><h4>Conferences</h4><span class="review-role">Reviewer</span></div><ul class="venue-list" aria-label="Conferences"><li>NeurIPS</li><li>ICLR</li><li>AAAI</li><li>IJCAI</li><li>KDD</li><li>SIGIR</li><li>WSDM</li><li>ACL</li><li>EMNLP</li><li>WWW</li></ul></div><div class="review-group"><div><h4>Journals</h4><span class="review-role">Reviewer</span></div><ul class="venue-list" aria-label="Journals"><li>ACM TOIS</li><li>IEEE TKDE</li><li>ACM TORS</li></ul></div>
       </div>
-    </section>
-<section class="home-section" id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title"><span aria-hidden="true">💻</span> Internships</h2>
-      <ul class="dated-list experience-list">
-        <li><span class="date">2025.04–Present</span><div class="employer"><span class="company-logo company-logo--taotian" aria-hidden="true"><img src="assets/logos/taotian.png" alt="" loading="lazy" decoding="async"></span><div><h3 class="employer-heading"><span>Alibaba · Taotian</span><span class="talent-badge" title="T-Star 人才实习"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2L5.8 21 7 14.2 2 9.3l6.9-1Z"/></svg><strong>T-Star</strong><span>Talent Intern</span></span></h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
-        <li><span class="date">2024.11–2025.03</span><div class="employer"><span class="company-logo company-logo--wechat" aria-hidden="true"><img src="assets/logos/wechat.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Tencent · WeChat</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
-        <li><span class="date">2024.05–2024.11</span><div class="employer"><span class="company-logo company-logo--tongyi" aria-hidden="true"><img src="assets/logos/tongyi.svg" alt="" loading="lazy" decoding="async"></span><div><h3>Alibaba · Tongyi</h3><p class="position">LLM Agent Algorithm Intern</p></div></div></li>
-        <li><span class="date">2023.10–2024.04</span><div class="employer"><span class="company-logo company-logo--kuaishou" aria-hidden="true"><img src="assets/logos/kuaishou.png" alt="" loading="lazy" decoding="async"></span><div><h3>Kuaishou</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
-        <li><span class="date">2023.02–2023.07</span><div class="employer"><span class="company-logo company-logo--noah" aria-hidden="true"><img src="assets/logos/noah.png" alt="" loading="lazy" decoding="async"></span><div><h3>Huawei · Noah's Ark Lab</h3><p class="position">Recommendation Algorithm Intern</p></div></div></li>
-      </ul>
     </section><footer><span>© 2026 Jiakai Tang · Last updated October 24, 2026</span><a href="#main">Back to top ↑</a></footer></main>
 </div>
 </body>

@@ -7,6 +7,8 @@ The page is a static, accessible HTML/CSS/JavaScript site. Content works without
 ## Update content
 
 - Edit `data/publications.json` for publication titles, authors, venue, year, links, and award badges. Optional `resources` entries contain a `label` and `url`: use the uniform display label `Code` for repository, project, and resource links. Check that the repository matches the paper and is publicly accessible before adding it.
+- Homepage cards come from papers with a `selected` order in `data/publications.json`, using their `short` name, `summary`, and `teaser` figure (in `assets/papers/`).
+- Run `python3 scripts/update_bibtex.py` after adding papers. It saves citation BibTeX to `data/bibtex.json`, preferring the published version (DOI, ACL Anthology, or a Crossref title match) and using arXiv only when no published record exists.
 - Edit `data/honors.json` for honors. Chinese award names are retained alongside English translations.
 - Edit `scripts/build.py` for the biography, news, experience, education, and service sections.
 - Run `python3 scripts/build.py` to regenerate all four HTML pages and `sitemap.xml`.

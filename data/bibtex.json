@@ -1,0 +1,142 @@
+{
+  "paper-1": {
+    "source": "arXiv 2607.15591",
+    "bibtex": "@misc{zheng2026recgptv3technicalreport,\n      title={RecGPT-V3 Technical Report}, \n      author={Bowen Zheng and Chao Yi and Dian Chen and Gaoyang Guo and Han Zhu and Jiakai Tang and Jian Wu and Mao Zhang and Wen Chen and Yifan Lu and Yujie Luo and Yuning Jiang and Zhujin Gao and Bo Zheng and Chenchi Zhang and Dixuan Wang and Hao Fang and Jiancai Liu and Jing Yu and Junjun Zheng and Ke Chen and Kewei Zhu and Mengyan Li and Mingke Xu and Wenjun Yang and Xiangheng Kong and Xinming Zhang and Xunke Xi and Zile Zhou},\n      year={2026},\n      eprint={2607.15591},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2607.15591}, \n}"
+  },
+  "paper-2": {
+    "source": "DOI 10.1145/3511808.3557680",
+    "bibtex": "@inproceedings{Zhao_2022,\n  series={CIKM ’22},\n  title={RecBole 2.0: Towards a More Up-to-Date Recommendation Library},\n  url={http://dx.doi.org/10.1145/3511808.3557680},\n  DOI={10.1145/3511808.3557680},\n  booktitle={Proceedings of the 31st ACM International Conference on Information &amp; Knowledge Management},\n  publisher={ACM},\n  author={Zhao, Wayne Xin and Hou, Yupeng and Pan, Xingyu and Yang, Chen and Zhang, Zeyu and Lin, Zihan and Zhang, Jingsen and Bian, Shuqing and Tang, Jiakai and Sun, Wenqi and Chen, Yushuo and Xu, Lanling and Zhang, Gaowei and Tian, Zhen and Tian, Changxin and Mu, Shanlei and Fan, Xinyan and Chen, Xu and Wen, Ji-Rong},\n  year={2022},\n  month=Oct,\n  pages={4722–4726},\n  collection={CIKM ’22}\n}"
+  },
+  "paper-4": {
+    "source": "arXiv 2610.30932",
+    "bibtex": "@misc{zhao2026userarenabenchmarkinginteractiveuser,\n      title={UserArena: Benchmarking Interactive User Simulation for Long-Horizon Shopping Agents}, \n      author={Jujia Zhao and Jiakai Tang and Jing Yu and Wen Chen and Jian Wu and Han Zhu and Fei Sun and Suzan Verberne and Zhaochun Ren},\n      year={2026},\n      eprint={2610.30932},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2610.30932}, \n}"
+  },
+  "paper-5": {
+    "source": "DOI 10.1145/3846382",
+    "bibtex": "@article{Tang_2026,\n  title={RecGPT: A User Intent-Centric Next-Generation LLM-Powered Recommender System in Industrial Practice},\n  volume={44},\n  ISSN={1558-2868},\n  url={http://dx.doi.org/10.1145/3846382},\n  DOI={10.1145/3846382},\n  number={8},\n  journal={ACM Transactions on Information Systems},\n  publisher={Association for Computing Machinery (ACM)},\n  author={Tang, Jiakai and Chen, Wen and Chen, Dian and Yi, Chao and Guo, Gaoyang and Yang, Wenjun and Yu, Jing and Gao, Zhujin and Zhang, Mao and Dai, Sunhao and Chen, Xu and Wu, Jian and Jiang, Yuning and Zheng, Bo},\n  year={2026},\n  month=Oct,\n  pages={1–45}\n}"
+  },
+  "paper-6": {
+    "source": "arXiv 2610.30128",
+    "bibtex": "@misc{cao2026thinkhardermattersitemlevel,\n      title={Think Harder Where It Matters: Item-Level Adaptive Recursion for Sequential Recommendation}, \n      author={Zhanshuo Cao and Jiakai Tang and Yuqi Zhou and Sunhao Dai and Jun Xu},\n      year={2026},\n      eprint={2610.30128},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2610.30128}, \n}"
+  },
+  "paper-8": {
+    "source": "DOI 10.1109/tkde.2026.3694421",
+    "bibtex": "@article{Tang_2026,\n  title={Think Before Recommend: Unleashing the Latent Reasoning Power for Sequential Recommendation},\n  volume={38},\n  ISSN={2326-3865},\n  url={http://dx.doi.org/10.1109/tkde.2026.3694421},\n  DOI={10.1109/tkde.2026.3694421},\n  number={9},\n  journal={IEEE Transactions on Knowledge and Data Engineering},\n  publisher={Institute of Electrical and Electronics Engineers (IEEE)},\n  author={Tang, Jiakai and Dai, Sunhao and Shi, Teng and Xu, Jun and Chen, Xu and Chen, Wen and Wu, Jian and Jiang, Yuning},\n  year={2026},\n  month=Sept,\n  pages={6226–6239}\n}"
+  },
+  "paper-9": {
+    "source": "arXiv 2608.20707",
+    "bibtex": "@misc{tang2026faithfulsimulationhumanshopping,\n      title={Towards Faithful Simulation of Human Shopping Behavior}, \n      author={Jiakai Tang and Yan Mi and Jing Yu and Yang Zhang and See-Kiong Ng and Qi Cao and Fei Sun and Xu Chen and Wen Chen and Jian Wu and Han Zhu and Bo Zheng},\n      year={2026},\n      eprint={2608.20707},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2608.20707}, \n}"
+  },
+  "paper-10": {
+    "source": "DOI 10.1145/3770855.3818456",
+    "bibtex": "@inproceedings{Dai_2026,\n  title={OnePiece: Bringing Context Engineering and Reasoning to Industrial Cascade Ranking System},\n  url={http://dx.doi.org/10.1145/3770855.3818456},\n  DOI={10.1145/3770855.3818456},\n  booktitle={Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2},\n  publisher={ACM},\n  author={Dai, Sunhao and Tang, Jiakai and Wu, Jiahua and Wang, Kun and Zhu, Yuxuan and Chen, Bingjun and Hong, Bangyang and Zhao, Yu and Fu, Cong and Wu, Kangle and Ni, Yabo and Zeng, Anxiang and Wang, Wenjie and Chen, Xu and Xu, Jun and Ng, See-Kiong},\n  year={2026},\n  month=Aug,\n  pages={7117–7128}\n}"
+  },
+  "paper-12": {
+    "source": "DOI 10.1145/3770855.3817619",
+    "bibtex": "@inproceedings{Tang_2026,\n  title={Interactive Recommendation Agent with Active User Commands},\n  url={http://dx.doi.org/10.1145/3770855.3817619},\n  DOI={10.1145/3770855.3817619},\n  booktitle={Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2},\n  publisher={ACM},\n  author={Tang, Jiakai and Chen, Wen and Luo, Yujie and Xi, Xunke and Chao, Yi and Chen, Dian and Gao, Zhujin and Li, Yang and Sun, Fei and Feng, Xueyang and Dai, Sunhao and Chen, Xu and Wu, Jian and Jiang, Yuning and Zheng, Bo},\n  year={2026},\n  month=Aug,\n  pages={4580–4591}\n}"
+  },
+  "paper-13": {
+    "source": "DOI 10.1145/3770855.3818457",
+    "bibtex": "@inproceedings{Tang_2026,\n  title={OneRank: Unified Transformer-Native Ranking Architecture for Multi-Task Recommendation},\n  url={http://dx.doi.org/10.1145/3770855.3818457},\n  DOI={10.1145/3770855.3818457},\n  booktitle={Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining V.2},\n  publisher={ACM},\n  author={Tang, Jiakai and Dai, Sunhao and Wang, Kun and Guo, Zhiluohan and Zhao, Yu and Fu, Cong and Wu, Kangle and Ni, Yabo and Zeng, Anxiang and Chen, Xu and Xu, Jun},\n  year={2026},\n  month=Aug,\n  pages={8053–8064}\n}"
+  },
+  "paper-14": {
+    "source": "arXiv 2607.27055",
+    "bibtex": "@misc{tang2026learningfutureprivilegedselfdistillation,\n      title={Learning from the Future: Privileged Self-Distillation for Sequential Recommendation}, \n      author={Jiakai Tang and Yang Zhang and See-Kiong Ng and Xu Chen and Wen Chen and Jian Wu and Han Zhu},\n      year={2026},\n      eprint={2607.27055},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2607.27055}, \n}"
+  },
+  "paper-15": {
+    "source": "arXiv 2604.19550",
+    "bibtex": "@misc{tang2026loopctrunlockingloopscaling,\n      title={LoopCTR: Unlocking the Loop Scaling Power for Click-Through Rate Prediction}, \n      author={Jiakai Tang and Runfeng Zhang and Weiqiu Wang and Yifei Liu and Chuan Wang and Xu Chen and Yeqiu Yang and Jian Wu and Yuning Jiang and Bo Zheng},\n      year={2026},\n      eprint={2604.19550},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2604.19550}, \n}"
+  },
+  "paper-16": {
+    "source": "arXiv 2601.03153",
+    "bibtex": "@misc{tang2026parallellatentreasoningsequential,\n      title={Parallel Latent Reasoning for Sequential Recommendation}, \n      author={Jiakai Tang and Xu Chen and Wen Chen and Jian Wu and Yuning Jiang and Bo Zheng},\n      year={2026},\n      eprint={2601.03153},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2601.03153}, \n}"
+  },
+  "paper-17": {
+    "source": "arXiv 2512.21257",
+    "bibtex": "@misc{tang2025reasequnleashingworldknowledge,\n      title={ReaSeq: Unleashing World Knowledge via Reasoning for Sequential Modeling}, \n      author={Jiakai Tang and Chuan Wang and Gaoming Yang and Han Wu and Jiahao Yu and Jian Wu and Jianwu Hu and Junjun Zheng and Longbin Li and Shuwen Xiao and Xiangheng Kong and Yeqiu Yang and Yuning Jiang and Ahjol Nurlanbek and Binbin Cao and Bo Zheng and Fangmei Zhu and Gaoming Zhou and Huimin Yi and Huiping Chu and Jin Huang and Jinzhe Shan and Kenan Cui and Longbin Li and Silu Zhou and Wen Chen and Xia Ming and Xiang Gao and Xin Yao and Xingyu Wen and Yan Zhang and Yiwen Hu and Yulin Wang and Ziheng Bao and Zongyuan Wu},\n      year={2025},\n      eprint={2512.21257},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2512.21257}, \n}"
+  },
+  "paper-18": {
+    "source": "arXiv 2512.14503",
+    "bibtex": "@misc{yi2025recgptv2technicalreport,\n      title={RecGPT-V2 Technical Report}, \n      author={Chao Yi and Dian Chen and Gaoyang Guo and Jiakai Tang and Jian Wu and Jing Yu and Mao Zhang and Wen Chen and Wenjun Yang and Yujie Luo and Yuning Jiang and Zhujin Gao and Bo Zheng and Binbin Cao and Changfa Wu and Dixuan Wang and Han Wu and Haoyi Hu and Kewei Zhu and Lang Tian and Lin Yang and Qiqi Huang and Siqi Yang and Wenbo Su and Xiaoxiao He and Xin Tong and Xu Chen and Xunke Xi and Xiaowei Huang and Yaxuan Wu and Yeqiu Yang and Yi Hu and Yujin Yuan and Yuliang Yan and Zile Zhou},\n      year={2025},\n      eprint={2512.14503},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2512.14503}, \n}"
+  },
+  "paper-19": {
+    "source": "DOI 10.1145/3758091",
+    "bibtex": "@article{Tang_2025,\n  title={Explainable Recommendation with Simulated Human Feedback},\n  volume={44},\n  ISSN={1558-2868},\n  url={http://dx.doi.org/10.1145/3758091},\n  DOI={10.1145/3758091},\n  number={1},\n  journal={ACM Transactions on Information Systems},\n  publisher={Association for Computing Machinery (ACM)},\n  author={Tang, Jiakai and Zhang, Jingsen and Tian, Zihang and Feng, Xueyang and Wang, Lei and Chen, Xu},\n  year={2025},\n  month=Oct,\n  pages={1–31}\n}"
+  },
+  "paper-20": {
+    "source": "ACL Anthology",
+    "bibtex": "@inproceedings{tang-etal-2025-kapa,\n    title = \"{KAPA}: A Deliberative Agent Framework with Tree-Structured Knowledge Base for Multi-Domain User Intent Understanding\",\n    author = \"Tang, Jiakai  and\n      Shen, Shiqi  and\n      Wang, Zhipeng  and\n      Zhi, Gong  and\n      Feng, Xueyang  and\n      Sun, Zexu  and\n      Tan, Haoran  and\n      Chen, Xu\",\n    editor = \"Che, Wanxiang  and\n      Nabende, Joyce  and\n      Shutova, Ekaterina  and\n      Pilehvar, Mohammad Taher\",\n    booktitle = \"Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2025\",\n    month = jul,\n    year = \"2025\",\n    address = \"Vienna, Austria\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2025.findings-acl.319/\",\n    doi = \"10.18653/v1/2025.findings-acl.319\",\n    pages = \"6150--6166\",\n    ISBN = \"979-8-89176-256-5\"\n}"
+  },
+  "paper-21": {
+    "source": "ACL Anthology",
+    "bibtex": "@inproceedings{tang-etal-2025-gensim,\n    title = \"{G}en{S}im: A General Social Simulation Platform with Large Language Model based Agents\",\n    author = \"Tang, Jiakai  and\n      Gao, Heyang  and\n      Pan, Xuchen  and\n      Wang, Lei  and\n      Tan, Haoran  and\n      Gao, Dawei  and\n      Chen, Yushuo  and\n      Chen, Xu  and\n      Lin, Yankai  and\n      Li, Yaliang  and\n      Ding, Bolin  and\n      Zhou, Jingren  and\n      Wang, Jun  and\n      Wen, Ji-Rong\",\n    editor = \"Dziri, Nouha  and\n      Ren, Sean (Xiang)  and\n      Diao, Shizhe\",\n    booktitle = \"Proceedings of the 2025 Conference of the Nations of the {A}mericas Chapter of the {A}ssociation for {C}omputational {L}inguistics: Human Language Technologies (System Demonstrations)\",\n    month = apr,\n    year = \"2025\",\n    address = \"Albuquerque, New Mexico\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2025.naacl-demo.15/\",\n    doi = \"10.18653/v1/2025.naacl-demo.15\",\n    pages = \"143--150\",\n    ISBN = \"979-8-89176-191-9\"\n}"
+  },
+  "paper-22": {
+    "source": "DOI 10.1145/3637528.3671661",
+    "bibtex": "@inproceedings{Tang_2024,\n  series={KDD ’24},\n  title={Towards Robust Recommendation via Decision Boundary-aware Graph Contrastive Learning},\n  url={http://dx.doi.org/10.1145/3637528.3671661},\n  DOI={10.1145/3637528.3671661},\n  booktitle={Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},\n  publisher={ACM},\n  author={Tang, Jiakai and Dai, Sunhao and Sun, Zexu and Chen, Xu and Xu, Jun and Yu, Wenhui and Hu, Lantao and Jiang, Peng and Li, Han},\n  year={2024},\n  month=Aug,\n  pages={2854–2865},\n  collection={KDD ’24}\n}"
+  },
+  "paper-23": {
+    "source": "DOI 10.1007/978-981-97-5572-1_9",
+    "bibtex": "@inbook{Tang_2024,\n  title={Robust Graph Recommendation via Noise-Aware Adversarial Perturbation},\n  ISBN={9789819755721},\n  ISSN={1611-3349},\n  url={http://dx.doi.org/10.1007/978-981-97-5572-1_9},\n  DOI={10.1007/978-981-97-5572-1_9},\n  booktitle={Database Systems for Advanced Applications},\n  publisher={Springer Nature Singapore},\n  author={Tang, Jiakai and Sun, Zuxu and Yao, Wei and Chen, Xu},\n  year={2024},\n  pages={134–150}\n}"
+  },
+  "paper-24": {
+    "source": "DOI 10.1007/978-981-97-5555-4_19",
+    "bibtex": "@inbook{Tang_2025,\n  title={Fairness-aware Cross-Domain Recommendation},\n  ISBN={9789819755554},\n  ISSN={1611-3349},\n  url={http://dx.doi.org/10.1007/978-981-97-5555-4_19},\n  DOI={10.1007/978-981-97-5555-4_19},\n  booktitle={Database Systems for Advanced Applications},\n  publisher={Springer Nature Singapore},\n  author={Tang, Jiakai and Feng, Xueyang and Chen, Xu},\n  year={2025},\n  pages={293–302}\n}"
+  },
+  "paper-25": {
+    "source": "DOI 10.1145/3604915.3608770",
+    "bibtex": "@inproceedings{Tang_2023,\n  series={RecSys ’23},\n  title={When Fairness meets Bias: a Debiased Framework for Fairness aware Top-N Recommendation},\n  url={http://dx.doi.org/10.1145/3604915.3608770},\n  DOI={10.1145/3604915.3608770},\n  booktitle={Proceedings of the 17th ACM Conference on Recommender Systems},\n  publisher={ACM},\n  author={Tang, Jiakai and Shen, Shiqi and Wang, Zhipeng and Gong, Zhi and Zhang, Jingsen and Chen, Xu},\n  year={2023},\n  month=Sept,\n  pages={200–210},\n  collection={RecSys ’23}\n}"
+  },
+  "paper-26": {
+    "source": "arXiv 2610.13485",
+    "bibtex": "@misc{feng2026proactiveagenticorchestration,\n      title={Proactive Agentic Orchestration}, \n      author={Xueyang Feng and Chaozhuo Li and Xiaohe Bo and Jiakai Tang and Chenxi Li and Qiwei Ye and Xu Chen},\n      year={2026},\n      eprint={2610.13485},\n      archivePrefix={arXiv},\n      primaryClass={cs.CL},\n      url={https://arxiv.org/abs/2610.13485}, \n}"
+  },
+  "paper-27": {
+    "source": "DOI 10.1145/3774905.3794659",
+    "bibtex": "@inproceedings{Zhang_2026,\n  title={The 2nd Workshop on Human-Centered Recommender Systems},\n  url={http://dx.doi.org/10.1145/3774905.3794659},\n  DOI={10.1145/3774905.3794659},\n  booktitle={Companion Proceedings of the ACM Web Conference 2026},\n  publisher={ACM},\n  author={Zhang, Kaike and Tang, Jiakai and Su, Du and Liu, Shuchang and McAuley, Julian and Yao, Lina and Cao, Qi and Feng, Yue and Sun, Fei},\n  year={2026},\n  month=May,\n  pages={636–639}\n}"
+  },
+  "paper-29": {
+    "source": "DOI 10.1145/3774904.3792209",
+    "bibtex": "@inproceedings{Feng_2026,\n  title={Optimizing Multi-Turn Interactive Recommendation Agents via Generative Intrinsic Motivation},\n  url={http://dx.doi.org/10.1145/3774904.3792209},\n  DOI={10.1145/3774904.3792209},\n  booktitle={Proceedings of the ACM Web Conference 2026},\n  publisher={ACM},\n  author={Feng, Xueyang and Tang, Jiakai and Chen, Xu and Dai, Quanyu and Dong, Zhenhua},\n  year={2026},\n  month=Apr,\n  pages={5975–5986}\n}"
+  },
+  "paper-30": {
+    "source": "DOI 10.36227/techrxiv.177155631.17855475/v1",
+    "bibtex": "@article{Gao_2026,\n  title={Integrating Large Language Models with Reinforcement Learning: A Survey of LLM-RL Synergistic Recommendation},\n  url={http://dx.doi.org/10.36227/techrxiv.177155631.17855475/v1},\n  DOI={10.36227/techrxiv.177155631.17855475/v1},\n  publisher={Institute of Electrical and Electronics Engineers (IEEE)},\n  author={Gao, Mengyao and Gao, Chongming and Tang, Jiakai and Zhang, Jingsen and Zhao, Xinpeng and Wang, Bohao and Chen, Jiawei and He, Haoran and Pan, Ling and Chen, Xu and Xin, Xin and Cai, Qingpeng and Jiang, Peng and Gai, Kun and Liu, Haoyan and Feng, Fuli and He, Xiangnan},\n  year={2026},\n  month=Feb\n}"
+  },
+  "paper-31": {
+    "source": "ACL Anthology",
+    "bibtex": "@inproceedings{feng-etal-2025-expectation,\n    title = \"Expectation Confirmation Preference Optimization for Multi-Turn Conversational Recommendation Agent\",\n    author = \"Feng, Xueyang  and\n      Zhang, Jingsen  and\n      Tang, Jiakai  and\n      Li, Wei  and\n      Cai, Guohao  and\n      Chen, Xu  and\n      Dai, Quanyu  and\n      Zhu, Yue  and\n      Dong, Zhenhua\",\n    editor = \"Che, Wanxiang  and\n      Nabende, Joyce  and\n      Shutova, Ekaterina  and\n      Pilehvar, Mohammad Taher\",\n    booktitle = \"Findings of the {A}ssociation for {C}omputational {L}inguistics: {ACL} 2025\",\n    month = jul,\n    year = \"2025\",\n    address = \"Vienna, Austria\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2025.findings-acl.307/\",\n    doi = \"10.18653/v1/2025.findings-acl.307\",\n    pages = \"5896--5914\",\n    ISBN = \"979-8-89176-256-5\"\n}"
+  },
+  "paper-32": {
+    "source": "ACL Anthology",
+    "bibtex": "@inproceedings{feng-etal-2025-improving,\n    title = \"Improving Retrospective Language Agents via Joint Policy Gradient Optimization\",\n    author = \"Feng, Xueyang  and\n      Lan, Bo  and\n      Dai, Quanyu  and\n      Wang, Lei  and\n      Tang, Jiakai  and\n      Chen, Xu  and\n      Dong, Zhenhua  and\n      Wen, Ji-Rong\",\n    editor = \"Chiruzzo, Luis  and\n      Ritter, Alan  and\n      Wang, Lu\",\n    booktitle = \"Proceedings of the 2025 Conference of the Nations of the {A}mericas Chapter of the {A}ssociation for {C}omputational {L}inguistics: Human Language Technologies (Volume 1: Long Papers)\",\n    month = apr,\n    year = \"2025\",\n    address = \"Albuquerque, New Mexico\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://aclanthology.org/2025.naacl-long.6/\",\n    doi = \"10.18653/v1/2025.naacl-long.6\",\n    pages = \"112--141\",\n    ISBN = \"979-8-89176-189-6\"\n}"
+  },
+  "paper-33": {
+    "source": "DOI 10.1145/3708985",
+    "bibtex": "@article{Wang_2025,\n  title={User Behavior Simulation with Large Language Model-based Agents},\n  volume={43},\n  ISSN={1558-2868},\n  url={http://dx.doi.org/10.1145/3708985},\n  DOI={10.1145/3708985},\n  number={2},\n  journal={ACM Transactions on Information Systems},\n  publisher={Association for Computing Machinery (ACM)},\n  author={Wang, Lei and Zhang, Jingsen and Yang, Hao and Chen, Zhi-Yuan and Tang, Jiakai and Zhang, Zeyu and Chen, Xu and Lin, Yankai and Sun, Hao and Song, Ruihua and Zhao, Xin and Xu, Jun and Dou, Zhicheng and Wang, Jun and Wen, Ji-Rong},\n  year={2025},\n  month=Jan,\n  pages={1–37}\n}"
+  },
+  "paper-34": {
+    "source": "DOI 10.1145/3637528.3671781",
+    "bibtex": "@inproceedings{Zhang_2024,\n  series={KDD ’24},\n  title={Natural Language Explainable Recommendation with Robustness Enhancement},\n  url={http://dx.doi.org/10.1145/3637528.3671781},\n  DOI={10.1145/3637528.3671781},\n  booktitle={Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining},\n  publisher={ACM},\n  author={Zhang, Jingsen and Tang, Jiakai and Chen, Xu and Yu, Wenhui and Hu, Lantao and Jiang, Peng and Li, Han},\n  year={2024},\n  month=Aug,\n  pages={4203–4212},\n  collection={KDD ’24}\n}"
+  },
+  "paper-35": {
+    "source": "DOI 10.1007/978-981-97-5555-4_10",
+    "bibtex": "@inbook{Zhang_2025,\n  title={Alleviating Dimensional Collapse Problem in Deep Recommender Models by Designing Uniformity Layers},\n  ISBN={9789819755554},\n  ISSN={1611-3349},\n  url={http://dx.doi.org/10.1007/978-981-97-5555-4_10},\n  DOI={10.1007/978-981-97-5555-4_10},\n  booktitle={Database Systems for Advanced Applications},\n  publisher={Springer Nature Singapore},\n  author={Zhang, Yabin and Tang, Jiakai and Chen, Xu},\n  year={2025},\n  pages={148–163}\n}"
+  },
+  "paper-36": {
+    "source": "DOI 10.1007/s11704-024-40231-1",
+    "bibtex": "@article{Wang_2024,\n  title={A survey on large language model based autonomous agents},\n  volume={18},\n  ISSN={2095-2236},\n  url={http://dx.doi.org/10.1007/s11704-024-40231-1},\n  DOI={10.1007/s11704-024-40231-1},\n  number={6},\n  journal={Frontiers of Computer Science},\n  publisher={Springer Science and Business Media LLC},\n  author={Wang, Lei and Ma, Chen and Feng, Xueyang and Zhang, Zeyu and Yang, Hao and Zhang, Jingsen and Chen, Zhiyuan and Tang, Jiakai and Chen, Xu and Lin, Yankai and Zhao, Wayne Xin and Wei, Zhewei and Wen, Jirong},\n  year={2024},\n  month=Mar\n}"
+  },
+  "paper-37": {
+    "source": "DOI 10.1145/3539618.3591889",
+    "bibtex": "@inproceedings{Xu_2023,\n  series={SIGIR ’23},\n  title={Towards a More User-Friendly and Easy-to-Use Benchmark Library for Recommender Systems},\n  url={http://dx.doi.org/10.1145/3539618.3591889},\n  DOI={10.1145/3539618.3591889},\n  booktitle={Proceedings of the 46th International ACM SIGIR Conference on Research and Development in Information Retrieval},\n  publisher={ACM},\n  author={Xu, Lanling and Tian, Zhen and Zhang, Gaowei and Zhang, Junjie and Wang, Lei and Zheng, Bowen and Li, Yifan and Tang, Jiakai and Zhang, Zeyu and Hou, Yupeng and Pan, Xingyu and Zhao, Wayne Xin and Chen, Xu and Wen, Ji-Rong},\n  year={2023},\n  month=July,\n  pages={2837–2847},\n  collection={SIGIR ’23}\n}"
+  },
+  "paper-38": {
+    "source": "DOI 10.1109/icdm58522.2023.00169",
+    "bibtex": "@inproceedings{Sun_2023,\n  title={Robustness-enhanced Uplift Modeling with Adversarial Feature Desensitization},\n  url={http://dx.doi.org/10.1109/icdm58522.2023.00169},\n  DOI={10.1109/icdm58522.2023.00169},\n  booktitle={2023 IEEE International Conference on Data Mining (ICDM)},\n  publisher={IEEE},\n  author={Sun, Zexu and He, Bowei and Ma, Ming and Tang, Jiakai and Wang, Yuchen and Ma, Chen and Liu, Dugang},\n  year={2023},\n  month=Dec,\n  pages={1325–1330}\n}"
+  },
+  "paper-39": {
+    "source": "DOI 10.1145/3543507.3583260",
+    "bibtex": "@inproceedings{Zhang_2023,\n  series={WWW ’23},\n  title={Recommendation with Causality enhanced Natural Language Explanations},\n  url={http://dx.doi.org/10.1145/3543507.3583260},\n  DOI={10.1145/3543507.3583260},\n  booktitle={Proceedings of the ACM Web Conference 2023},\n  publisher={ACM},\n  author={Zhang, Jingsen and Chen, Xu and Tang, Jiakai and Shao, Weiqi and Dai, Quanyu and Dong, Zhenhua and Zhang, Rui},\n  year={2023},\n  month=Apr,\n  pages={876–886},\n  collection={WWW ’23}\n}"
+  }
+}

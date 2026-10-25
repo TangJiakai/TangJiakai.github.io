@@ -28,8 +28,12 @@ for category, heading in [('research','Research Awards'),('university','Scholars
         if award['highlight']: title=f'<strong class="award-text">{title}</strong>'
         chinese=f'<span class="honor-cn" lang="zh-CN">{esc(award["chinese"])}</span>' if award['chinese'] else ''
         summary=f'<span class="honor-detail">{esc(award["summary"])}</span>' if award.get("summary") else ""
-        honor_rows.append(f'<li><span class="date">{esc(award["date"])}</span><div>{title}{chinese}<span class="honor-detail">{esc(award["detail"])}</span>{summary}</div></li>')
-    honor_groups.append(f'<div class="honor-group"><h3 class="honor-group-title">{esc(heading)}</h3><ul class="dated-list honors-list">{"".join(honor_rows)}</ul></div>')
+        honor_rows.append((award['highlight'] or category!='university',f'<li><span class="date">{esc(award["date"])}</span><div>{title}{chinese}<span class="honor-detail">{esc(award["detail"])}</span>{summary}</div></li>'))
+    # Highlighted university honors stay visible; the rest fold into a disclosure.
+    shown=''.join(row for visible,row in honor_rows if visible)
+    folded=[row for visible,row in honor_rows if not visible]
+    more=f'<details class="honor-more"><summary>More university honors ({len(folded)})</summary><ul class="dated-list honors-list">{"".join(folded)}</ul></details>' if folded else ''
+    honor_groups.append(f'<div class="honor-group"><h3 class="honor-group-title">{esc(heading)}</h3><ul class="dated-list honors-list">{shown}</ul>{more}</div>')
 
 def icon(name):
     paths={
@@ -39,6 +43,8 @@ def icon(name):
         'paper':'<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H5v18h14V8Z"/><path d="M14 3v5h5M8 12h8M8 16h8"/></g>',
         'pin':'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5" fill="white"/>',
         'mail':'<path d="M2 5h20v14H2Z"/><path d="m3 6 9 7 9-7" fill="none" stroke="white" stroke-width="1.8"/>',
+        'search':'<g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></g>',
+        'quote':'<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H5v16h3M16 4h3v16h-3"/></g>',
         'scholar':'<path d="m1 8 11-6 11 6-11 6Zm5 4 6 3 6-3v6c-4 3-8 3-12 0Zm15-1h2v8h-2Z"/>',
         'github':'<path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0 1 12 6.99c.85 0 1.71.11 2.51.34 1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.58c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/>'
     }
@@ -61,6 +67,27 @@ def author_html(s):
     if s.split(',')[0].strip().rstrip('†*') == 'Jiakai Tang':
         s=s.replace('†','')
     return esc(s).replace('Jiakai Tang','<strong>Jiakai Tang</strong>').replace('†','<sup>†</sup>').replace('*',f'<span class="corresponding-author" role="img" aria-label="Corresponding author" title="Corresponding author">{icon("corresponding")}</span>')
+
+CONFERENCES={'KDD':'Proceedings of the ACM SIGKDD Conference on Knowledge Discovery and Data Mining','WWW':'Proceedings of the ACM Web Conference','SIGIR':'Proceedings of the International ACM SIGIR Conference on Research and Development in Information Retrieval','CIKM':'Proceedings of the ACM International Conference on Information and Knowledge Management','RecSys':'Proceedings of the ACM Conference on Recommender Systems','ACL':'Proceedings of the Annual Meeting of the Association for Computational Linguistics','NAACL':'Proceedings of the Conference of the North American Chapter of the Association for Computational Linguistics','EMNLP':'Proceedings of the Conference on Empirical Methods in Natural Language Processing','DASFAA':'International Conference on Database Systems for Advanced Applications','ICDM':'IEEE International Conference on Data Mining'}
+JOURNALS={'TOIS':'ACM Transactions on Information Systems','TKDE':'IEEE Transactions on Knowledge and Data Engineering','FCS':'Frontiers of Computer Science'}
+# Citations fetched by update_bibtex.py (published version first, then arXiv);
+# papers without one fall back to an entry generated from the publication data.
+bibtex_path=ROOT/'data/bibtex.json'
+fetched_bibtex=json.loads(bibtex_path.read_text()) if bibtex_path.exists() else {}
+def bibtex(p):
+    if p['id'] in fetched_bibtex: return fetched_bibtex[p['id']]['bibtex']
+    authors=[a.strip().rstrip('†*').strip() for a in p['authors'].split(',')]
+    authors=['others' if a=='et al.' else a for a in authors if a]
+    key=re.sub(r'[^a-z]','',authors[0].split()[-1].lower())+str(p['year'])+re.sub(r'[^a-z]','',p['title'].split()[0].lower())
+    venue=p['venue'].split()[0]
+    fields=[('title','{'+p['title']+'}'),('author',' and '.join(authors)),('year',str(p['year']))]
+    if 'Workshop' in p['venue']: kind,extra='inproceedings',[('booktitle','Companion Proceedings of the ACM Web Conference')]
+    elif venue in CONFERENCES: kind,extra='inproceedings',[('booktitle',CONFERENCES[venue])]
+    elif venue in JOURNALS: kind,extra='article',[('journal',JOURNALS[venue])]
+    else: kind,extra='misc',[('howpublished',venue if venue!='Preprint' else 'Preprint')]
+    if p['link']: extra.append(('url',p['link']))
+    body=',\n'.join(f'  {name}={{{value}}}' for name,value in fields+extra)
+    return f'@{kind}{{{key},\n{body}\n}}'
 
 rows=[]
 last_year=None
@@ -93,12 +120,41 @@ for p in papers:
     if p.get('website'):
         venue_badge=f'<a class="badge venue" href="{esc(p["website"],quote=True)}" title="Workshop website">{esc(p["venue"])}</a>'
     year=p['year']
-    rows.append(f'''<li class="publication" data-year="{year}" data-first="{str(p['first']).lower()}">
+    bib_button=f'<button type="button" class="bibtex-button" data-bibtex="{esc(bibtex(p),quote=True)}" title="Copy BibTeX" hidden>{icon("quote")}<span>BibTeX</span></button>'
+    flags=' '.join(f'data-{name}="true"' for name,on in [('selected',p.get('selected')),('deployed',p.get('deployed')),('award',p['award'])] if on)
+    search_text=' '.join([p['title'],p.get('short',''),p['authors'].replace('†','').replace('*',''),p['venue'],p['badge'],p['award'],p.get('summary',''),'deployed industrial' if p.get('deployed') else ''])
+    rows.append(f'''<li class="publication" id="{p['id']}" data-year="{year}" data-first="{str(p['first']).lower()}" {flags} data-search="{esc(search_text.lower(),quote=True)}">
       <h4>{title}</h4>
       <p class="authors">{author_html(p['authors'])}</p>
-      <p class="paper-meta">{venue_badge}{''.join(badges)}{paper_link}{''.join(resource_links)}</p>
+      <p class="paper-meta">{venue_badge}{''.join(badges)}{paper_link}{''.join(resource_links)}{bib_button}</p>
     </li>''')
 rows.append('</ul></div>')
+
+# Homepage cards: papers marked "selected" in the data, in their listed order.
+# An optional "teaser" image path replaces the typographic cover.
+selected_cards=[]
+for p in sorted((p for p in papers if p.get('selected')),key=lambda p:p['selected']):
+    url=esc(p['link'] or f"publications.html#{p['id']}",quote=True)
+    cover=f'<img src="{esc(p["teaser"],quote=True)}" alt="" loading="lazy" decoding="async"><span class="cover-chip">{esc(p["short"])}</span>' if p.get('teaser') else f'<span class="cover-name">{esc(p["short"])}</span><span class="cover-venue">{esc(p["venue"])}</span>'
+    # The typographic cover already names the venue.
+    tags=[f'<span class="badge venue">{esc(p["venue"])}</span>'] if p.get('teaser') else []
+    if p['award']: tags.append('<span class="badge award">🏆 Best Paper</span>')
+    if 'Oral' in p['badge']: tags.append('<span class="badge oral">🌟 Oral</span>')
+    if p.get('deployed'): tags.append('<span class="badge deployed"><span aria-hidden="true">🚀</span> Deployed</span>')
+    role='First author' if p['authors'].split(',')[0].strip().rstrip('†*')=='Jiakai Tang' else 'Co-first author'
+    code=next((r['url'] for r in p.get('resources',[]) if r['label']=='Code'),'')
+    actions=(f'<a href="{esc(p["link"],quote=True)}">Paper</a>' if p['link'] else '')+(f'<a href="{esc(code,quote=True)}">Code</a>' if code else '')
+    selected_cards.append(f'''<li class="paper-card">
+        <a class="paper-cover {'paper-cover--figure' if p.get('teaser') else 'cover-'+str(p['selected'])}" href="{url}" tabindex="-1" aria-hidden="true">{cover}</a>
+        <div class="paper-card-body">
+          <p class="paper-tags">{''.join(tags)}</p>
+          <h3><a href="{url}">{esc(p['title'])}</a></h3>
+          <p class="paper-summary">{esc(p['summary'])}</p>
+          <p class="paper-card-foot"><span>{role}</span><span class="paper-actions">{actions}</span></p>
+        </div>
+      </li>''')
+first_author_count=sum(1 for p in papers if p['first'] and 'workshop on' not in p['title'].lower())
+national_scholarships=4
 
 patents=json.loads((ROOT/'data/patents.json').read_text())
 patent_rows=[]
@@ -143,6 +199,15 @@ html=f'''<!doctype html>
   <title>Jiakai Tang · 唐嘉凯</title>
   <meta name="description" content="Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and personalized agents.">
   <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <script>
+    // Light by default; apply a saved dark choice before the first paint.
+    (() => {{
+      let theme;
+      try {{ theme = localStorage.getItem('theme'); }} catch {{}}
+      document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+    }})();
+  </script>
   <meta name="google-site-verification" content="IjU5DXIl_b3xuy8beeihjfm2RMkB2Yd6SPrrIbL4gnI">
   <link rel="canonical" href="https://tangjiakai.github.io/">
   <meta property="og:type" content="profile">
@@ -151,6 +216,7 @@ html=f'''<!doctype html>
   <meta property="og:url" content="https://tangjiakai.github.io/">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
   <link rel="icon" href="assets/favicon.svg?v={favicon_version}" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css?v={style_version}">
   <script type="application/ld+json">{json.dumps(structured,ensure_ascii=False)}</script>
   <script src="assets/site.js?v={script_version}" defer></script>
@@ -159,7 +225,7 @@ html=f'''<!doctype html>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead"><div class="nav-wrap">
   <a class="brand" href="index.html">Jiakai Tang</a>
-  <nav aria-label="Main navigation"><div class="nav-sections">{navhtml}</div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a></nav>
+  <nav aria-label="Main navigation"><div class="nav-sections">{navhtml}</div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a><button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Switch theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></nav>
 </div></header>
 <div class="page-layout">
   <aside class="profile" aria-label="Profile">
@@ -186,13 +252,18 @@ html=f'''<!doctype html>
         <div class="email-contact-row"><span class="email-label">Long-term</span><div class="email-options"><a href="mailto:tangjiakai5704@gmail.com">tangjiakai5704@gmail.com</a><a href="mailto:1049765241@qq.com">1049765241@qq.com</a></div></div>
         <div class="email-contact-row"><span class="email-label">University</span><div><a href="mailto:tangjiakai5704@ruc.edu.cn">tangjiakai5704@ruc.edu.cn</a><span class="email-note">May be unavailable after graduation.</span></div></div>
       </div>
-      <div class="scholar-stats" aria-label="Google Scholar metrics">
-        <a class="scholar-source" href="{scholar['source_url']}">{icon('scholar')}<span>Google Scholar</span></a>
-        <a class="metric-pill" href="{scholar['source_url']}"><span>Citations</span><strong>{scholar['citations']:,}</strong></a>
-        <a class="metric-pill" href="{scholar['source_url']}"><span>h-index</span><strong>{scholar['h_index']}</strong></a>
-        <a class="metric-pill" href="{scholar['source_url']}"><span>i10-index</span><strong>{scholar['i10_index']}</strong></a>
-        <span class="metrics-date">Auto-updated · {scholar_date}</span>
-      </div>
+      <ul class="stat-strip" aria-label="Research highlights">
+        <li><a href="{scholar['source_url']}"><strong>{scholar['citations']:,}</strong><span>Citations</span></a></li>
+        <li><a href="{scholar['source_url']}"><strong>{scholar['h_index']}</strong><span>h-index</span></a></li>
+        <li><a href="publications.html" title="Including co-first authorship"><strong>{first_author_count}</strong><span>First-author papers</span></a></li>
+        <li><a href="#honors"><strong>{national_scholarships}</strong><span>National Scholarships</span></a></li>
+      </ul>
+      <p class="stat-note">{icon('scholar')}<span>Citation metrics from <a href="{scholar['source_url']}">Google Scholar</a>, updated {scholar_date}</span></p>
+    </section>
+    <section id="selected" aria-labelledby="selected-title">
+      <h2 id="selected-title"><span aria-hidden="true">✨</span> Selected Publications</h2>
+      <ul class="paper-cards">{''.join(selected_cards)}</ul>
+      <p class="section-more"><a href="publications.html">All {len(papers)} publications →</a></p>
     </section>
     <section id="news" aria-labelledby="news-title">
       <h2 id="news-title"><span aria-hidden="true">🔥</span> News</h2>
@@ -283,7 +354,7 @@ sections['news']=re.sub(r'<ul class="news-list">.*?</ul>',
     '<ul class="news-list">'+''.join(recent_news)+'</ul>'+
     ('<details class="news-archive"><summary>Earlier news</summary><ul class="news-list">'+''.join(archived_news)+'</ul></details>' if archived_news else ''),
     sections['news'],flags=re.S)
-home_sections=[('about','About Me'),('news','News'),('honors','Honors and Awards'),('education','Education'),('talks','Invited Talks'),('service','Academic Services'),('experience','Internships')]
+home_sections=[('about','About Me'),('selected','Selected Papers'),('news','News'),('experience','Internships'),('education','Education'),('honors','Honors and Awards'),('talks','Invited Talks'),('service','Academic Services')]
 home_nav='<nav class="section-nav floating-nav" aria-label="On this page">'+''.join(f'<a href="#{key}">{label}</a>' for key,label in home_sections)+'</nav>'
 home_blocks=[]
 for index,(key,label) in enumerate(home_sections):
@@ -291,6 +362,13 @@ for index,(key,label) in enumerate(home_sections):
     home_blocks.append(sections[key].replace('<section ',f'<section class="{classes}" ',1))
 home_body=home_nav+'\n'+'\n'.join(home_blocks)
 publication_nav='<nav class="section-nav floating-nav year-nav" aria-label="Publication years"><span class="floating-nav-label">Year</span>'+''.join(f'<a href="#year-{year}">{year}</a>' for year in sorted({p['year'] for p in papers},reverse=True))+'</nav>'
+# Search and filters need JavaScript, so the toolbar stays hidden until site.js reveals it.
+publication_filters=[('all','All'),('selected','Selected'),('first','First author'),('deployed','Deployed'),('award','Awards')]
+publication_tools=f'''<div class="pub-tools" hidden>
+  <label class="pub-search">{icon('search')}<span class="sr-only">Search publications</span><input type="search" placeholder="Search by title, topic, venue or co-author" autocomplete="off" spellcheck="false"><kbd>/</kbd></label>
+  <div class="pub-filters" role="group" aria-label="Filter publications">{''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key=="all").lower()}">{label}</button>' for key,label in publication_filters)}</div>
+  <p class="pub-count" aria-live="polite"></p>
+</div>'''
 
 gallery_items=json.loads((ROOT/'data/gallery.json').read_text())
 gallery_groups=[]
@@ -321,7 +399,7 @@ gallery_body+='''<dialog class="photo-viewer" aria-label="Photo viewer"><button 
 
 pages={
     'index.html':('Home',home_body,'Jiakai Tang is a Ph.D. student at Renmin University of China. Research on recommender systems, reasoning with large language models, and personalized agents.'),
-    'publications.html':('Publications',publication_nav+sections['publications'],'Publications by Jiakai Tang on recommender systems, large language models, and personalized agents.'),
+    'publications.html':('Publications',sections['publications'].replace('</h2>','</h2>'+publication_tools+publication_nav,1),'Publications by Jiakai Tang on recommender systems, large language models, and personalized agents.'),
     'patents.html':('Patents',sections['patents'],'Patents and industrial research contributions by Jiakai Tang.'),
     'gallery.html':('Gallery',gallery_body,'Academic and everyday moments from Jiakai Tang.'),
 }

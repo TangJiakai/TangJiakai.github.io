@@ -6,6 +6,15 @@
   <title>Patents · Jiakai Tang</title>
   <meta name="description" content="Patents and industrial research contributions by Jiakai Tang.">
   <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light">
+  <script>
+    // Light by default; apply a saved dark choice before the first paint.
+    (() => {
+      let theme;
+      try { theme = localStorage.getItem('theme'); } catch {}
+      document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light';
+    })();
+  </script>
   <meta name="google-site-verification" content="IjU5DXIl_b3xuy8beeihjfm2RMkB2Yd6SPrrIbL4gnI">
   <link rel="canonical" href="https://tangjiakai.github.io/patents.html">
   <meta property="og:type" content="profile">
@@ -14,15 +23,16 @@
   <meta property="og:url" content="https://tangjiakai.github.io/patents.html">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
   <link rel="icon" href="assets/favicon.svg?v=d891ac708d90" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/style.css?v=b6b5da77e709">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/style.css?v=0ca293540c30">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Jiakai Tang", "alternateName": "唐嘉凯", "url": "https://tangjiakai.github.io/", "image": "https://tangjiakai.github.io/assets/portrait.jpg", "affiliation": {"@type": "CollegeOrUniversity", "name": "Renmin University of China"}, "sameAs": ["https://github.com/TangJiakai", "https://scholar.google.com/citations?user=7kB-4sEAAAAJ", "https://dblp.org/pid/294/2295.html", "https://www.linkedin.com/in/%E5%98%89%E5%87%AF-%E5%94%90-744894299/"], "knowsAbout": ["Recommender Systems", "Large Language Models", "Personalized Agents"]}</script>
-  <script src="assets/site.js?v=a1313c873eb1" defer></script>
+  <script src="assets/site.js?v=f47bb6f54a48" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="masthead"><div class="nav-wrap">
   <a class="brand" href="index.html">Jiakai Tang</a>
-  <nav aria-label="Main navigation"><div class="nav-sections"><a href="index.html">Home</a><a href="publications.html">Publications</a><a href="patents.html" class="active" aria-current="page">Patents</a><a href="gallery.html">Gallery</a></div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a></nav>
+  <nav aria-label="Main navigation"><div class="nav-sections"><a href="index.html">Home</a><a href="publications.html">Publications</a><a href="patents.html" class="active" aria-current="page">Patents</a><a href="gallery.html">Gallery</a></div><a class="nav-cv" href="assets/Jiakai-Tang-CV.pdf" target="_blank" rel="noopener" title="View CV in a new tab">CV</a><button type="button" class="theme-toggle" aria-label="Switch to dark mode" title="Switch theme"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button></nav>
 </div></header>
 <div class="page-layout">
   <aside class="profile" aria-label="Profile">
