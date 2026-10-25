@@ -49,6 +49,19 @@ html:has(.floating-nav) { scroll-padding-top:var(--section-offset,130px); }
 .gallery-group { margin-top:38px; }
 .gallery-group h3 { color:var(--link); font-size:21px; margin-bottom:4px; }
 .gallery-group > .muted { margin:0 0 22px; font-size:14px; }
+.gallery-life > summary { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; border:1px solid var(--line); border-radius:14px; background:var(--surface,#f7f9fb); cursor:pointer; list-style:none; }
+.gallery-life > summary::-webkit-details-marker { display:none; }
+.gallery-life > summary:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
+.life-title { display:block; color:var(--link); font-size:21px; font-weight:700; }
+.life-description { display:block; margin-top:4px; font-size:14px; color:var(--muted); }
+.life-action { display:flex; align-items:center; gap:10px; flex-shrink:0; color:var(--link); font-size:13px; font-weight:600; }
+.life-chevron { font-size:20px; }
+.life-collapse,.gallery-life[open] .life-expand { display:none; }
+.gallery-life[open] .life-collapse { display:inline; }
+.gallery-life[open] .life-chevron { transform:rotate(180deg); }
+.life-albums { padding-top:22px; }
+html[data-theme="dark"] .gallery-life > summary { background:#1a1d21; }
+@media(max-width:440px) { .gallery-life > summary { padding:16px; gap:10px; } .life-action { font-size:12px; gap:6px; } }
 .gallery-empty { background:#faf9f8; border:1px solid #ece9e6; border-radius:10px; padding:32px 24px; color:#83817f; font-size:14px; }
 .gallery-album { scroll-margin-top:12px; margin:0 0 28px; padding:22px; border:1px solid #e8e3df; border-radius:16px; background:#faf9f7; }
 .album-heading { display:flex; align-items:center; gap:14px; margin-bottom:18px; }

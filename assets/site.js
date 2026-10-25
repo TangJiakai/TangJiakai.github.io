@@ -33,9 +33,11 @@
     if (!links.length) return;
     let selected = 0;
     targets.forEach((target, index) => {
-      if (target && target.getBoundingClientRect().top <= offset + (parseFloat(getComputedStyle(target).scrollMarginTop) || 0) + 3) selected = index;
+      if (target && !target.closest('details:not([open])') && target.getClientRects().length && target.getBoundingClientRect().top <= offset + (parseFloat(getComputedStyle(target).scrollMarginTop) || 0) + 3) selected = index;
     });
-    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) selected = links.length - 1;
+    if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+      targets.forEach((target, index) => { if (target && !target.closest('details:not([open])') && target.getClientRects().length) selected = index; });
+    }
     links.forEach((link, index) => {
       const active = index === selected;
       const changed = active && !link.classList.contains('active');
@@ -60,12 +62,33 @@
   window.addEventListener('resize', () => { measureNavigation(); scheduleUpdate(); });
   window.addEventListener('load', () => { measureNavigation(); scheduleUpdate(); });
   window.addEventListener('hashchange', scheduleUpdate);
+  // Life stays folded until requested, including direct links to a life album.
+  const openLifeAlbum = hash => {
+    const target = document.getElementById(hash.slice(1));
+    const disclosure = target && target.closest('.gallery-life');
+    if (disclosure && !disclosure.open) {
+      disclosure.open = true;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        target.scrollIntoView({block:'start', behavior:'instant'});
+        scheduleUpdate();
+      }));
+    }
+  };
+  document.querySelectorAll('.gallery-nav a').forEach(link => {
+    link.addEventListener('click', event => {
+      if (!event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) openLifeAlbum(link.hash);
+    });
+  });
+  window.addEventListener('hashchange', () => openLifeAlbum(location.hash));
+  document.querySelectorAll('.gallery-life').forEach(details => details.addEventListener('toggle', scheduleUpdate));
+  openLifeAlbum(location.hash);
   // Keep full photo proportions and pack unequal card heights into compact rows.
   // Without ResizeObserver, the regular responsive grid remains usable.
   if (typeof ResizeObserver === 'function') {
     document.querySelectorAll('.gallery-grid').forEach(grid => {
       const cards = [...grid.querySelectorAll('.gallery-photo')];
       const layout = () => {
+        if (!grid.getClientRects().length) return;
         const gap = parseFloat(getComputedStyle(grid).getPropertyValue('--photo-gap')) || 0;
         const spans = cards.map(card => Math.ceil(card.getBoundingClientRect().height + gap));
         cards.forEach((card, index) => { card.style.gridRowEnd = `span ${spans[index]}`; });
