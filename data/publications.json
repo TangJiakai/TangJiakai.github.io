@@ -72,8 +72,8 @@
     "year": 2026,
     "award": "",
     "deployed": true,
-    "selected": 2,
-    "short": "RecGPT",
+    "selected": 3,
+    "short": "RecGPT-V1",
     "summary": "Puts user intent at the center of the recommendation pipeline, using LLMs for interest mining, item retrieval and explanation generation. Fully deployed on the Taobao app.",
     "teaser": "assets/papers/recgpt.webp"
   },
@@ -122,7 +122,7 @@
         "url": "https://github.com/TangJiakai/ReaRec"
       }
     ],
-    "selected": 4,
+    "selected": 5,
     "short": "ReaRec",
     "summary": "The first inference-time computing framework for recommendation. Implicit multi-step reasoning raises the performance ceiling of sequential recommenders by roughly 30% to 50%.",
     "teaser": "assets/papers/rearec.webp"
@@ -153,7 +153,7 @@
     "year": 2026,
     "award": "",
     "deployed": true,
-    "selected": 3,
+    "selected": 4,
     "short": "OnePiece",
     "summary": "Brings LLM-style context engineering and block-wise latent reasoning into industrial retrieval and ranking models. Deployed in Shopee's main search, with over 2% GMV/UU gain.",
     "teaser": "assets/papers/onepiece.webp"
@@ -169,7 +169,7 @@
     "year": 2026,
     "award": "",
     "deployed": true,
-    "selected": 5,
+    "selected": 6,
     "short": "RecBot",
     "summary": "Lets users steer the recommendation feed with natural-language commands, through a Parser agent and a Planner agent. Improves both user satisfaction and business metrics in long-term online tests.",
     "teaser": "assets/papers/recbot.webp"
@@ -184,11 +184,7 @@
     "first": true,
     "year": 2026,
     "award": "",
-    "deployed": true,
-    "selected": 6,
-    "short": "OneRank",
-    "summary": "A Transformer-native multi-task ranker with task-private channels and cross-task gradient detachment, reducing the seesaw effect between tasks.",
-    "teaser": "assets/papers/onerank.webp"
+    "deployed": true
   },
   {
     "venue": "arXiv 2026",
@@ -249,7 +245,11 @@
     "first": true,
     "year": 2025,
     "award": "",
-    "deployed": true
+    "deployed": true,
+    "short": "RecGPT-V2",
+    "summary": "Restructures intent reasoning as a hierarchical multi-agent system, with meta-prompted explanations, constrained RL and an Agent-as-a-Judge evaluator. Cuts GPU use by 60% and lifts CTR by 2.98% in Taobao A/B tests.",
+    "teaser": "assets/papers/recgpt-v2.webp",
+    "selected": 2
   },
   {
     "venue": "TOIS 2025",

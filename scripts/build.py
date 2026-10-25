@@ -3,7 +3,7 @@
 from pathlib import Path
 from html import escape as esc
 from hashlib import sha256
-import json,re
+import base64,json,re
 from update_github import repository_key, visible_count
 from datetime import datetime
 from zoneinfo import ZoneInfo
@@ -62,6 +62,16 @@ def star_badge(url, show_all=False):
     label=esc(f'{key}: {count:,} GitHub stars')
     return f'<a class="github-stars" href="{esc(url,quote=True)}" aria-label="{label}" title="GitHub stars · Updated {updated}"><span aria-hidden="true">★</span><span>{count:,}</span></a>'
 
+def repo_button(url, accessible_label):
+    # One GitHub control: icon and label, then the star count after a divider.
+    key=repository_key(url)
+    entry=github_metrics.get(key,{})
+    count=visible_count(entry)
+    stars=f'<span class="repo-stars"><span aria-hidden="true">★</span>{count:,}</span>' if type(count) is int and count >= 0 else ''
+    label=accessible_label+(f', {count:,} GitHub stars' if stars else '')
+    title='View code on GitHub'+(f' ({count:,} stars, updated {entry.get("updated_at","")[:10]})' if stars else '')
+    return f'<a class="action-chip repo-button" href="{esc(url,quote=True)}" aria-label="{esc(label,quote=True)}" title="{esc(title,quote=True)}"><span class="repo-main">{icon("github")}<span>Code</span></span>{stars}</a>'
+
 def author_html(s):
     # Omit equal-contribution markers throughout rows where Jiakai is listed first.
     if s.split(',')[0].strip().rstrip('†*') == 'Jiakai Tang':
@@ -112,15 +122,15 @@ for p in papers:
         url=esc(resource['url'],quote=True)
         accessible_label=esc(f"{resource['label']}: {p['title']}",quote=True)
         if resource['label']=='Code' and resource['url'].startswith('https://github.com/'):
-            resource_links.append(f'<a class="resource-icon-link code-icon-link" href="{url}" aria-label="{accessible_label}" title="View code on GitHub">{icon("github")}</a>' + star_badge(resource['url']))
+            resource_links.append(repo_button(resource['url'],f"Code: {p['title']}"))
         else:
             resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
-    paper_link=f'<a class="resource-icon-link paper-icon-link" href="{esc(p["link"],quote=True)}" aria-label="Paper: {esc(p["title"],quote=True)}" title="Read paper">{icon("paper")}</a>' if p['link'] else ''
+    paper_link=f'<a class="action-chip" href="{esc(p["link"],quote=True)}" aria-label="Paper: {esc(p["title"],quote=True)}" title="Read paper">{icon("paper")}<span>Paper</span></a>' if p['link'] else ''
     venue_badge=f'<span class="badge venue">{esc(p["venue"])}</span>'
     if p.get('website'):
         venue_badge=f'<a class="badge venue" href="{esc(p["website"],quote=True)}" title="Workshop website">{esc(p["venue"])}</a>'
     year=p['year']
-    bib_button=f'<button type="button" class="bibtex-button" data-bibtex="{esc(bibtex(p),quote=True)}" title="Copy BibTeX" hidden>{icon("quote")}<span>BibTeX</span></button>'
+    bib_button=f'<button type="button" class="action-chip bibtex-button" data-bibtex="{esc(bibtex(p),quote=True)}" title="Copy BibTeX" hidden>{icon("quote")}<span>BibTeX</span></button>'
     flags=' '.join(f'data-{name}="true"' for name,on in [('selected',p.get('selected')),('deployed',p.get('deployed')),('award',p['award'])] if on)
     search_text=' '.join([p['title'],p.get('short',''),p['authors'].replace('†','').replace('*',''),p['venue'],p['badge'],p['award'],p.get('summary',''),'deployed industrial' if p.get('deployed') else ''])
     rows.append(f'''<li class="publication" id="{p['id']}" data-year="{year}" data-first="{str(p['first']).lower()}" {flags} data-search="{esc(search_text.lower(),quote=True)}">
@@ -362,11 +372,40 @@ for index,(key,label) in enumerate(home_sections):
     home_blocks.append(sections[key].replace('<section ',f'<section class="{classes}" ',1))
 home_body=home_nav+'\n'+'\n'.join(home_blocks)
 publication_nav='<nav class="section-nav floating-nav year-nav" aria-label="Publication years"><span class="floating-nav-label">Year</span>'+''.join(f'<a href="#year-{year}">{year}</a>' for year in sorted({p['year'] for p in papers},reverse=True))+'</nav>'
+# Full-text search index: abstracts (update_abstracts.py) plus hand-written English and
+# Chinese topic keywords (data/search_keywords.json). site.js loads it on first use.
+abstracts_path=ROOT/'data/abstracts.json'
+keywords_path=ROOT/'data/search_keywords.json'
+abstracts=json.loads(abstracts_path.read_text()) if abstracts_path.exists() else {}
+search_keywords=json.loads(keywords_path.read_text()) if keywords_path.exists() else {}
+search_index={p['id']:{'abstract':abstracts.get(p['id'],{}).get('abstract',''),'topics':' '.join(search_keywords.get(p['id'],[]))} for p in papers}
+index_text=json.dumps(search_index,ensure_ascii=False,separators=(',',':'))
+(ROOT/'assets/search-index.json').write_text(index_text)
+index_version=sha256(index_text.encode()).hexdigest()[:12]
+# Semantic search: the Worker URL (data/semantic.json) and bge-m3 paper vectors
+# (update_embeddings.py). Without both, the page keeps keyword search only.
+semantic_path=ROOT/'data/semantic.json'
+embeddings_path=ROOT/'data/embeddings.json'
+semantic_attrs=''
+if semantic_path.exists() and embeddings_path.exists():
+    # Passage vectors go in one int8 binary file; the manifest lists each passage's paper and text.
+    embeddings=json.loads(embeddings_path.read_text())
+    current={p['id'] for p in papers}
+    passages=[passage for passage in embeddings['passages'] if passage['paper'] in current]
+    vector_bytes=b''.join(base64.b64decode(passage['vector']) for passage in passages)
+    manifest=json.dumps({'dims':embeddings['dims'],'passages':[[passage['paper'],passage['kind'],passage['text']] for passage in passages]},ensure_ascii=False,separators=(',',':'))
+    (ROOT/'assets/semantic-vectors.bin').write_bytes(vector_bytes)
+    (ROOT/'assets/semantic-passages.json').write_text(manifest)
+    (ROOT/'assets/semantic-index.json').unlink(missing_ok=True)
+    semantic_version=sha256(vector_bytes+manifest.encode()).hexdigest()[:12]
+    endpoint=json.loads(semantic_path.read_text())['endpoint']
+    semantic_attrs=f' data-semantic-endpoint="{esc(endpoint,quote=True)}" data-semantic-vectors="assets/semantic-vectors.bin?v={semantic_version}" data-semantic-passages="assets/semantic-passages.json?v={semantic_version}"'
 # Search and filters need JavaScript, so the toolbar stays hidden until site.js reveals it.
 publication_filters=[('all','All'),('selected','Selected'),('first','First author'),('deployed','Deployed'),('award','Awards')]
-publication_tools=f'''<div class="pub-tools" hidden>
-  <label class="pub-search">{icon('search')}<span class="sr-only">Search publications</span><input type="search" placeholder="Search by title, topic, venue or co-author" autocomplete="off" spellcheck="false"><kbd>/</kbd></label>
+publication_tools=f'''<div class="pub-tools" data-index="assets/search-index.json?v={index_version}"{semantic_attrs} hidden>
+  <label class="pub-search">{icon('search')}<span class="sr-only">Search publications</span><input type="search" placeholder="Search titles, abstracts, topics or co-authors (English or 中文)" autocomplete="off" spellcheck="false"><kbd>/</kbd></label>
   <div class="pub-filters" role="group" aria-label="Filter publications">{''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key=="all").lower()}">{label}</button>' for key,label in publication_filters)}</div>
+  <p class="pub-examples" hidden><span>Try searching by meaning:</span>{''.join(f'<button type="button">{esc(query)}</button>' for query in ['make recommendation cheaper','agents that imitate real shoppers','让推荐更省钱','let users tell the feed what they want'])}</p>
   <p class="pub-count" aria-live="polite"></p>
 </div>'''
 

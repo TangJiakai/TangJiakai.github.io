@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 _site/
+.wrangler/
+node_modules/
