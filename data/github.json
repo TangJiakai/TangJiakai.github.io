@@ -1,62 +1,62 @@
 {
   "elpmis117/looprec": {
     "stars": 0,
-    "updated_at": "2026-10-26T00:29:08.515216+00:00"
+    "updated_at": "2026-10-26T08:50:21.287223+00:00"
   },
   "paitesanshi/llm-agent-survey": {
     "stars": 2914,
-    "updated_at": "2026-10-26T00:29:08.467717+00:00"
+    "updated_at": "2026-10-26T08:50:21.322816+00:00"
+  },
+  "recgpt-team/userarena": {
+    "stars": 3,
+    "updated_at": "2026-10-26T08:50:21.329004+00:00"
   },
   "ruc-gsai/yulan-rec": {
     "stars": 420,
-    "updated_at": "2026-10-26T00:29:08.505883+00:00"
+    "updated_at": "2026-10-26T08:50:21.338359+00:00"
   },
   "rucaibox/recbole": {
-    "stars": 4596,
-    "updated_at": "2026-10-26T00:29:08.484609+00:00"
+    "stars": 4598,
+    "updated_at": "2026-10-26T08:50:21.603531+00:00"
   },
   "rucaibox/recbole2.0": {
     "stars": 242,
-    "updated_at": "2026-10-26T00:29:08.793805+00:00"
+    "updated_at": "2026-10-26T08:50:21.629301+00:00"
   },
   "tangjiakai/gensim": {
     "stars": 88,
-    "updated_at": "2026-10-26T00:29:08.855418+00:00"
+    "updated_at": "2026-10-26T08:50:21.610013+00:00"
   },
   "tangjiakai/rap": {
     "stars": 0,
-    "updated_at": "2026-10-26T00:29:08.811937+00:00"
+    "updated_at": "2026-10-26T08:50:21.655814+00:00"
   },
   "tangjiakai/rearec": {
     "stars": 75,
-    "updated_at": "2026-10-26T00:29:08.931177+00:00"
+    "updated_at": "2026-10-26T08:50:22.106905+00:00"
   },
   "tangjiakai/recbole-fairrec": {
     "stars": 28,
-    "updated_at": "2026-10-26T00:29:09.147954+00:00"
+    "updated_at": "2026-10-26T08:50:21.852114+00:00"
   },
   "tangjiakai/rgcl": {
     "stars": 2,
-    "updated_at": "2026-10-26T00:29:09.124366+00:00"
-  },
-  "tangjiakai/userarena": {
-    "stars": 0,
-    "updated_at": "2026-10-26T00:29:09.188492+00:00"
+    "updated_at": "2026-10-26T08:50:21.877606+00:00"
   },
   "xueyangfeng/ecpo": {
     "stars": 2,
-    "updated_at": "2026-10-26T00:29:09.284038+00:00"
+    "updated_at": "2026-10-26T08:50:21.954068+00:00"
   },
   "xueyangfeng/gimo": {
     "stars": 4,
-    "updated_at": "2026-10-26T00:29:09.445331+00:00"
+    "updated_at": "2026-10-26T08:50:22.088663+00:00"
   },
   "xueyangfeng/porchestra": {
     "stars": 0,
-    "updated_at": "2026-10-26T00:29:09.472930+00:00"
+    "updated_at": "2026-10-26T08:50:22.135450+00:00"
   },
   "xueyangfeng/retroact": {
     "stars": 2,
-    "updated_at": "2026-10-26T00:29:09.495986+00:00"
+    "updated_at": "2026-10-26T08:50:22.236149+00:00"
   }
 }
