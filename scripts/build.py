@@ -37,6 +37,7 @@ for category, heading in [('research','Research Awards'),('university','Scholars
 
 def icon(name):
     paths={
+        'website':'<g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></g>',
         'dblp':'<path d="m3 2 9 5v12l-9-5Z"/><path d="m13 5 8 4v13l-8-4Z" opacity=".65"/>',
         'linkedin':'<rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="7" cy="7" r="1.4" fill="white"/><path d="M7 10v8m5 0v-8m0 4c0-5 6-5 6 0v4" fill="none" stroke="white" stroke-width="2.3"/>',
         'corresponding':'<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></g>',
@@ -127,8 +128,7 @@ for p in papers:
             resource_links.append(f'<a class="paper-link" href="{url}" aria-label="{accessible_label}">[{label}]</a>')
     paper_link=f'<a class="action-chip" href="{esc(p["link"],quote=True)}" aria-label="Paper: {esc(p["title"],quote=True)}" title="Read paper">{icon("paper")}<span>Paper</span></a>' if p['link'] else ''
     venue_badge=f'<span class="badge venue">{esc(p["venue"])}</span>'
-    if p.get('website'):
-        venue_badge=f'<a class="badge venue" href="{esc(p["website"],quote=True)}" title="Workshop website">{esc(p["venue"])}</a>'
+    website_link=f'<a class="action-chip" href="{esc(p["website"],quote=True)}" aria-label="Website: {esc(p["title"],quote=True)}" title="Visit workshop website">{icon("website")}<span>Website</span></a>' if p.get('website') else ''
     year=p['year']
     bib_button=f'<button type="button" class="action-chip bibtex-button" data-bibtex="{esc(bibtex(p),quote=True)}" title="Copy BibTeX" hidden>{icon("quote")}<span>BibTeX</span></button>'
     flags=' '.join(f'data-{name}="true"' for name,on in [('selected',p.get('selected')),('deployed',p.get('deployed')),('award',p['award'])] if on)
@@ -136,7 +136,7 @@ for p in papers:
     rows.append(f'''<li class="publication" id="{p['id']}" data-year="{year}" data-first="{str(p['first']).lower()}" {flags} data-search="{esc(search_text.lower(),quote=True)}">
       <h4>{title}</h4>
       <p class="authors">{author_html(p['authors'])}</p>
-      <p class="paper-meta">{venue_badge}{''.join(badges)}{paper_link}{''.join(resource_links)}{bib_button}</p>
+      <p class="paper-meta">{venue_badge}{''.join(badges)}{paper_link}{website_link}{''.join(resource_links)}{bib_button}</p>
     </li>''')
 rows.append('</ul></div>')
 
@@ -402,7 +402,6 @@ publication_filters=[('all','All'),('selected','Selected'),('first','First autho
 publication_tools=f'''<div class="pub-tools" data-index="assets/search-index.json?v={index_version}"{semantic_attrs} hidden>
   <label class="pub-search">{icon('search')}<span class="sr-only">Search publications</span><input type="search" placeholder="Search titles, abstracts, topics or co-authors (English or 中文)" autocomplete="off" spellcheck="false"><kbd>/</kbd></label>
   <div class="pub-filters" role="group" aria-label="Filter publications">{''.join(f'<button type="button" data-filter="{key}" aria-pressed="{str(key=="all").lower()}">{label}</button>' for key,label in publication_filters)}</div>
-  <p class="pub-examples" hidden><span>Try searching by meaning:</span>{''.join(f'<button type="button">{esc(query)}</button>' for query in ['make recommendation cheaper','agents that imitate real shoppers','让推荐更省钱','let users tell the feed what they want'])}</p>
   <p class="pub-count" aria-live="polite"></p>
 </div>'''
 
