@@ -223,7 +223,11 @@ html=f'''<!doctype html>
   <meta property="og:description" content="Recommender systems, large language models, and personalized agents. Ph.D. student at Renmin University of China.">
   <meta property="og:url" content="https://tangjiakai.github.io/">
   <meta property="og:image" content="https://tangjiakai.github.io/assets/portrait.jpg">
+  <link rel="icon" href="/favicon.ico?v={favicon_version}" sizes="16x16 32x32 48x48" type="image/x-icon">
+  <link rel="icon" href="assets/favicon-32.png?v={favicon_version}" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon-16.png?v={favicon_version}" sizes="16x16" type="image/png">
   <link rel="icon" href="assets/favicon.svg?v={favicon_version}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v={favicon_version}" sizes="180x180">
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/style.css?v={style_version}">
   <script type="application/ld+json">{json.dumps(structured,ensure_ascii=False)}</script>
