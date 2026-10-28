@@ -268,6 +268,7 @@ html=f'''<!doctype html>
       <ul class="stat-strip" aria-label="Google Scholar metrics">
         <li><a href="{scholar['source_url']}"><strong>{scholar['citations']:,}</strong><span>Citations</span></a></li>
         <li><a href="{scholar['source_url']}"><strong>{scholar['h_index']}</strong><span>h-index</span></a></li>
+        <li><a href="{scholar['source_url']}"><strong>{scholar['i10_index']}</strong><span>i10-index</span></a></li>
       </ul>
       <p class="stat-note">{icon('scholar')}<span>Citation metrics from <a href="{scholar['source_url']}">Google Scholar</a>, updated {scholar_date}</span></p>
     </section>
