@@ -41,7 +41,7 @@
   },
   "paper-14": {
     "source": "arXiv 2607.27055",
-    "bibtex": "@misc{tang2026learningfutureprivilegedselfdistillation,\n      title={Learning from the Future: Privileged Self-Distillation for Sequential Recommendation}, \n      author={Jiakai Tang and Yang Zhang and See-Kiong Ng and Xu Chen and Wen Chen and Jian Wu and Han Zhu},\n      year={2026},\n      eprint={2607.27055},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2607.27055}, \n}"
+    "bibtex": "@misc{tang2026learningfutureprivilegedselfdistillation,\n      title={Learning from the Future: Privileged Self-Distillation for Sequential Recommendation},\n      author={Jiakai Tang and Yang Zhang and See-Kiong Ng and Xu Chen and Wen Chen and Jian Wu and Han Zhu},\n      year={2026},\n      eprint={2607.27055},\n      archivePrefix={arXiv},\n      primaryClass={cs.IR},\n      url={https://arxiv.org/abs/2607.27055},\n}"
   },
   "paper-15": {
     "source": "arXiv 2604.19550",

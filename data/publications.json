@@ -187,15 +187,16 @@
     "deployed": true
   },
   {
-    "venue": "arXiv 2026",
-    "badge": "Preprint",
+    "venue": "KDD 2027",
+    "badge": "CCF-A",
     "title": "Learning from the Future: Privileged Self-Distillation for Sequential Recommendation",
     "authors": "Jiakai Tang, Yang Zhang, See-Kiong Ng, Xu Chen, Wen Chen, Jian Wu, Han Zhu",
     "link": "https://arxiv.org/abs/2607.27055",
     "id": "paper-14",
     "first": true,
-    "year": 2026,
-    "award": ""
+    "year": 2027,
+    "award": "",
+    "short": "PSD"
   },
   {
     "venue": "arXiv 2026",
