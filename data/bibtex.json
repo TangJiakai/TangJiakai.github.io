@@ -138,5 +138,9 @@
   "paper-39": {
     "source": "DOI 10.1145/3543507.3583260",
     "bibtex": "@inproceedings{Zhang_2023,\n  series={WWW ’23},\n  title={Recommendation with Causality enhanced Natural Language Explanations},\n  url={http://dx.doi.org/10.1145/3543507.3583260},\n  DOI={10.1145/3543507.3583260},\n  booktitle={Proceedings of the ACM Web Conference 2023},\n  publisher={ACM},\n  author={Zhang, Jingsen and Chen, Xu and Tang, Jiakai and Shao, Weiqi and Dai, Quanyu and Dong, Zhenhua and Zhang, Rui},\n  year={2023},\n  month=Apr,\n  pages={876–886},\n  collection={WWW ’23}\n}"
+  },
+  "paper-40": {
+    "source": "arXiv 2611.21441",
+    "bibtex": "@misc{li2026learningreasonpredictivegains,\n      title={Learning to Reason with Predictive Gains for Generative Recommendation}, \n      author={Zhuoyang Li and Teng Shi and Jiakai Tang and Weijie Yu and Guofu Xie and Xiao Zhang and Lei Kou and Yang Yu and Lei Shen and Xin Chen and Bing Wang and Xiaoyi Zeng and Jun Xu},\n      year={2026},\n      eprint={2611.21441},\n      archivePrefix={arXiv},\n      primaryClass={cs.AI},\n      url={https://arxiv.org/abs/2611.21441}, \n}"
   }
 }

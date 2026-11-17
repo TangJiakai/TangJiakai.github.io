@@ -350,6 +350,23 @@
   {
     "venue": "arXiv 2026",
     "badge": "Preprint",
+    "title": "Learning to Reason with Predictive Gains for Generative Recommendation",
+    "authors": "Zhuoyang Li, Teng Shi, Jiakai Tang, Weijie Yu, Guofu Xie, Xiao Zhang, Lei Kou, Yang Yu, Lei Shen, Xin Chen, Bing Wang, Xiaoyi Zeng, Jun Xu*",
+    "link": "https://arxiv.org/abs/2611.21441",
+    "id": "paper-40",
+    "first": false,
+    "year": 2026,
+    "award": "",
+    "resources": [
+      {
+        "label": "Code",
+        "url": "https://github.com/easonzyli/GainReason"
+      }
+    ]
+  },
+  {
+    "venue": "arXiv 2026",
+    "badge": "Preprint",
     "title": "Proactive Agentic Orchestration",
     "authors": "Xueyang Feng, Chaozhuo Li, Xiaohe Bo, Jiakai Tang, Chenxi Li, Qiwei Ye, Xu Chen",
     "link": "https://arxiv.org/abs/2610.13485",

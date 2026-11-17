@@ -629,5 +629,23 @@
     "因果推断",
     "曝光偏差",
     "自然语言解释"
+  ],
+  "paper-40": [
+    "GainReason",
+    "generative recommendation",
+    "reasoning",
+    "predictive gain",
+    "Semantic ID",
+    "reinforcement learning",
+    "GRPO",
+    "sentence-level reward",
+    "LLM-based recommendation",
+    "生成式推荐",
+    "推理增强推荐",
+    "预测增益",
+    "语义ID",
+    "强化学习",
+    "句子级奖励",
+    "大模型推荐"
   ]
 }
